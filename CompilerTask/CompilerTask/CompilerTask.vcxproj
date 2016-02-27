@@ -91,11 +91,13 @@
     <ClInclude Include="GlobalData\KeyWordTable.h" />
     <ClInclude Include="GlobalData\LexParseGlobalDataDef.h" />
     <ClInclude Include="GlobalData\LexStateTable.h" />
+    <ClInclude Include="GlobalData\TypeSystemConfig.h" />
     <ClInclude Include="GlobalData\WordStreamTable.h" />
     <ClInclude Include="Initialization\Initializationer.h" />
     <ClInclude Include="LexParser\LexParser.h" />
     <ClInclude Include="Log\LogFile.h" />
     <ClInclude Include="stdafx.h" />
+    <ClInclude Include="SymbolTable\ConstInfoTable.h" />
     <ClInclude Include="SymbolTable\SymbolTable.h" />
     <ClInclude Include="targetver.h" />
   </ItemGroup>
@@ -110,11 +112,13 @@
     <ClCompile Include="ConfigFile\State.cpp" />
     <ClCompile Include="GlobalData\KeyWordTable.cpp" />
     <ClCompile Include="GlobalData\LexStateTable.cpp" />
+    <ClCompile Include="GlobalData\TypeSystemConfig.cpp" />
     <ClCompile Include="GlobalData\WordStreamTable.cpp" />
     <ClCompile Include="Initialization\Initializationer.cpp" />
     <ClCompile Include="LexParser\LexParser.cpp" />
     <ClCompile Include="Log\LogFile.cpp" />
     <ClCompile Include="stdafx.cpp" />
+    <ClCompile Include="SymbolTable\ConstInfoTable.cpp" />
     <ClCompile Include="SymbolTable\SymbolTable.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

@@ -93,6 +93,12 @@
     <ClInclude Include="SymbolTable\SymbolTable.h">
       <Filter>SymbolTable</Filter>
     </ClInclude>
+    <ClInclude Include="SymbolTable\ConstInfoTable.h">
+      <Filter>SymbolTable</Filter>
+    </ClInclude>
+    <ClInclude Include="GlobalData\TypeSystemConfig.h">
+      <Filter>GlobalData</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -142,6 +148,12 @@
     </ClCompile>
     <ClCompile Include="SymbolTable\SymbolTable.cpp">
       <Filter>SymbolTable</Filter>
+    </ClCompile>
+    <ClCompile Include="SymbolTable\ConstInfoTable.cpp">
+      <Filter>SymbolTable</Filter>
+    </ClCompile>
+    <ClCompile Include="GlobalData\TypeSystemConfig.cpp">
+      <Filter>GlobalData</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

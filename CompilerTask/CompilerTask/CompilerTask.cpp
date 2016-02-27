@@ -14,6 +14,7 @@
 #include "Common/ErrorProcess.h"
 #include "LexParser/LexParser.h"
 #include "Log/LogFile.h"
+#include "SymbolTable/SymbolTable.h"
 
 using namespace std;
 extern std::vector<CToken> TokenList;
@@ -30,6 +31,7 @@ int _tmain(int argc, char* argv[])
 		return 1;
 	}
 
+	// 词法分析初始化
 	KeyWordTableInst::instance().initData();
 	LexStateTableInst::instance().initData();
 
@@ -41,6 +43,11 @@ int _tmain(int argc, char* argv[])
 		system("pause");
 		return 1;
 	}
+
+	// 语法分析配置读取
+	TypeSystemConfigInst::instance().initTypeSysTbl();
+	SyntaxParserTableInst::instance().Init();
+	SymbolTableInst::instance().init();
 
 	std::cout << "词法分析成功, 继续语法分析" << std::endl;
 	system("pause");
