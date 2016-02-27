@@ -1,0 +1,1985 @@
+{
+FUNCSTART %V.1% %V.2%
+1
+#ebp,esp,ebx,esi,edi,
+%V.2% proc
+push ebp
+mov ebp,esp
+sub esp,%V.1%
+push ebx
+push esi
+push edi
+/strInit
+}
+
+{
+FUNCEND %V.1% %V.2%
+1
+#ebp,esp,ebx,esi,edi,
+/strDestory
+pop edi
+pop esi
+pop ebx
+mov esp,ebp
+pop ebp
+ret %V.1%
+%V.2% endp
+}
+
+{
+FILESTART
+1
+.686P
+.model flat,stdcall
+option casemap:none
+include PasLib.INC
+}
+
+{
+MAINSTART
+1
+start:
+}
+
+{
+FILEEND
+1
+end start
+}
+
+{
+LABEL %L.1%
+1
+%L.1%:
+}
+
+{
+JMP %L.1%
+1
+jmp %L.1%
+}
+
+{
+PUSH %V.1%
+1
+@0,4
+push dword ptr %V.1%
+}
+
+{
+JT %V.1% %L.3%
+1
+@0,1
+test byte ptr %V.1%
+jnz %L.3%
+}
+
+{
+SUB_8F %V.1% %V.2% %V.3%
+1
+@0,8
+@0,8
+@0,8
+fld qword ptr %V.1%
+fld qword ptr %V.2%
+fsub
+fstp qword ptr %V.3%
+}
+
+{
+SUB_8 %V.1% %V.2% %V.3%
+1
+@0,8
+@0,8
+@0,8
+fild qword ptr %V.1%
+fild qword ptr %V.2%
+fsub
+fistp qword ptr %V.3%
+}
+
+{
+SUB_4 %V.1% %V.2% %V.3%
+1
+@1,4
+@2,4
+@3,4
+sub %V.1%,dword ptr %V.2%
+}
+
+{
+SUB_2 %V.1% %V.2% %V.3%
+1
+@1,2
+@2,2
+@3,2
+sub %V.1%,word ptr %V.2%
+}
+
+{
+ADD_2 %V.1% %V.2% %V.3%
+1
+@1,2
+@2,2
+@3,2
+add %V.1%,word ptr %V.2%
+}
+
+{
+ADD_4 %V.1% %V.2% %V.3%
+1
+@1,4
+@2,4
+@3,4
+add %V.1%,dword ptr %V.2%
+}
+
+{
+ADD_8F %V.1% %V.2% %V.3%
+1
+@0,8
+@0,8
+@0,8
+fld qword ptr %V.1%
+fld qword ptr %V.2%
+fadd
+fstp qword ptr %V.3%
+}
+
+{
+EQU_1 %V.1% %V.2% %V.3%
+1
+@1,1
+@2,1
+@1ah,1
+#ah,
+cmp %V.1%,byte ptr %V.2%
+lahf
+and ah,40h
+shr ah,6
+}
+
+{
+EQU_2 %V.1% %V.2% %V.3%
+1
+@1,2
+@2,2
+@1ah,1
+#ah,
+cmp %V.1%,word ptr %V.2%
+lahf
+and ah,40h
+shr ah,6
+}
+
+{
+EQU_4 %V.1% %V.2% %V.3%
+1
+@1,4
+@2,4
+@1ah,1
+#ah,
+cmp %V.1%,dword ptr %V.2%
+lahf
+and ah,40h
+shr ah,6
+}
+
+{
+EQU_A %V.1% %V.2% %V.3%
+1
+@1,4
+@2,4
+@1ah,1
+#ah,
+cmp %V.1%,dword ptr %V.2%
+lahf
+and ah,40h
+shr ah,6
+}
+
+{
+EQU_E %V.1% %V.2% %V.3%
+1
+@1,1
+@2,1
+@1ah,1
+#ah,
+cmp %V.1%,byte ptr %V.2%
+lahf
+and ah,40h
+shr ah,6
+}
+
+{
+EQU_4F %V.1% %V.2% %V.3%
+1
+@0,4
+@0,4
+@1ah,1
+#ax,
+fld dword ptr %V.1%
+fld dword ptr %V.2%
+fcomp
+fstsw ax
+and ax,4000h
+shr ah,6
+}
+
+{
+EQU_8F %V.1% %V.2% %V.3%
+1
+@0,8
+@0,8
+@1ah,1
+#ax,
+fld qword ptr %V.1%
+fld qword ptr %V.2%
+fcomp
+fstsw ax
+and ax,4000h
+shr ah,6
+}
+
+{
+NEQU_1 %V.1% %V.2% %V.3%
+1
+@1,1
+@2,1
+@1ah,1
+#ah,
+cmp %V.1%,byte ptr %V.2%
+lahf
+not ah
+and ah,40h
+shr ah,6
+}
+
+{
+NEQU_E %V.1% %V.2% %V.3%
+1
+@1,1
+@2,1
+@1ah,1
+#ah,
+cmp %V.1%,byte ptr %V.2%
+lahf
+not ah
+and ah,40h
+shr ah,6
+}
+
+{
+NEQU_2 %V.1% %V.2% %V.3%
+1
+@1,2
+@2,2
+@1ah,1
+#ah,
+cmp %V.1%,word ptr %V.2%
+lahf
+not ah
+and ah,40h
+shr ah,6
+}
+
+{
+NEQU_4 %V.1% %V.2% %V.3%
+1
+@1,4
+@2,4
+@1ah,1
+#ah,
+cmp %V.1%,dword ptr %V.2%
+lahf
+not ah
+and ah,40h
+shr ah,6
+}
+
+{
+NEQU_A %V.1% %V.2% %V.3%
+1
+@1,4
+@2,4
+@1ah,1
+#ah,
+cmp %V.1%,dword ptr %V.2%
+lahf
+not ah
+and ah,40h
+shr ah,6
+}
+
+{
+NEQU_4F %V.1% %V.2% %V.3%
+1
+@0,4
+@0,4
+@1ah,1
+#ax,
+fld dword ptr %V.1%
+fld dword ptr %V.2%
+fcomp
+fstsw ax
+not ax
+and ax,4000h
+shr ah,6
+}
+
+{
+NEQU_8F %V.1% %V.2% %V.3%
+1
+@0,8
+@0,8
+@1ah,1
+#ax,
+fld qword ptr %V.1%
+fld qword ptr %V.2%
+fcomp
+fstsw ax
+not ax
+and ax,4000h
+shr ah,6
+}
+
+{
+LS_1U %V.1% %V.2% %V.3%
+1
+@1,1
+@2,1
+@1,1
+mov %V.3%,1
+cmp %V.1%,byte ptr %V.2% 
+jb %L.-1%
+mov %V.3%,0
+%L.-1%:
+}
+
+{
+LS_2U %V.1% %V.2% %V.3%
+1
+@1,2
+@2,2
+@1,1
+mov %V.3%,1
+cmp %V.1%,word ptr %V.2% 
+jb %L.-1%
+mov %V.3%,0
+%L.-1%:
+}
+
+{
+LS_4U %V.1% %V.2% %V.3%
+1
+@1,4
+@2,4
+@1,1
+mov %V.3%,1
+cmp %V.1%,dword ptr %V.2% 
+jb %L.-1%
+mov %V.3%,0
+%L.-1%:
+}
+
+{
+LS_1 %V.1% %V.2% %V.3%
+1
+@1,1
+@2,1
+@1,1
+mov %V.3%,1
+cmp %V.1%,byte ptr %V.2% 
+jl %L.-1%
+mov %V.3%,0
+%L.-1%:
+}
+
+{
+LS_2 %V.1% %V.2% %V.3%
+1
+@1,2
+@2,2
+@1,1
+mov %V.3%,1
+cmp %V.1%,word ptr %V.2% 
+jb %L.-1%
+mov %V.3%,0
+%L.-1%:
+}
+
+{
+LS_4 %V.1% %V.2% %V.3%
+1
+@1,4
+@2,4
+@1,1
+mov %V.3%,1
+cmp %V.1%,dword ptr %V.2% 
+jb %L.-1%
+mov %V.3%,0
+%L.-1%:
+}
+
+{
+LS_4F %V.1% %V.2% %V.3%
+1
+@0,4
+@0,4
+@1,1
+#ax,
+mov %V.3%,1
+fld dword ptr %V.1%
+fcomp dword ptr %V.2%
+fstsw ax
+and ax,4500h
+xor ax,100h
+jz %L.-1%
+mov %V.3%,0
+%L.-1%:
+}
+
+{
+LS_8F %V.1% %V.2% %V.3%
+1
+@0,8
+@0,8
+@1,1
+#ax,
+mov %V.3%,1
+fld qword ptr %V.1%
+fcomp qword ptr %V.2%
+fstsw ax
+and ax,4500h
+xor ax,100h
+jz %L.-1%
+mov %V.3%,0
+%L.-1%:
+}
+
+{
+MR_4F %V.1% %V.2% %V.3%
+1
+@0,4
+@0,4
+@1,1
+#ax,
+mov %V.3%,1
+fld dword ptr %V.1%
+fcomp dword ptr %V.2%
+fstsw ax
+and ax,4500h
+xor ax,0h
+jz %L.-1%
+mov %V.3%,0
+%L.-1%:
+}
+
+{
+MR_8F %V.1% %V.2% %V.3%
+1
+@0,8
+@0,8
+@1,1
+#ax,
+mov %V.3%,1
+fld qword ptr %V.1%
+fcomp qword ptr %V.2%
+fstsw ax
+and ax,4500h
+xor ax,0h
+jz %L.-1%
+mov %V.3%,0
+%L.-1%:
+}
+
+{
+MR_1U %V.1% %V.2% %V.3%
+1
+@1,1
+@2,1
+@1,1
+mov %V.3%,1
+cmp %V.1%,byte ptr %V.2%
+ja %L.-1%
+mov %V.3%,0
+%L.-1%:
+}
+
+{
+MR_2U %V.1% %V.2% %V.3%
+1
+@1,2
+@2,2
+@1,1
+mov %V.3%,1
+cmp %V.1%,word ptr %V.2%
+ja %L.-1%
+mov %V.3%,0
+%L.-1%:
+}
+
+{
+MR_4U %V.1% %V.2% %V.3%
+1
+@1,4
+@2,4
+@1,1
+mov %V.3%,1
+cmp %V.1%,dword ptr %V.2%
+ja %L.-1%
+mov %V.3%,0
+%L.-1%:
+}
+
+{
+MR_1 %V.1% %V.2% %V.3%
+1
+@1,1
+@2,1
+@1,1
+mov %V.3%,1
+cmp %V.1%,byte ptr %V.2%
+jg %L.-1%
+mov %V.3%,0
+%L.-1%:
+}
+
+{
+MR_2 %V.1% %V.2% %V.3%
+1
+@1,2
+@2,2
+@1,1
+mov %V.3%,1
+cmp %V.1%,word ptr %V.2%
+jg %L.-1%
+mov %V.3%,0
+%L.-1%:
+}
+
+{
+MR_4 %V.1% %V.2% %V.3%
+1
+@1,4
+@2,4
+@1,1
+mov %V.3%,1
+cmp %V.1%,dword ptr %V.2%
+jg %L.-1%
+mov %V.3%,0
+%L.-1%:
+}
+
+{
+LE_8 %V.1% %V.2% %V.3%
+1
+@0,8
+@0,8
+@1,1
+#ax,
+mov %V.3%,1
+fild qword ptr %V.2%
+fild qword ptr %V.1%
+fcomp
+fstsw ax
+and ax,4500h
+xor ax,4100h
+jz %L.-1%
+mov %V.3%,0
+%L.-1%:
+}
+
+{
+LE_8F %V.1% %V.2% %V.3%
+1
+@0,8
+@0,8
+@1,1
+#ax,
+mov %V.3%,1
+fld qword ptr %V.1%
+fcomp qword ptr %V.2%
+fstsw ax
+and ax,4500h
+xor ax,4100h
+jz %L.-1%
+mov %V.3%,0
+%L.-1%:
+}
+
+{
+LE_4F %V.1% %V.2% %V.3%
+1
+@0,4
+@0,4
+@1,1
+#ax,
+mov %V.3%,1
+fld dword ptr %V.1%
+fcomp dword ptr %V.2%
+fstsw ax
+and ax,4500h
+xor ax,4100h
+jz %L.-1%
+mov %V.3%,0
+%L.-1%:
+}
+
+{
+LE_1U %V.1% %V.2% %V.3%
+1
+@1,1
+@2,1
+@1,1
+mov %V.3%,1
+cmp %V.1%,byte ptr %V.2%
+jbe %L.-1%
+mov %V.3%,0
+%L.-1%:
+}
+
+{
+LE_2U %V.1% %V.2% %V.3%
+1
+@1,2
+@2,2
+@1,1
+mov %V.3%,1
+cmp %V.1%,word ptr %V.2%
+jbe %L.-1%
+mov %V.3%,0
+%L.-1%:
+}
+
+{
+LE_4U %V.1% %V.2% %V.3%
+1
+@1,4
+@2,4
+@1,1
+mov %V.3%,1
+cmp %V.1%,dword ptr %V.2%
+jbe %L.-1%
+mov %V.3%,0
+%L.-1%:
+}
+
+{
+LE_1 %V.1% %V.2% %V.3%
+1
+@1,1
+@2,1
+@1,1
+mov %V.3%,1
+cmp %V.1%,byte ptr %V.2%
+jle %L.-1%
+mov %V.3%,0
+%L.-1%:
+}
+
+{
+LE_2 %V.1% %V.2% %V.3%
+1
+@1,2
+@2,2
+@1,1
+mov %V.3%,1
+cmp %V.1%,word ptr %V.2%
+jle %L.-1%
+mov %V.3%,0
+%L.-1%:
+}
+
+{
+LE_4 %V.1% %V.2% %V.3%
+1
+@1,4
+@2,4
+@1,1
+mov %V.3%,1
+cmp %V.1%,dword ptr %V.2%
+jle %L.-1%
+mov %V.3%,0
+%L.-1%:
+}
+
+{
+ME_8 %V.1% %V.2% %V.3%
+1
+@0,8
+@0,8
+@1,1
+#ax,
+mov %V.3%,1
+fild qword ptr %V.2%
+fild qword ptr %V.1%
+fcomp
+fstsw ax
+and ax,4500h
+xor ax,4000h
+jz %L.-1%
+mov %V.3%,0
+%L.-1%:
+}
+
+{
+ME_8F %V.1% %V.2% %V.3%
+1
+@0,8
+@0,8
+@1,1
+#ax,
+mov %V.3%,1
+fld qword ptr %V.1%
+fcomp qword ptr %V.2%
+fstsw ax
+and ax,4500h
+xor ax,4000h
+jz %L.-1%
+mov %V.3%,0
+%L.-1%:
+}
+
+{
+ME_4F %V.1% %V.2% %V.3%
+1
+@0,4
+@0,4
+@1,1
+#ax,
+mov %V.3%,1
+fld dword ptr %V.1%
+fcomp dword ptr %V.2%
+fstsw ax
+and ax,4500h
+xor ax,4000h
+jz %L.-1%
+mov %V.3%,0
+%L.-1%:
+}
+
+{
+ME_1U %V.1% %V.2% %V.3%
+1
+@1,1
+@2,1
+@1,1
+mov %V.3%,1
+cmp %V.1%,byte ptr %V.2%
+jae %L.-1%
+mov %V.3%,0
+%L.-1%:
+}
+
+{
+ME_2U %V.1% %V.2% %V.3%
+1
+@1,2
+@2,2
+@1,1
+mov %V.3%,1
+cmp %V.1%,word ptr %V.2%
+jae %L.-1%
+mov %V.3%,0
+%L.-1%:
+}
+
+{
+ME_4U %V.1% %V.2% %V.3%
+1
+@1,4
+@2,4
+@1,1
+mov %V.3%,1
+cmp %V.1%,dword ptr %V.2%
+jae %L.-1%
+mov %V.3%,0
+%L.-1%:
+}
+
+{
+ME_1 %V.1% %V.2% %V.3%
+1
+@1,1
+@2,1
+@1,1
+mov %V.3%,1
+cmp %V.1%,byte ptr %V.2%
+jge %L.-1%
+mov %V.3%,0
+%L.-1%:
+}
+
+{
+ME_2 %V.1% %V.2% %V.3%
+1
+@1,2
+@2,2
+@1,1
+mov %V.3%,1
+cmp %V.1%,word ptr %V.2%
+jge %L.-1%
+mov %V.3%,0
+%L.-1%:
+}
+
+{
+ME_4 %V.1% %V.2% %V.3%
+1
+@1,4
+@2,4
+@1,1
+mov %V.3%,1
+cmp %V.1%,dword ptr %V.2%
+jge %L.-1%
+mov %V.3%,0
+%L.-1%:
+}
+
+{
+AND_0 %V.1% %V.2% %V.3%
+1
+@1,1
+@2,1
+@3,1
+and %V.1%,byte ptr %V.2%
+}
+
+{
+AND_1 %V.1% %V.2% %V.3%
+1
+@1,1
+@2,1
+@3,1
+and %V.1%,byte ptr %V.2%
+}
+
+{
+AND_2 %V.1% %V.2% %V.3%
+1
+@1,2
+@2,2
+@3,2
+and %V.1%,word ptr %V.2%
+}
+
+{
+AND_4 %V.1% %V.2% %V.3%
+1
+@1,4
+@2,4
+@3,4
+and %V.1%,dword ptr %V.2%
+}
+
+{
+OR_0 %V.1% %V.2% %V.3%
+1
+@1,1
+@2,1
+@3,1
+or %V.1%,byte ptr %V.2%
+}
+
+{
+OR_1 %V.1% %V.2% %V.3%
+1
+@1,1
+@2,1
+@3,1
+or %V.1%,byte ptr %V.2%
+}
+
+{
+OR_2 %V.1% %V.2% %V.3%
+1
+@1,2
+@2,2
+@3,2
+or %V.1%,word ptr %V.2%
+}
+
+{
+OR_4 %V.1% %V.2% %V.3%
+1
+@1,4
+@2,4
+@3,4
+or %V.1%,dword ptr %V.2%
+}
+
+{
+XOR_0 %V.1% %V.2% %V.3%
+1
+@1,1
+@2,1
+@3,1
+xor %V.1%,byte ptr %V.2%
+}
+
+{
+XOR_1 %V.1% %V.2% %V.3%
+1
+@1,1
+@2,1
+@3,1
+xor %V.1%,byte ptr %V.2%
+}
+
+{
+XOR_2 %V.1% %V.2% %V.3%
+1
+@1,2
+@2,2
+@3,2
+xor %V.1%,word ptr %V.2%
+}
+
+{
+XOR_4 %V.1% %V.2% %V.3%
+1
+@1,4
+@2,4
+@3,4
+xor %V.1%,dword ptr %V.2%
+}
+
+{
+DIV_4 %V.1% %V.2% %V.3%
+1
+@1eax,4
+@2,4
+@3eax,4
+#eax,edx,
+idiv dword ptr %V.2%
+}
+
+{
+DIV_8F %V.1% %V.2% %V.3%
+1
+@0,8
+@0,8
+@0,8
+fld qword ptr %V.1%
+fdiv qword ptr %V.2%
+fst qword ptr %V.3%
+}
+
+{
+MOD_4 %V.1% %V.2% %V.3%
+1
+@1eax,4
+@2,4
+@3edx,4
+#eax,edx,
+div dword ptr %V.2%
+}
+
+{
+MUL_4 %V.1% %V.2% %V.3%
+1
+@1eax,4
+@2,4
+@3eax,4
+#eax,edx,
+imul dword ptr %V.2%
+}
+
+{
+MUL_8F %V.1% %V.2% %V.3%
+1
+@0,8
+@0,8
+@0,8
+fld qword ptr %V.1%
+fmul qword ptr %V.2%
+fst qword ptr %V.3%
+}
+
+{
+SHL_1 %V.1% %V.2% %V.3%
+1
+@1,1
+@2,1
+@3,1
+sal %V.1%,byte ptr %V.2%
+}
+
+{
+SHL_2 %V.1% %V.2% %V.3%
+1
+@1,2
+@2,1
+@3,2
+sal %V.1%,byte ptr %V.2%
+}
+
+{
+SHL_4 %V.1% %V.2% %V.3%
+1
+@1,4
+@2,1
+@3,4
+sal %V.1%,byte ptr %V.2%
+}
+
+{
+SHL_1U %V.1% %V.2% %V.3%
+1
+@1,1
+@2,1
+@3,1
+shl %V.1%,byte ptr %V.2%
+}
+
+{
+SHL_2U %V.1% %V.2% %V.3%
+1
+@1,2
+@2,1
+@3,2
+shl %V.1%,byte ptr %V.2%
+}
+
+{
+SHL_4U %V.1% %V.2% %V.3%
+1
+@1,4
+@2,1
+@3,4
+shl %V.1%,byte ptr %V.2%
+}
+
+{
+SHR_1 %V.1% %V.2% %V.3%
+1
+@1,1
+@2,1
+@3,1
+sar %V.1%,byte ptr %V.2%
+}
+
+{
+SHR_2 %V.1% %V.2% %V.3%
+1
+@1,2
+@2,1
+@3,2
+sar %V.1%,byte ptr %V.2%
+}
+
+{
+SHR_4 %V.1% %V.2% %V.3%
+1
+@1,4
+@2,1
+@3,4
+sar %V.1%,byte ptr %V.2%
+}
+
+{
+SHR_1U %V.1% %V.2% %V.3%
+1
+@1,1
+@2,1
+@3,1
+shr %V.1%,byte ptr %V.2%
+}
+
+{
+SHR_2U %V.1% %V.2% %V.3%
+1
+@1,2
+@2,1
+@3,2
+sar %V.1%,byte ptr %V.2%
+}
+
+{
+SHR_4U %V.1% %V.2% %V.3%
+1
+@1,4
+@2,1
+@3,4
+sar %V.1%,byte ptr %V.2%
+}
+
+{
+NEG_1 %V.1% %V.3%
+1
+@1,1
+@0,0
+@3,1
+not byte ptr %V.1%
+add byte ptr %V.1%,1
+}
+
+{
+NEG_2 %V.1% %V.3%
+1
+@1,2
+@0,0
+@3,2
+not word ptr %V.1%
+add word ptr %V.1%,1
+}
+
+{
+NEG_4 %V.1% %V.3%
+1
+@1,4
+@0,0
+@3,4
+not dword ptr %V.1%
+add dword ptr %V.1%,1
+}
+
+{
+NEG_4F %V.1% %V.3%
+1
+@0,4
+@0,0
+@0,4
+fldz
+fsub dword ptr %V.1%
+fst dword ptr %V.3%
+}
+
+{
+NEG_8F %V.1% %V.3%
+1
+@0,8
+@0,0
+@0,8
+fldz 
+fsub qword ptr %V.1%
+fst qword ptr %V.3%
+}
+
+{
+NOT_1 %V.1% %V.3%
+1
+@1,1
+@0,0
+@3,1
+not byte ptr %V.1%
+}
+
+{
+NOT_2 %V.1% %V.3%
+1
+@1,2
+@0,0
+@3,2
+not word ptr %V.1%
+}
+
+{
+NOT_4 %V.1% %V.3%
+1
+@1,4
+@0,0
+@3,4
+not dword ptr %V.1%
+}
+
+{
+NOT_0 %V.1% %V.3%
+1
+@1,1
+@0,0
+@3,1
+not byte ptr %V.1%
+and byte ptr %V.1%,01h
+}
+
+{
+ASSIGN_1 %V.1% %V.3%
+1
+@1,1
+@0,0
+@4,1
+}
+
+{
+ASSIGN_2 %V.1% %V.3%
+1
+@1,2
+@0,0
+@4,2
+}
+
+{
+ASSIGN_4 %V.1% %V.3%
+1
+@1,4
+@0,0
+@4,4
+}
+
+{
+JT %V.1% %L.3%
+1
+@1,1
+@0,0
+@0,1
+test %V.1%,byte ptr %V.1%
+jnz %L.3%
+}
+
+{
+JNT %V.1% %L.3%
+1
+@1,1
+@0,0
+@0,0
+test %V.1%,byte ptr %V.1%
+jz %L.3%
+}
+
+{
+JE_1 %V.1% %V.2% %L.3%
+1
+@1,1
+@2,1
+@0,0
+cmp %V.1%,byte ptr %V.2%
+je %L.3%
+}
+
+{
+JE_2 %V.1% %V.2% %L.3%
+1
+@1,2
+@2,2
+@0,0
+cmp %V.1%,word ptr %V.2%
+je %L.3%
+}
+
+{
+JE_4 %V.1% %V.2% %L.3%
+1
+@1,4
+@2,4
+@0,0
+cmp %V.1%,dword ptr %V.2%
+je %L.3%
+}
+
+{
+ByteToInt %V.1% %V.3%
+1
+@1,1
+@0,0
+@1div,4
+mov dword ptr %V.3%,0
+mov %V.3.1%,byte ptr %V.1%
+}
+
+{
+WordToLong %V.1% %V.3%
+1
+@1,2
+@0,0
+@1div,4
+mov dword ptr %V.3%,0
+mov %V.3.3%,word ptr %V.1%
+}
+
+{
+ByteToLong %V.1% %V.3%
+1
+@1,1
+@0,0
+@1div,4
+mov dword ptr %V.3%,0
+mov %V.3.1%,byte ptr %V.1%
+}
+
+{
+ShortToInt %V.1% %V.3%
+1
+@1,1
+@0,0
+@1,4
+movsx %V.3%,byte ptr %V.1%
+}
+
+{
+SmallToInt %V.1% %V.3%
+1
+@1,2
+@0,0
+@1,4
+movsx %V.3%,word ptr %V.1%
+}
+
+{
+WordToInt %V.1% %V.3%
+1
+@1,2
+@0,0
+@1div,4
+mov %V.3%,0
+mov %V.3.3%,word ptr %V.1%
+}
+
+{
+LongToInt %V.1% %V.3%
+1
+@1,4
+@0,0
+@3,4
+}
+
+{
+IntToReal %V.1% %V.3%
+1
+@0,4
+@0,0
+@0,8
+fild dword ptr %V.1%
+fstp qword ptr %V.3%
+}
+
+{
+ByteToReal %V.1% %V.3%
+1
+@1,1
+@0,0
+@0,8
+@0,4
+movsx %V.4%,byte ptr %V.1%
+mov dword ptr[__cvt],%V.4%
+fild dword ptr[__cvt]
+fstp qword ptr %V.3%
+}
+
+{
+ShortToReal %V.1% %V.3%
+1
+@1,1
+@0,0
+@0,8
+@0,4
+movsx %V.4%,byte ptr %V.1%
+mov dword ptr[__cvt],%V.4%
+fild dword ptr[__cvt]
+fstp qword ptr %V.3%
+}
+
+{
+SmallToReal %V.1% %V.3%
+1
+@1,2
+@0,0
+@0,8
+@0,4
+movsx %V.4%,word ptr %V.1%
+mov dword ptr[__cvt],%V.4%
+fild dword ptr[__cvt]
+fstp qword ptr %V.3%
+}
+
+{
+WordToReal %V.1% %V.3%
+1
+@1,2
+@0,0
+@0,8
+@0,4
+movsx %V.4%,word ptr %V.1%
+mov dword ptr[__cvt],%V.4%
+fild dword ptr[__cvt]
+fstp qword ptr %V.3%
+}
+
+{
+LongToReal %V.1% %V.3%
+1
+@0,4
+@0,0
+@0,8
+fild dword ptr %V.1%
+fstp qword ptr %V.3%
+}
+
+{
+SingleToReal %V.1% %V.3%
+1
+@0,4
+@0,0
+@0,8
+fld dword ptr %V.1%
+fstp qword ptr %V.3%
+}
+
+{
+IntToSingle %V.1% %V.3%
+1
+@0,4
+@0,0
+@0,4
+fild dword ptr %V.1%
+fstp dword ptr %V.3%
+}
+
+{
+ByteToSingle %V.1% %V.3%
+1
+@1,1
+@0,0
+@0,4
+@0,4
+movsx %V.4%,byte ptr %V.1%
+mov dword ptr[__cvt],%V.4%
+fild dword ptr[__cvt]
+fstp dword ptr %V.3%
+}
+
+{
+ShortToSingle %V.1% %V.3%
+1
+@1,1
+@0,0
+@0,4
+@0,4
+movsx %V.4%,byte ptr %V.1%
+mov dword ptr[__cvt],%V.4%
+fild dword ptr[__cvt]
+fstp dword ptr %V.3%
+}
+
+{
+SmallToSingle %V.1% %V.3%
+1
+@1,2
+@0,0
+@0,4
+@0,4
+movsx %V.4%,word ptr %V.1%
+mov dword ptr[__cvt],%V.4%
+fild dword ptr[__cvt]
+fstp dword ptr %V.3%
+}
+
+{
+WordToReal %V.1% %V.3%
+1
+@1,2
+@0,0
+@0,4
+@0,4
+movsx %V.4%,word ptr %V.1%
+mov dword ptr[__cvt],%V.4%
+fild dword ptr[__cvt]
+fstp dword ptr %V.3%
+}
+
+{
+LongToSingle %V.1% %V.3%
+1
+@0,4
+@0,0
+@0,4
+fild dword ptr %V.1%
+fstp dword ptr %V.3%
+}
+
+{
+WordToSingle %V.1% %V.3%
+1
+@0,2
+@0,0
+@0,4
+fild word ptr[%V.1%]
+fstp dword ptr[%V.3%]
+}
+
+{
+RealToSingle %V.1% %V.3%
+1
+@0,8
+@0,0
+@0,4
+fld qword ptr[%V.1%]
+fstp dword ptr[%V.3%]
+}
+
+{
+ByteToSmall %V.1% %V.3%
+1
+@1,1
+@0,0
+@1,2
+movzx %V.3%,byte ptr %V.1%
+}
+
+{
+IntToSmall %V.1% %V.3%
+1
+@1,2
+@0,0
+@3,2
+}
+
+{
+LongToSmall %V.1% %V.3%
+1
+@2,4
+@0,0
+@1,2
+@0div,4
+mov %V.4%,dword ptr %V.1%
+mov %V.3%,word ptr %V.4.3%
+}
+
+{
+ShortToSmall %V.1% %V.3%
+1
+@1,1
+@0,0
+@1,2
+movsx %V.3%,byte ptr %V.1%
+}
+
+{
+ByteToWord %V.1% %V.3%
+1
+@1,1
+@0,0
+@1,2
+movzx %V.3%,byte ptr %V.1%
+}
+
+{
+ShortToWord %V.1% %V.3%
+1
+@1,2
+@0,0
+@3,2
+}
+
+{
+IntToWord %V.1% %V.3%
+1
+@1,4
+@0,0
+@1,2
+@0div,4
+mov %V.4%,dword ptr %V.1%
+mov %V.3%,word ptr %V.4.3%
+}
+
+{
+LongToWord %V.1% %V.3%
+1
+@1,4
+@0,0
+@1,2
+@0div,4
+mov %V.4%,dword ptr %V.1%
+mov %V.3%,word ptr %V.4.3%
+}
+
+{
+ByteToShort %V.1% %V.3%
+1
+@1,1
+@0,0
+@3,1
+}
+
+{
+IntToShort %V.1% %V.3%
+1
+@1,2
+@0,0
+@1,1
+@0div,2
+mov %V.4%,word ptr %V.1%
+mov %V.3%,byte ptr %V.4.1%
+}
+
+{
+SmallToShort %V.1% %V.3%
+1
+@1,2
+@0,0
+@1,1
+@0div,2
+mov %V.4%,word ptr %V.1%
+mov %V.3%,byte ptr %V.4.1%
+}
+
+{
+WordToShort %V.1% %V.3%
+1
+@1,2
+@0,0
+@1,1
+@0div,2
+mov %V.4%,word ptr %V.1%
+mov %V.3%,byte ptr %V.4.1%
+}
+
+{
+LongToShort %V.1% %V.3%
+1
+@1,4
+@0,0
+@1,1
+@0div,4
+mov %V.4%,dword ptr %V.1%
+mov %V.3%,byte ptr %V.4.1%
+}
+
+{
+IntToByte %V.1% %V.3%
+1
+@1,2
+@0,0
+@1,1
+@0div,2
+mov %V.4%,word ptr %V.1%
+mov %V.3%,byte ptr %V.4.1%
+}
+
+{
+SmallToByte %V.1% %V.3%
+1
+@1,2
+@0,0
+@1,1
+@0div,2
+mov %V.4%,word ptr %V.1%
+mov %V.3%,byte ptr %V.4.1%
+}
+
+{
+WordToByte %V.1% %V.3%
+1
+@1,2
+@0,0
+@1,1
+@0div,2
+mov %V.4%,word ptr %V.1%
+mov %V.3%,byte ptr %V.4.1%
+}
+
+{
+LongToByte %V.1% %V.3%
+1
+@1,4
+@0,0
+@1,1
+@0div,4
+mov %V.4%,dword ptr %V.1%
+mov %V.3%,byte ptr %V.4.1%
+}
+
+{
+FUNCRET4 %V.1%
+1
+@0,4
+#eax,
+mov eax,%V.1%
+}
+
+{
+FUNCRET8 %V.1%
+1
+@0,8
+#eax,edx,
+mov eax,dword ptr %V.1%
+mov edx,dword ptr 4 %V.1%
+}
+
+{
+FUNCRETA %V.1%
+1
+@0,4
+#eax,
+lea eax,%V.1%
+}
+
+{
+RETV4 %V.1%
+1
+@0,4
+#eax,
+mov dword ptr %V.1%,eax
+}
+
+{
+RETV8 %V.1%
+1
+@0,8
+#eax,edx,
+mov dword ptr %V.1%,eax
+mov dword ptr 4 %V.1%,edx
+}
+
+{
+#MOV_1 %V.1% %V.3%
+1
+mov %V.3%,byte ptr %V.1%
+}
+
+{
+#MOV_2 %V.1% %V.3%
+1
+mov %V.3%,word ptr %V.1%
+}
+
+{
+#MOV_4 %V.1% %V.3%
+1
+mov %V.3%,dword ptr %V.1%
+}
+
+{
+#LEA %V.1% %V.3%
+1
+lea dword ptr %V.3%,%V.1%
+}
+
+{
+GETADDR %V.1% %V.3%
+1
+@0
+@0
+@1,4
+lea dword ptr %V.3%,%V.1%
+}
+
+{
+CALLPTR %V.1%
+1
+@0,4
+call dword ptr %V.1%
+}
+
+{
+CALL %F.1%
+1
+call %F.1%
+}
+
+{
+GETPROCADDR %F.1% %V.3%
+1
+@0,4
+@0,0
+@1,4
+lea %V.3%,dword ptr %F.1%
+}
+
+{
+IN %V.1% %V.2% %V.3%
+1
+@1,1
+@2,4
+@1,1
+@0,4
+@0,4
+mov %V.5%,byte ptr %V.1%
+and %V.5%,000000ffh
+lea %V.4%,dword ptr %V.2%
+bt  [%V.4%],%V.5%
+jnb  %L.-1%
+mov %V.3%,1
+jmp %L.-2%
+%L.-1%:
+mov %V.3%,0
+%L.-2%:
+}
+
+{
+SET_ADDITEM %V.1% %V.2% %V.3%
+1
+@0,4
+@1,4
+@0,4
+@1esi,4
+@1edi,4
+@1ecx,4
+lea %V.4%,dword ptr %V.1%
+lea %V.5%,dword ptr %V.3%
+mov %V.6%,8h
+rep movsd
+bts %V.3%,dword ptr %V.2%
+}
+
+{
+ADD_SET %V.1% %V.2% %V.3%
+1
+@0,4
+@0,4
+@0,4
+@1eax,4
+@1ebx,4
+@1edx,4
+lea %V.4%,dword ptr[%V.1%]
+lea %V.5%,dword ptr[%V.2%]
+lea %V.6%,dword ptr[%V.3%]
+call _ADD_SET@0
+}
+
+{
+MUL_SET %V.1% %V.2% %V.3%
+1
+@0,4
+@0,4
+@0,4
+@1eax,4
+@1ebx,4
+@1edx,4
+lea %V.4%,dword ptr[%V.1%]
+lea %V.5%,dword ptr[%V.2%]
+lea %V.6%,dword ptr[%V.3%]
+call _MUL_SET@0
+}
+
+{
+SUB_SET %V.1% %V.2% %V.3%
+1
+@0,4
+@0,4
+@0,4
+@1eax,4
+@1ebx,4
+@1edx,4
+lea %V.4%,dword ptr[%V.1%]
+lea %V.5%,dword ptr[%V.2%]
+lea %V.6%,dword ptr[%V.3%]
+call _SUB_SET@0
+}
+
+{
+EQU_8 %V.1% %V.2% %V.3%
+1
+@0,4
+@0,4
+@1,1
+@0,4
+#ah,
+mov %V.4%,dword ptr %V.1%
+cmp %V.4%,dword ptr %V.2%
+lahf
+and ah,40h
+shr ah,6
+mov %V.3%,ah
+mov %V.4%,dword ptr 4 %V.1%
+cmp %V.4%,dword ptr 4 %V.2%
+lahf
+and ah,40h
+shr ah,6
+and byte ptr %V.3%,ah
+}
+
+{
+NEQU_8 %V.1% %V.2% %V.3%
+1
+@0,4
+@0,4
+@1,1
+@0,4
+#ah,
+mov %V.4%,dword ptr %V.1%
+cmp %V.4%,dword ptr %V.2%
+lahf
+not ah
+and ah,40h
+shr ah,6
+mov %V.3%,ah
+mov %V.4%,dword ptr 4 %V.1%
+cmp %V.4%,dword ptr 4 %V.2%
+lahf
+not ah
+and ah,40h
+shr ah,6
+and byte ptr %V.3%,ah
+}
+
+{
+ByteToLong8 %V.1% %V.3%
+1
+@2,1
+@0,0
+@0,8
+#eax,
+movzx eax,byte ptr %V.1%
+cdq
+mov dword ptr %V.3%,eax
+mov dword ptr 4 %V.3%,edx
+}
+
+{
+ShortToLong8 %V.1% %V.3%
+1
+@2,1
+@0,0
+@0,8
+#eax,
+movzx eax,byte ptr %V.1%
+cdq
+mov dword ptr %V.3%,eax
+mov dword ptr 4 %V.3%,edx
+}
+
+{
+SmallToLong8 %V.1% %V.3%
+1
+@2,2
+@0,0
+@0,8
+#eax,
+movzx eax,word ptr %V.1%
+cdq
+mov dword ptr %V.3%,eax
+mov dword ptr 4 %V.3%,edx
+}
+
+{
+WordToLong8 %V.1% %V.3%
+1
+@2,2
+@0,0
+@0,8
+#eax,
+movzx eax,word ptr %V.1%
+cdq
+mov dword ptr %V.3%,eax
+mov dword ptr 4 %V.3%,edx
+}
+
+{
+IntToLong8 %V.1% %V.3%
+1
+@2,4
+@0,0
+@0,8
+#eax,
+mov eax,dword ptr %V.1%
+cdq
+mov dword ptr %V.3%,eax
+mov dword ptr 4 %V.3%,edx
+}
+
+{
+LongToLong8 %V.1% %V.3%
+1
+@2,4
+@0,0
+@0,8
+#eax,
+mov eax,dword ptr %V.1%
+cdq
+mov dword ptr %V.3%,eax
+mov dword ptr 4 %V.3%,edx
+}
+
+

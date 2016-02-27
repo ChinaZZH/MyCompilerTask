@@ -1,0 +1,2279 @@
+{
+FUNCSTART %V.1% %V.2%
+1
+%V.2% proc
+push ebp
+mov ebp,esp
+sub esp,%V.1%
+push ebx
+push esi
+push edi
+/strInit
+}
+
+{
+FUNCEND %V.1% %V.2%
+1
+/strDestory
+pop edi
+pop esi
+pop ebx
+mov esp,ebp
+pop ebp
+ret %V.1%
+%V.2% endp
+}
+
+{
+FILESTART
+1
+.686P
+.model flat,stdcall
+option casemap:none
+include PasLib.INC
+}
+
+{
+MAINSTART
+1
+start:
+}
+
+{
+FILEEND
+1
+end start
+}
+
+{
+LABEL %L.1%
+1
+%L.1%:
+}
+
+{
+JMP %L.1%
+1
+jmp %L.1%
+}
+
+{
+PUSH %V.1%
+1
+push dword ptr[%V.1%]
+}
+
+{
+JT %V.1% %L.3%
+1
+test byte ptr[%V.1%]
+jnz %L.3%
+}
+
+{
+JLE %V.1% %V.2% %L.3%
+1
+cmp byte ptr[%V.1%]
+jz %L.3%
+}
+
+{
+SUB_8F %V.1% %V.2% %V.3%
+1
+/loadS
+fld qword ptr[%V.1%]
+fld qword ptr[%V.2%]
+fsub
+/saveS
+fstp qword ptr[%V.3%]
+}
+
+{
+SUB_8 %V.1% %V.2% %V.3%
+1
+/loadS
+fild qword ptr[%V.1%]
+fild qword ptr[%V.2%]
+fsub
+/saveS
+fistp qword ptr
+[%V.3%]
+}
+
+{
+SUB_4 %V.1% %V.2% %V.3%
+1
+/loadS
+mov eax,dword ptr[%V.1%]
+sub eax,dword ptr[%V.2%]
+/saveS
+mov dword ptr[%V.3%],eax
+}
+
+{
+SUB_2 %V.1% %V.2% %V.3%
+1
+/loadS
+mov ax,word ptr[%V.1%]
+sub ax,word ptr[%V.2%]
+/saveS
+mov word ptr[%V.3%],ax
+}
+
+{
+ADD_2 %V.1% %V.2% %V.3%
+1
+/loadS
+mov ax,word ptr[%V.1%]
+add ax,word ptr[%V.2%]
+/saveS
+mov word ptr[%V.3%],ax
+}
+
+{
+ADD_S %V.1% %V.2% %V.3%
+1
+/saveS
+mov eax,dword ptr[%V.3%]
+call _FreeMem@0
+/loadS
+mov eax,offset[%V.1%]
+mov edx,offset[%V.2%]
+call _StrCat@0
+/saveS
+mov dword ptr[%V.3%],eax
+}
+
+{
+ADD_4 %V.1% %V.2% %V.3%
+1
+/loadS
+mov eax,dword ptr[%V.1%]
+add eax,dword ptr[%V.2%]
+/saveS
+mov dword ptr[%V.3%],eax
+}
+
+{
+ADD_8F %V.1% %V.2% %V.3%
+1
+/loadS
+fld qword ptr[%V.1%]
+fld qword ptr[%V.2%]
+fadd
+/saveS
+fstp qword ptr[%V.3%]
+}
+
+{
+EQU_1 %V.1% %V.2% %V.3%
+1
+/loadS
+mov al,byte ptr[%V.1%]
+cmp al,byte ptr[%V.2%]
+lahf
+and ah,40h
+shr ah,6
+/saveS
+mov byte ptr[%V.3%],ah
+}
+
+{
+EQU_2 %V.1% %V.2% %V.3%
+1
+/loadS
+mov ax,word ptr[%V.1%]
+cmp ax,word ptr[%V.2%]
+lahf
+and ah,40h
+shr ah,6
+/saveS
+mov byte ptr[%V.3%],ah
+}
+
+{
+EQU_4 %V.1% %V.2% %V.3%
+1
+/loadS
+mov eax,dword ptr[%V.1%]
+cmp eax,dword ptr[%V.2%]
+lahf
+and ah,40h
+shr ah,6
+/saveS
+mov byte ptr[%V.3%],ah
+}
+
+{
+EQU_8 %V.1% %V.2% %V.3%
+1
+/loadS
+mov eax,dword ptr[%V.1%]
+cmp eax,dword ptr[%V.2%]
+lahf
+and ah,40h
+shr ah,6
+/saveS
+mov bl,ah
+mov eax,dword ptr[%V.1%+4]
+cmp eax,dword ptr[%V.2%+4]
+lahf
+and ah,40h
+shr ah,6
+mov byte ptr[%V.3%],bl
+and byte ptr[%V.3%],ah
+}
+
+{
+EQU_A %V.1% %V.2% %V.3%
+1
+/loadS
+mov eax,dword ptr[%V.1%]
+cmp eax,dword ptr[%V.2%]
+lahf
+and ah,40h
+shr ah,6
+/saveS
+mov byte ptr[%V.3%],ah
+}
+
+{
+EQU_E %V.1% %V.2% %V.3%
+1
+/loadS
+mov ah,byte ptr[%V.1%]
+cmp ah,byte ptr[%V.2%]
+lahf
+and ah,40h
+shr ah,6
+/saveS
+mov byte ptr[%V.3%],ah
+}
+
+{
+EQU_4F %V.1% %V.2% %V.3%
+1
+/loadS
+fld dword ptr[%V.1%]
+fld dword ptr[%V.2%]
+fcomp
+fstsw ax
+and ax,4000h;
+shr ah,6
+/saveS
+mov byte ptr[%V.3%],ah
+}
+
+{
+EQU_8F %V.1% %V.2% %V.3%
+1
+/loadS
+fld qword ptr[%V.1%]
+fld qword ptr[%V.2%]
+fcomp
+fstsw ax
+and ax,4000h;
+shr ah,6
+/saveS
+mov byte ptr[%V.3%],ah;
+}
+
+{
+NEQU_1 %V.1% %V.2% %V.3%
+1
+/loadS
+mov al,byte ptr[%V.1%]
+cmp al,byte ptr[%V.2%]
+lahf
+not ah
+and ah,40h
+shr ah,6
+/saveS
+mov byte ptr[%V.3%],ah
+}
+
+{
+NEQU_E %V.1% %V.2% %V.3%
+1
+/loadS
+mov al,byte ptr[%V.1%]
+cmp al,byte ptr[%V.2%]
+lahf
+not ah
+and ah,40h
+shr ah,6
+/saveS
+mov byte ptr[%V.3%],ah
+}
+
+{
+NEQU_2 %V.1% %V.2% %V.3%
+1
+/loadS
+mov ax,word ptr[%V.1%]
+cmp ax,word ptr[%V.2%]
+lahf
+not ah
+and ah,40h
+shr ah,6
+/saveS
+mov byte ptr[%V.3%],ah
+}
+
+{
+NEQU_4 %V.1% %V.2% %V.3%
+1
+/loadS
+mov eax,dword ptr[%V.1%]
+cmp eax,dword ptr[%V.2%]
+lahf
+not ah
+and ah,40h
+shr ah,6
+/saveS
+mov byte ptr[%V.3%],ah
+}
+
+{
+NEQU_A %V.1% %V.2% %V.3%
+1
+/loadS
+mov eax,dword ptr[%V.1%]
+cmp eax,dword ptr[%V.2%]
+lahf
+not ah
+and ah,40h
+shr ah,6
+/saveS
+mov byte ptr[%V.3%],ah
+}
+
+{
+NEQU_8 %V.1% %V.2% %V.3%
+1
+/loadS
+mov eax,dword ptr[%V.1%]
+cmp eax,dword ptr[%V.2%]
+lahf
+not ah
+and ah,40h
+shr ah,6
+/saveS
+mov bl,ah
+mov eax,dword ptr[%V.1%+4]
+cmp eax,dword ptr[%V.2%+4]
+lahf
+not ah
+and ah,40h
+shr ah,6
+mov byte ptr[%V.3%],bl
+and byte ptr[%V.3%],ah
+}
+
+{
+NEQU_4F %V.1% %V.2% %V.3%
+1
+/loadS
+fld dword ptr[%V.1%]
+fld dword ptr[%V.2%]
+fcomp
+fstsw ax
+not ax
+and ax,4000h;
+shr ah,6
+/saveS
+mov byte ptr[%V.3%],ah
+}
+
+{
+NEQU_8F %V.1% %V.2% %V.3%
+1
+/loadS
+fld qword ptr[%V.1%]
+fld qword ptr[%V.2%]
+fcomp
+fstsw ax
+not ax
+and ax,4000h;
+/saveS
+mov byte ptr[%V.3%],ah
+}
+
+{
+LS_1U %V.1% %V.2% %V.3%
+1
+/loadS
+/saveS
+mov ah,1
+mov al,byte ptr[%V.1%]
+cmp al,byte ptr[%V.2%]
+jb %L.-1%
+mov ah,0
+%L.-1%:
+mov byte ptr[%V.3%],ah
+}
+
+{
+LS_2U %V.1% %V.2% %V.3%
+1
+/loadS
+/saveS
+mov bl,1
+mov ax,word ptr[%V.1%]
+cmp ax,word ptr[%V.2%]
+jb %L.-1%
+mov bl,0
+%L.-1%:
+mov byte ptr[%V.3%],bl
+}
+
+{
+LS_4U %V.1% %V.2% %V.3%
+1
+/loadS
+/saveS
+mov bl,1
+mov eax,dword ptr[%V.1%]
+cmp eax,dword ptr[%V.2%]
+jb %L.-1%
+mov bl,0
+%L.-1%:
+mov byte ptr[%V.3%],bl
+}
+
+{
+LS_1 %V.1% %V.2% %V.3%
+1
+/loadS
+/saveS
+mov ah,1
+mov al,byte ptr[%V.1%]
+cmp al,byte ptr[%V.2%]
+jl %L.-1%
+mov ah,0
+%L.-1%:
+mov byte ptr[%V.3%],ah
+}
+
+{
+LS_2 %V.1% %V.2% %V.3%
+1
+/loadS
+/saveS
+mov bl,1
+mov ax,word ptr[%V.1%]
+cmp ax,word ptr[%V.2%]
+jl %L.-1%
+mov bl,0
+%L.-1%:
+mov byte ptr[%V.3%],bl
+}
+
+{
+LS_4 %V.1% %V.2% %V.3%
+1
+/loadS
+/saveS
+mov bl,1
+mov eax,dword ptr[%V.1%]
+cmp eax,dword ptr[%V.2%]
+jl %L.-1%
+mov bl,0
+%L.-1%:
+mov byte ptr[%V.3%],bl
+}
+
+{
+LS_8 %V.1% %V.2% %V.3%
+1
+/loadS
+/saveS
+mov bl,1
+fild qword ptr[%V.2%]
+fild qword ptr[%V.1%]
+fcomp
+fstsw ax
+and ax,4500h
+xor ax,100h
+jz %L.-1%
+mov bl,0
+%L.-1%:
+mov byte ptr[%V.3%],bl
+}
+
+{
+LS_8F %V.1% %V.2% %V.3%
+1
+/loadS
+/saveS
+mov bl,1
+fld qword ptr[%V.1%]
+fcomp qword ptr[%V.2%]
+fstsw ax
+and ax,4500h
+xor ax,100h
+jz %L.-1%
+mov bl,0
+%L.-1%:
+mov byte ptr[%V.3%],bl
+}
+
+{
+LS_4F %V.1% %V.2% %V.3%
+1
+/loadS
+/saveS
+mov bl,1
+fld dword ptr[%V.1%]
+fcomp dword ptr[%V.2%]
+fstsw ax
+and ax,4500h
+xor ax,100h
+jz %L.-1%
+mov bl,0
+%L.-1%:
+mov byte ptr[%V.3%],bl
+}
+
+{
+MR_8 %V.1% %V.2% %V.3%
+1
+/loadS
+/saveS
+mov bl,1
+fild qword ptr[%V.2%]
+fild qword ptr[%V.1%]
+fcomp
+fstsw ax
+and ax,4500h
+xor ax,0h
+jz %L.-1%
+mov bl,0
+%L.-1%:
+mov byte ptr[%V.3%],bl
+}
+
+{
+MR_8F %V.1% %V.2% %V.3%
+1
+/loadS
+/saveS
+mov bl,1
+fld qword ptr[%V.1%]
+fcomp qword ptr[%V.2%]
+fstsw ax
+and ax,4500h
+xor ax,0h
+jz %L.-1%
+mov bl,0
+%L.-1%:
+mov byte ptr[%V.3%],bl
+}
+
+{
+MR_4F %V.1% %V.2% %V.3%
+1
+/loadS
+/saveS
+mov bl,1
+fld dword ptr[%V.1%]
+fcomp dword ptr[%V.2%]
+fstsw ax
+and ax,4500h
+xor ax,0h
+jz %L.-1%
+mov bl,0
+%L.-1%:
+mov byte ptr[%V.3%],bl
+}
+
+{
+MR_1U %V.1% %V.2% %V.3%
+1
+/loadS
+/saveS
+mov ah,1
+mov al,byte ptr[%V.1%]
+cmp al,byte ptr[%V.2%]
+ja %L.-1%
+mov ah,0
+%L.-1%:
+mov byte ptr[%V.3%],ah
+}
+
+{
+MR_2U %V.1% %V.2% %V.3%
+1
+/loadS
+/saveS
+mov bl,1
+mov ax,word ptr[%V.1%]
+cmp ax,word ptr[%V.2%]
+ja %L.-1%
+mov bl,0
+%L.-1%:
+mov byte ptr[%V.3%],bl
+}
+
+{
+MR_4U %V.1% %V.2% %V.3%
+1
+/loadS
+/saveS
+mov bl,1
+mov eax,dword ptr[%V.1%]
+cmp eax,dword ptr[%V.2%]
+ja %L.-1%
+mov bl,0
+%L.-1%:
+mov byte ptr[%V.3%],bl
+}
+
+{
+MR_1 %V.1% %V.2% %V.3%
+1
+/loadS
+/saveS
+mov ah,1
+mov al,byte ptr[%V.1%]
+cmp al,byte ptr[%V.2%]
+jg %L.-1%
+mov ah,0
+%L.-1%:
+mov byte ptr[%V.3%],ah
+}
+
+{
+MR_2 %V.1% %V.2% %V.3%
+1
+/loadS
+/saveS
+mov bl,1
+mov ax,word ptr[%V.1%]
+cmp ax,word ptr[%V.2%]
+jg %L.-1%
+mov bl,0
+%L.-1%:
+mov byte ptr[%V.3%],bl
+}
+
+{
+MR_4 %V.1% %V.2% %V.3%
+1
+/loadS
+/saveS
+mov bl,1
+mov eax,dword ptr[%V.1%]
+cmp eax,dword ptr[%V.2%]
+jg %L.-1%
+mov bl,0
+%L.-1%:
+mov byte ptr[%V.3%],bl
+}
+
+{
+LE_8 %V.1% %V.2% %V.3%
+1
+/loadS
+/saveS
+mov bl,1
+fild qword ptr[%V.2%]
+fild qword ptr[%V.1%]
+fcomp
+fstsw ax
+and ax,4500h
+xor ax,4100h
+jz %L.-1%
+mov bl,0
+%L.-1%:
+mov byte ptr[%V.3%],bl
+}
+
+{
+LE_8F %V.1% %V.2% %V.3%
+1
+/loadS
+/saveS
+mov bl,1
+fld qword ptr[%V.1%]
+fcomp qword ptr[%V.2%]
+fstsw ax
+and ax,4500h
+xor ax,4100h
+jz %L.-1%
+mov bl,0
+%L.-1%:
+mov byte ptr[%V.3%],bl
+}
+
+{
+LE_4F %V.1% %V.2% %V.3%
+1
+/loadS
+/saveS
+mov bl,1
+fld dword ptr[%V.1%]
+fcomp dword ptr[%V.2%]
+fstsw ax
+and ax,4500h
+xor ax,4100h
+jz %L.-1%
+mov bl,0
+%L.-1%:
+mov byte ptr[%V.3%],bl
+}
+
+{
+LE_1U %V.1% %V.2% %V.3%
+1
+/loadS
+/saveS
+mov ah,1
+mov al,byte ptr[%V.1%]
+cmp al,byte ptr[%V.2%]
+jbe %L.-1%
+mov ah,0
+%L.-1%:
+mov byte ptr[%V.3%],ah
+}
+
+{
+LE_2U %V.1% %V.2% %V.3%
+1
+/loadS
+/saveS
+mov bl,1
+mov ax,word ptr[%V.1%]
+cmp ax,word ptr[%V.2%]
+jbe %L.-1%
+mov bl,0
+%L.-1%:
+mov byte ptr[%V.3%],bl
+}
+
+{
+LE_4U %V.1% %V.2% %V.3%
+1
+/loadS
+/saveS
+mov bl,1
+mov eax,dword ptr[%V.1%]
+cmp eax,dword ptr[%V.2%]
+je %L.-1%
+mov bl,0
+%L.-1%:
+mov byte ptr[%V.3%],bl
+}
+
+{
+LE_1 %V.1% %V.2% %V.3%
+1
+/loadS
+/saveS
+mov ah,1
+mov al,byte ptr[%V.1%]
+cmp al,byte ptr[%V.2%]
+jle %L.-1%
+mov ah,0
+%L.-1%:
+mov byte ptr[%V.3%],ah
+}
+
+{
+LE_2 %V.1% %V.2% %V.3%
+1
+/loadS
+/saveS
+mov bl,1
+mov ax,word ptr[%V.1%]
+cmp ax,word ptr[%V.2%]
+jle %L.-1%
+mov bl,0
+%L.-1%:
+mov byte ptr[%V.3%],bl
+}
+
+{
+LE_4 %V.1% %V.2% %V.3%
+1
+/loadS
+/saveS
+mov bl,1
+mov eax,dword ptr[%V.1%]
+cmp eax,dword ptr[%V.2%]
+jle %L.-1%
+mov bl,0
+%L.-1%:
+mov byte ptr[%V.3%],bl
+}
+
+{
+ME_8 %V.1% %V.2% %V.3%
+1
+/loadS
+/saveS
+mov bl,1
+fild qword ptr[%V.2%]
+fild qword ptr[%V.1%]
+fcomp
+fstsw ax
+and ax,4500h
+xor ax,4000h
+jz %L.-1%
+mov bl,0
+%L.-1%:
+mov byte ptr[%V.3%],bl
+}
+
+{
+ME_8F %V.1% %V.2% %V.3%
+1
+/loadS
+/saveS
+mov bl,1
+fld qword ptr[%V.1%]
+fcomp qword ptr[%V.2%]
+fstsw ax
+and ax,4500h
+xor ax,4000h
+jz %L.-1%
+mov bl,0
+%L.-1%:
+mov byte ptr[%V.3%],bl
+}
+
+{
+ME_4F %V.1% %V.2% %V.3%
+1
+/loadS
+/saveS
+mov byte ptr[%V.3%],1
+fld dword ptr[%V.1%]
+fcomp dword ptr[%V.2%]
+fstsw ax
+and ax,4500h
+xor ax,4000h
+jz %L.-1%
+mov byte ptr[%V.3%],0
+%L.-1%:
+}
+
+{
+ME_1U %V.1% %V.2% %V.3%
+1
+/loadS
+/saveS
+mov ah,1
+mov al,byte ptr[%V.1%]
+cmp al,byte ptr[%V.2%]
+jae %L.-1%
+mov ah,0
+%L.-1%:
+mov byte ptr[%V.3%],ah
+}
+
+{
+ME_2U %V.1% %V.2% %V.3%
+1
+/loadS
+/saveS
+mov bl,1
+mov ax,word ptr[%V.1%]
+cmp ax,word ptr[%V.2%]
+jae %L.-1%
+mov bl,0
+%L.-1%:
+mov byte ptr[%V.3%],bl
+}
+
+{
+ME_4U %V.1% %V.2% %V.3%
+1
+/loadS
+/saveS
+mov bl,1
+mov eax,dword ptr[%V.1%]
+cmp eax,dword ptr[%V.2%]
+jae %L.-1%
+mov bl,0
+%L.-1%:
+mov byte ptr[%V.3%],bl
+}
+
+{
+ME_1 %V.1% %V.2% %V.3%
+1
+/loadS
+/saveS
+mov ah,1
+mov al,byte ptr[%V.1%]
+cmp al,byte ptr[%V.2%]
+jge %L.-1%
+mov ah,0
+%L.-1%:
+mov byte ptr[%V.3%],ah
+}
+
+{
+ME_2 %V.1% %V.2% %V.3%
+1
+/loadS
+/saveS
+mov bl,1
+mov ax,word ptr[%V.1%]
+cmp ax,word ptr[%V.2%]
+jge %L.-1%
+mov bl,0
+%L.-1%:
+mov byte ptr[%V.3%],bl
+}
+
+{
+ME_4 %V.1% %V.2% %V.3%
+1
+/loadS
+/saveS
+mov bl,1
+mov eax,dword ptr[%V.1%]
+cmp eax,dword ptr[%V.2%]
+jge %L.-1%
+mov bl,0
+%L.-1%:
+mov byte ptr[%V.3%],bl
+}
+
+{
+AND_0 %V.1% %V.2% %V.3%
+1
+/loadS
+mov al,byte ptr[%V.1%]
+and al,byte ptr[%V.2%]
+/saveS
+mov byte ptr[%V.3%],al
+}
+
+{
+AND_1 %V.1% %V.2% %V.3%
+1
+/loadS
+mov al,byte ptr[%V.1%]
+and al,byte ptr[%V.2%]
+/saveS
+mov byte ptr[%V.3%],al
+}
+
+{
+AND_2 %V.1% %V.2% %V.3%
+1
+/loadS
+mov ax,word ptr[%V.1%]
+and ax,word ptr[%V.2%]
+/saveS
+mov byte ptr[%V.3%],ax
+}
+
+{
+AND_4 %V.1% %V.2% %V.3%
+1
+/loadS
+mov eax,word ptr[%V.1%]
+and eax,word ptr[%V.2%]
+/saveS
+mov byte ptr[%V.3%],eax
+}
+
+{
+OR_0 %V.1% %V.2% %V.3%
+1
+/loadS
+mov al,byte ptr[%V.1%]
+or al,byte ptr[%V.2%]
+/saveS
+mov byte ptr[%V.3%],al
+}
+
+{
+OR_1 %V.1% %V.2% %V.3%
+1
+/loadS
+mov al,byte ptr[%V.1%]
+or al,byte ptr[%V.2%]
+/saveS
+mov byte ptr[%V.3%],al
+}
+
+{
+OR_2 %V.1% %V.2% %V.3%
+1
+/loadS
+mov ax,word ptr[%V.1%]
+or ax,word ptr[%V.2%]
+/saveS
+mov byte ptr[%V.3%],ax
+}
+
+{
+OR_4 %V.1% %V.2% %V.3%
+1
+/loadS
+mov eax,word ptr[%V.1%]
+or eax,word ptr[%V.2%]
+/saveS
+mov byte ptr[%V.3%],eax
+}
+
+{
+XOR_0 %V.1% %V.2% %V.3%
+1
+/loadS
+mov al,byte ptr[%V.1%]
+xor al,byte ptr[%V.2%]
+/saveS
+mov byte ptr[%V.3%],al
+}
+
+{
+XOR_1 %V.1% %V.2% %V.3%
+1
+/loadS
+mov al,byte ptr[%V.1%]
+xor al,byte ptr[%V.2%]
+/saveS
+mov byte ptr[%V.3%],al
+}
+
+{
+XOR_2 %V.1% %V.2% %V.3%
+1
+/loadS
+mov ax,word ptr[%V.1%]
+xor ax,word ptr[%V.2%]
+/saveS
+mov byte ptr[%V.3%],ax
+}
+
+{
+XOR_4 %V.1% %V.2% %V.3%
+1
+/loadS
+mov eax,word ptr[%V.1%]
+xor eax,word ptr[%V.2%]
+/saveS
+mov byte ptr[%V.3%],eax
+}
+
+{
+DIV_4 %V.1% %V.2% %V.3%
+1
+/loadS
+mov eax,dword ptr[%V.1%]
+mov ebx,dword ptr[%V.2%]
+idiv ebx
+/saveS
+mov dword ptr[%V.3%],eax
+}
+
+{
+DIV_8F %V.1% %V.2% %V.3%
+1
+/loadS
+fld qword ptr[%V.1%]
+fdiv qword ptr[%V.2%]
+/saveS
+fst qword ptr[%V.3%]
+}
+
+{
+MOD_4 %V.1% %V.2% %V.3%
+1
+/loadS
+mov eax,dword ptr[%V.1%]
+div dword ptr[%V.2%]
+/saveS
+mov dword ptr[%V.3%],edx
+}
+
+{
+MUL_4 %V.1% %V.2% %V.3%
+1
+/loadS
+mov eax,dword ptr[%V.1%]
+mov ebx,dword ptr[%V.2%]
+imul ebx
+/saveS
+mov dword ptr[%V.3%],eax
+}
+
+{
+MUL_8F %V.1% %V.2% %V.3%
+1
+/loadS
+fld qword ptr[%V.1%]
+fmul qword ptr[%V.2%]
+/saveS
+fst qword ptr[%V.3%]
+}
+
+{
+SHL_1 %V.1% %V.2% %V.3%
+1
+/loadS
+mov cl,byte ptr[%V.2%]
+mov al,byte ptr[%V.1%]
+sal al,cl
+/saveS
+mov byte ptr[%V.3%],al
+}
+
+{
+SHL_2 %V.1% %V.2% %V.3%
+1
+/loadS
+mov cl,byte ptr[%V.2%]
+mov ax,word ptr[%V.1%]
+sal ax,cl
+/saveS
+mov word ptr[%V.3%],ax
+}
+
+{
+SHL_4 %V.1% %V.2% %V.3%
+1
+/loadS
+mov cl,byte ptr[%V.2%]
+mov eax,dword ptr[%V.1%]
+sal eax,cl
+/saveS
+mov dword ptr[%V.3%],eax
+}
+
+{
+SHL_1U %V.1% %V.2% %V.3%
+1
+/loadS
+mov cl,byte ptr[%V.2%]
+mov al,byte ptr[%V.1%]
+shl al,cl
+/saveS
+mov byte ptr[%V.3%],al
+}
+
+{
+SHL_2U %V.1% %V.2% %V.3%
+1
+/loadS
+mov cl,byte ptr[%V.2%]
+mov ax,word ptr[%V.1%]
+shl ax,cl
+/saveS
+mov word ptr[%V.3%],ax
+}
+
+{
+SHL_4U %V.1% %V.2% %V.3%
+1
+/loadS
+mov cl,byte ptr[%V.2%]
+mov eax,dword ptr[%V.1%]
+shl eax,cl
+/saveS
+mov dword ptr[%V.3%],eax
+}
+
+{
+SHR_1 %V.1% %V.2% %V.3%
+1
+/loadS
+mov cl,byte ptr[%V.2%]
+mov al,byte ptr[%V.1%]
+sar al,cl
+/saveS
+mov byte ptr[%V.3%],al
+}
+
+{
+SHR_2 %V.1% %V.2% %V.3%
+1
+/loadS
+mov cl,byte ptr[%V.2%]
+mov ax,word ptr[%V.1%]
+sar ax,cl
+/saveS
+mov word ptr[%V.3%],ax
+}
+
+{
+SHR_4 %V.1% %V.2% %V.3%
+1
+/loadS
+mov cl,byte ptr[%V.2%]
+mov eax,dword ptr[%V.1%]
+sar eax,cl
+/saveS
+mov dword ptr[%V.3%],eax
+}
+
+{
+SHR_1U %V.1% %V.2% %V.3%
+1
+/loadS
+mov cl,byte ptr[%V.2%]
+mov al,byte ptr[%V.1%]
+shr al,cl
+/saveS
+mov byte ptr[%V.3%],al
+}
+
+{
+SHR_2U %V.1% %V.2% %V.3%
+1
+/loadS
+mov cl,byte ptr[%V.2%]
+mov ax,word ptr[%V.1%]
+shr ax,cl
+/saveS
+mov word ptr[%V.3%],ax
+}
+
+{
+SHR_4U %V.1% %V.2% %V.3%
+1
+/loadS
+mov cl,byte ptr[%V.2%]
+mov eax,dword ptr[%V.1%]
+shr eax,cl
+/saveS
+mov dword ptr[%V.3%],eax
+}
+
+{
+NEG_1 %V.1% %V.3%
+1
+/loadS
+mov al,byte ptr[%V.1%]
+not al
+add al,1
+/saveS
+mov byte ptr[%V.3%],al
+}
+
+{
+NEG_2 %V.1% %V.3%
+1
+/loadS
+mov ax,word ptr[%V.1%]
+not ax
+add ax,1
+/saveS
+mov word ptr[%V.3%],ax
+}
+
+{
+NEG_4 %V.1% %V.3%
+1
+/loadS
+mov eax,dword ptr[%V.1%]
+not eax
+add eax,1
+/saveS
+mov dword ptr[%V.3%],eax
+}
+
+{
+NEG_4F %V.1% %V.3%
+1
+fldz 
+/loadS
+fsub dword ptr[%V.1%]
+/saveS
+fst dword ptr[%V.3%]
+}
+
+{
+NEG_8F %V.1% %V.3%
+1
+fldz 
+/loadS
+fsub qword ptr[%V.1%]
+/saveS
+fst qword ptr[%V.3%]
+}
+
+{
+NOT_1 %V.1% %V.3%
+1
+/loadS
+mov al,byte ptr[%V.1%]
+not al
+/saveS
+mov byte ptr[%V.3%],al
+}
+
+{
+NOT_2 %V.1% %V.3%
+1
+/loadS
+mov ax,word ptr[%V.1%]
+not ax
+/saveS
+mov word ptr[%V.3%],ax
+}
+
+{
+NOT_4 %V.1% %V.3%
+1
+/loadS
+mov eax,dword ptr[%V.1%]
+not eax
+/saveS
+mov dword ptr[%V.3%],eax
+}
+
+{
+NOT_0 %V.1% %V.3%
+1
+/loadS
+mov al,byte ptr[%V.1%]
+not al
+and al,01h
+/saveS
+mov byte ptr[%V.3%],al
+}
+
+{
+ASSIGN_1 %V.1% %V.3%
+1
+/loadS
+mov al,byte ptr[%V.1%]
+/saveS
+mov byte ptr[%V.3%],al
+}
+
+{
+ASSIGN_2 %V.1% %V.3%
+1
+/loadS
+mov ax,word ptr[%V.1%]
+/saveS
+mov word ptr[%V.3%],ax
+}
+
+{
+ASSIGN_4 %V.1% %V.3%
+1
+/loadS
+mov eax,dword ptr[%V.1%]
+/saveS
+mov dword ptr[%V.3%],eax
+}
+
+{
+ASSIGN_8 %V.1% %V.3%
+1
+/loadS
+mov eax,dword ptr[%V.1%]
+/saveS
+mov dword ptr[%V.3%],eax
+mov eax,dword ptr[%V.1%+4]
+mov dword ptr[%V.3%+4],eax
+}
+
+{
+ASSIGN_32 %V.1% %V.3%
+1
+/loadS
+mov ecx,8
+/saveS
+mov esi,offset [%V.1%]
+mov edi,offset [%V.3%]
+rep movsd
+}
+
+{
+ASSIGN_S %V.1% %V.3%
+1
+/loadS
+mov eax,offset[%V.1%]
+/saveS
+mov edx,offset[%V.3%]
+call _StrAssign@0
+}
+
+{
+LD %V.1% %V.3%
+1
+mov %V.3%,dword ptr[%V.1%]
+}
+
+{
+SD %V.1% %V.3%
+1
+mov %V.3%,dword ptr[%V.1%]
+}
+
+{
+JT %V.1% %L.3%
+1
+/loadS
+mov al,byte ptr[%V.1%]
+test al,byte ptr[%V.1%]
+jnz %L.3%
+}
+
+{
+JNT %V.1% %L.3%
+1
+/loadS
+mov al,byte ptr[%V.1%]
+test al,byte ptr[%V.1%]
+jz %L.3%
+}
+
+{
+JE_1 %V.1% %V.2% %L.3%
+1
+/loadS
+cmp byte ptr[%V.1%],[%V.2%]
+je %L.3%
+}
+
+{
+JE_2 %V.1% %V.2% %L.3%
+1
+/loadS
+cmp word ptr[%V.1%],[%V.2%]
+je %L.3%
+}
+
+{
+JE_4 %V.1% %V.2% %L.3%
+1
+/loadS
+cmp dword ptr[%V.1%],[%V.2%]
+je %L.3%
+}
+
+{
+GETVAL %V.1% %V.3%
+1
+mov eax,dword ptr[%V.1%]
+mov dword ptr[%V.3%],eax
+}
+
+
+{
+ChrToStr %V.1% %V.3%
+1
+mov al,[%V.1%]
+mov	edx,byte ptr[%V.3%]
+mov [edx],al
+mov [edx+1],0
+}
+
+{
+ByteToInt %V.1% %V.3%
+1
+mov eax,0
+mov al,byte ptr[%V.1%]
+mov dword ptr[%V.3%],eax
+}
+
+{
+WordToLong %V.1% %V.3%
+1
+mov eax,0
+mov ax,word ptr[%V.1%]
+mov dword ptr[%V.3%],eax
+}
+
+{
+ByteToLong %V.1% %V.3%
+1
+mov eax,0
+mov al,byte ptr[%V.1%]
+mov dword ptr[%V.3%],eax
+}
+
+{
+ShortToInt %V.1% %V.3%
+1
+movsx eax,byte ptr[%V.1%]
+mov dword ptr[%V.3%],eax
+}
+
+{
+SmallToInt %V.1% %V.3%
+1
+movsx eax,word ptr[%V.1%]
+mov dword ptr[%V.3%],eax
+}
+
+{
+WordToInt %V.1% %V.3%
+1
+xor eax,eax
+mov ax,word ptr[%V.1%]
+mov dword ptr[%V.3%],eax
+}
+
+{
+LongToInt %V.1% %V.3%
+1
+mov eax,dword ptr[%V.1%]
+mov dword ptr[%V.3%],eax
+}
+
+{
+IntToReal %V.1% %V.3%
+1
+fild dword ptr[%V.1%]
+fstp qword ptr[%V.3%]
+}
+
+{
+ByteToReal %V.1% %V.3%
+1
+movsx eax,byte ptr[%V.1%]
+mov dword ptr[__cvt],eax
+fild dword ptr[__cvt]
+fstp qword ptr[%V.3%]
+}
+
+{
+ShortToReal %V.1% %V.3%
+1
+movsx eax,byte ptr[%V.1%]
+mov dword ptr[__cvt],eax
+fild dword ptr[__cvt]
+fstp qword ptr[%V.3%]
+}
+
+{
+SmallToReal %V.1% %V.3%
+1
+movsx eax,word ptr[%V.1%]
+mov dword ptr[__cvt],eax
+fild dword ptr[__cvt]
+fstp qword ptr[%V.3%]
+}
+
+{
+WordToReal %V.1% %V.3%
+1
+movsx eax,word ptr[%V.1%]
+mov dword ptr[__cvt],eax
+fild dword ptr[__cvt]
+fstp qword ptr[%V.3%]
+}
+
+{
+LongToReal %V.1% %V.3%
+1
+fild dword ptr[%V.1%]
+fstp qword ptr[%V.3%]
+}
+
+{
+SingleToReal %V.1% %V.3%
+1
+fld dword ptr[%V.1%]
+fstp qword ptr[%V.3%]
+}
+
+{
+IntToSingle %V.1% %V.3%
+1
+fild dword ptr[%V.1%]
+fstp dword ptr[%V.3%]
+}
+
+{
+ByteToSingle %V.1% %V.3%
+1
+movsx eax,byte ptr[%V.1%]
+mov dword ptr[__cvt],eax
+fild dword ptr[__cvt]
+fstp dword ptr[%V.3%]
+}
+
+{
+ShortToSingle %V.1% %V.3%
+1
+movsx eax,byte ptr[%V.1%]
+mov dword ptr[__cvt],eax
+fild dword ptr[__cvt]
+fstp dword ptr[%V.3%]
+}
+
+{
+SmallToSingle %V.1% %V.3%
+1
+movsx eax,word ptr[%V.1%]
+mov dword ptr[__cvt],eax
+fild dword ptr[__cvt]
+fstp dword ptr[%V.3%]
+}
+
+{
+WordToReal %V.1% %V.3%
+1
+movsx eax,word ptr[%V.1%]
+mov dword ptr[__cvt],eax
+fild dword ptr[__cvt]
+fstp dword ptr[%V.3%]
+}
+
+{
+LongToSingle %V.1% %V.3%
+1
+fild dword ptr[%V.1%]
+fstp dword ptr[%V.3%]
+}
+
+{
+WordToSingle %V.1% %V.3%
+1
+fild word ptr[%V.1%]
+fstp dword ptr[%V.3%]
+}
+
+{
+RealToSingle %V.1% %V.3%
+1
+fld qword ptr[%V.1%]
+fstp dword ptr[%V.3%]
+}
+
+{
+ByteToSmall %V.1% %V.3%
+1
+movzx ax,byte ptr[%V.1%]
+mov word ptr[%V.3%],ax
+}
+
+{
+IntToSmall %V.1% %V.3%
+1
+mov ax,word ptr[%V.1%]
+mov word ptr[%V.3%],ax
+}
+
+{
+LongToSmall %V.1% %V.3%
+1
+mov ax,word ptr[%V.1%]
+mov word ptr[%V.3%],ax
+}
+
+{
+ShortToSmall %V.1% %V.3%
+1
+movsx ax,byte ptr[%V.1%]
+mov word ptr[%V.3%],ax
+}
+
+{
+ByteToWord %V.1% %V.3%
+1
+movzx ax,byte ptr[%V.1%]
+mov word ptr[%V.3%],ax
+}
+
+{
+ShortToWord %V.1% %V.3%
+1
+movsx ax,word ptr[%V.1%]
+mov word ptr[%V.3%],ax
+}
+
+{
+IntToWord %V.1% %V.3%
+1
+mov ax,word ptr[%V.1%]
+mov word ptr[%V.3%],ax
+}
+
+{
+LongToWord %V.1% %V.3%
+1
+mov ax,word ptr[%V.1%]
+mov word ptr[%V.3%],ax
+}
+
+{
+ByteToShort %V.1% %V.3%
+1
+mov al,byte ptr[%V.1%]
+mov byte ptr[%V.3%],al
+}
+
+{
+IntToShort %V.1% %V.3%
+1
+mov al,byte ptr[%V.1%]
+mov byte ptr[%V.3%],al
+}
+
+{
+SmallToShort %V.1% %V.3%
+1
+mov al,byte ptr[%V.1%]
+mov byte ptr[%V.3%],al
+}
+
+{
+WordToShort %V.1% %V.3%
+1
+mov al,byte ptr[%V.1%]
+mov byte ptr[%V.3%],al
+}
+
+{
+LongToShort %V.1% %V.3%
+1
+mov al,byte ptr[%V.1%]
+mov byte ptr[%V.3%],al
+}
+
+{
+IntToByte %V.1% %V.3%
+1
+mov al,byte ptr[%V.1%]
+mov byte ptr[%V.3%],al
+}
+
+{
+SmallToByte %V.1% %V.3%
+1
+mov al,byte ptr[%V.1%]
+mov byte ptr[%V.3%],al
+}
+
+{
+WordToByte %V.1% %V.3%
+1
+mov al,byte ptr[%V.1%]
+mov byte ptr[%V.3%],al
+}
+
+{
+LongToByte %V.1% %V.3%
+1
+mov al,byte ptr[%V.1%]
+mov byte ptr[%V.3%],al
+}
+
+{
+ByteToLong8 %V.1% %V.3%
+1
+movzx eax,byte ptr[%V.1%]
+cdq
+mov dword ptr[%V.3%],eax
+mov dword ptr[%V.3%+4],edx
+}
+
+{
+ShortToLong8 %V.1% %V.3%
+1
+movsx eax,byte ptr[%V.1%]
+cdq
+mov dword ptr[%V.3%],eax
+mov dword ptr[%V.3%+4],edx
+}
+
+{
+SmallToLong8 %V.1% %V.3%
+1
+movsx eax,word ptr[%V.1%]
+cdq
+mov dword ptr[%V.3%],eax
+mov dword ptr[%V.3%+4],edx
+}
+
+{
+IntToLong8 %V.1% %V.3%
+1
+mov eax,dword ptr[%V.1%]
+cdq
+mov dword ptr[%V.3%],eax
+mov dword ptr[%V.3%+4],edx
+}
+
+{
+WordToLong8 %V.1% %V.3%
+1
+movzx eax,word ptr[%V.1%]
+cdq
+mov dword ptr[%V.3%],eax
+mov dword ptr[%V.3%+4],edx
+}
+
+{
+LongToLong8 %V.1% %V.3%
+1
+mov eax,dword ptr[%V.1%]
+cdq
+mov dword ptr[%V.3%],eax
+mov dword ptr[%V.3%+4],edx
+}
+
+{
+FUNCRET4 %V.1%
+1
+mov eax,[%V.1%]
+}
+
+{
+FUNCRET8 %V.1%
+1
+mov eax,[%V.1%]
+mov edx,[%V.1%+4]
+}
+
+{
+FUNCRETA %V.1%
+1
+lea eax,[%V.1%]
+}
+
+{
+RETV4 %V.1%
+1
+mov dword ptr[%V.1%],eax
+}
+
+{
+RETV8 %V.1%
+1
+mov dword ptr[%V.1%],eax
+mov dword ptr[%V.1%+4],edx
+}
+
+{
+RETVN %V.1% %V.2%
+1
+mov ecx,%V.2%
+mov esi,eax
+lea edi,dword ptr[%V.1%]
+rep movsd
+}
+
+{
+GETADDR %V.1% %V.3%
+1
+lea eax,dword ptr[%V.1%]
+mov dword ptr[%V.3%],eax
+}
+
+{
+GETADDR %V.1% %R.3%
+1
+lea %R.3%,dword ptr[%V.1%]
+}
+
+{
+CALLPTR %V.1%
+1
+/loadS
+/saveS
+call dword ptr[%V.1%]
+}
+
+{
+CALL %F.1%
+1
+call %F.1%
+}
+
+{
+GETPROCADDR %F.1% %V.3%
+1
+lea eax,dword ptr[%F.1%]
+mov dword ptr[%V.3%],eax
+}
+
+{
+IN_I %V.1% %V.2% %V.3%
+1
+/loadS
+mov al,byte ptr[%V.1%]
+and eax,000000ffh
+lea ebx,dword ptr[%V.2%]
+bt  [ebx],eax
+jnb  %L.-1%
+mov eax,1
+jmp %L.-2%
+%L.-1%:
+mov eax,0
+%L.-2%:
+/saveS
+mov dword ptr[%V.3%],eax
+}
+
+{
+IN_B %V.1% %V.2% %V.3%
+1
+/loadS
+mov al,byte ptr[%V.1%]
+and eax,000000ffh
+lea ebx,dword ptr[%V.2%]
+bt  [ebx],eax
+jnb  %L.-1%
+mov eax,1
+jmp %L.-2%
+%L.-1%:
+mov eax,0
+%L.-2%:
+/saveS
+mov dword ptr[%V.3%],eax
+}
+
+{
+IN_SH %V.1% %V.2% %V.3%
+1
+/loadS
+mov al,byte ptr[%V.1%]
+and eax,000000ffh
+lea ebx,dword ptr[%V.2%]
+bt  [ebx],eax
+jnb  %L.-1%
+mov eax,1
+jmp %L.-2%
+%L.-1%:
+mov eax,0
+%L.-2%:
+/saveS
+mov dword ptr[%V.3%],eax
+}
+
+{
+IN_SM %V.1% %V.2% %V.3%
+1
+/loadS
+mov al,byte ptr[%V.1%]
+and eax,000000ffh
+lea ebx,dword ptr[%V.2%]
+bt  [ebx],eax
+jnb  %L.-1%
+mov eax,1
+jmp %L.-2%
+%L.-1%:
+mov eax,0
+%L.-2%:
+/saveS
+mov dword ptr[%V.3%],eax
+}
+
+{
+IN_W %V.1% %V.2% %V.3%
+1
+/loadS
+mov al,byte ptr[%V.1%]
+and eax,000000ffh
+lea ebx,dword ptr[%V.2%]
+bt  [ebx],eax
+jnb %L.-1%
+mov eax,1
+jmp %L.-2%
+%L.-1%:
+mov eax,0
+%L.-2%:
+/saveS
+mov dword ptr[%V.3%],eax
+}
+
+{
+IN_LW %V.1% %V.2% %V.3%
+1
+/loadS
+mov al,byte ptr[%V.1%]
+and eax,000000ffh
+lea ebx,dword ptr[%V.2%]
+bt  [ebx],eax
+jnb %L.-1%
+mov eax,1
+jmp %L.-2%
+%L.-1%:
+mov eax,0
+%L.-2%:
+/saveS
+mov dword ptr[%V.3%],eax
+}
+
+{
+IN_E %V.1% %V.2% %V.3%
+1
+/loadS
+mov al,byte ptr[%V.1%]
+and eax,000000ffh
+lea ebx,dword ptr[%V.2%]
+bt  [ebx],eax
+jnb  %L.-1%
+mov eax,1
+jmp %L.-2%
+%L.-1%:
+mov eax,0
+%L.-2%:
+/saveS
+mov dword ptr[%V.3%],eax
+}
+
+{
+IN_C %V.1% %V.2% %V.3%
+1
+/loadS
+mov al,byte ptr[%V.1%]
+and eax,000000ffh
+lea ebx,dword ptr[%V.2%]
+bt  [ebx],eax
+jnb  %L.-1%
+mov eax,1
+jmp %L.-2%
+%L.-1%:
+mov eax,0
+%L.-2%:
+/saveS
+mov dword ptr[%V.3%],eax
+}
+
+{
+SET_ADDITEM %V.1% %V.2% %V.3%
+1
+/loadS
+/saveS
+mov ebx,dword ptr[%V.2%]
+lea esi,dword ptr[%V.1%]
+lea edi,dword ptr[%V.3%]
+mov ecx,8h
+rep movsd
+bts [%V.3%],ebx
+}
+
+{
+ADD_SET %V.1% %V.2% %V.3%
+1
+/loadS
+/saveS
+lea eax,dword ptr[%V.1%]
+lea ebx,dword ptr[%V.2%]
+lea edx,dword ptr[%V.3%]
+call _ADD_SET@0
+}
+
+{
+MUL_SET %V.1% %V.2% %V.3%
+1
+/loadS
+/saveS
+lea eax,dword ptr[%V.1%]
+lea ebx,dword ptr[%V.2%]
+lea edx,dword ptr[%V.3%]
+call _MUL_SET@0
+}
+
+{
+SUB_SET %V.1% %V.2% %V.3%
+1
+/loadS
+/saveS
+lea eax,dword ptr[%V.1%]
+lea ebx,dword ptr[%V.2%]
+lea edx,dword ptr[%V.3%]
+call _SUB_SET@0
+}
+
+{
+EQU_32 %V.1% %V.2% %V.3%
+1
+/loadS
+lea eax,dword ptr[%V.1%]
+lea edx,dword ptr[%V.2%]
+call _EQU_32@0
+/saveS
+mov dword ptr[%V.3%],eax
+}
+
+{
+NEQU_32 %V.1% %V.2% %V.3%
+1
+/loadS
+lea eax,dword ptr[%V.1%]
+lea edx,dword ptr[%V.2%]
+call _NEQU_32@0
+/saveS
+mov dword ptr[%V.3%],eax
+}
+
+{
+EQU_S %V.1% %V.2% %V.3%
+1
+/loadS
+mov eax,dword ptr[%V.1%]
+mov edx,dword ptr[%V.2%]
+call _StrCmp@0
+or  eax,eax
+jnz %L.-1%
+mov eax,1
+jmp %L.-2%
+%L.-1%:
+mov eax,0
+%L.-2%:
+/saveS
+mov dword ptr[%V.3%],eax
+}
+
+
+{
+NEQU_S %V.1% %V.2% %V.3%
+1
+/loadS
+mov eax,dword ptr[%V.1%]
+mov edx,dword ptr[%V.2%]
+call _StrCmp@0
+or  eax,eax
+jz %L.-1%
+mov eax,1
+%L.-1%:
+/saveS
+mov dword ptr[%V.3%],eax
+}
+
+{
+LS_S %V.1% %V.2% %V.3%
+1
+/loadS
+mov eax,dword ptr[%V.1%]
+mov edx,dword ptr[%V.2%]
+call _StrCmp@0
+cmp  eax,0
+jnl %L.-1%
+mov eax,1
+jmp %L.-2%
+%L.-1%:
+mov eax,0
+%L.-2%:
+/saveS
+mov dword ptr[%V.3%],eax
+}
+
+{
+MR_S %V.1% %V.2% %V.3%
+1
+/loadS
+mov eax,dword ptr[%V.1%]
+mov edx,dword ptr[%V.2%]
+call _StrCmp@0
+cmp  eax,0
+jng %L.-1%
+mov eax,1
+jmp %L.-2%
+%L.-1%:
+mov eax,0
+%L.-2%:
+/saveS
+mov dword ptr[%V.3%],eax
+}
+
+{
+LE_S %V.1% %V.2% %V.3%
+1
+/loadS
+mov eax,dword ptr[%V.1%]
+mov edx,dword ptr[%V.2%]
+call _StrCmp@0
+cmp  eax,0
+jg  %L.-1%
+mov eax,1
+jmp %L.-2%
+%L.-1%:
+mov eax,0
+%L.-2%:
+/saveS
+mov dword ptr[%V.3%],eax
+}
+
+{
+MR_S %V.1% %V.2% %V.3%
+1
+/loadS
+mov eax,dword ptr[%V.1%]
+mov edx,dword ptr[%V.2%]
+call _StrCmp@0
+cmp  eax,0
+jl  %L.-1%
+mov eax,1
+jmp %L.-2%
+%L.-1%:
+mov eax,0
+%L.-2%:
+/saveS
+mov dword ptr[%V.3%],eax
+}
+
+{
+ME_S %V.1% %V.2% %V.3%
+1
+/loadS
+mov eax,dword ptr[%V.1%]
+mov edx,dword ptr[%V.2%]
+call _StrCmp@0
+cmp  eax,0
+jle  %L.-1%
+mov eax,1
+jmp %L.-2%
+%L.-1%:
+mov eax,0
+%L.-2%:
+/saveS
+mov dword ptr[%V.3%],eax
+}
+
+{
+STR_INIT %V.1%
+1
+mov eax,1
+call _GetMem@0
+mov dword ptr[%V.1%],eax
+}
+
+{
+CONSTSTR_INIT %V.1% %V.2% %V.3%
+1
+mov eax,%V.2%
+call _GetMem@0
+mov dword ptr[%V.3%],eax
+mov edx,dword ptr[%V.3%]
+mov eax,offset[%V.1%]
+call _StrCopy@0
+}
+
+{
+CONSTSTR_DESTORY %V.3%
+1
+mov eax,dword ptr[%V.3%]
+call _FreeMem@0
+}
+
+{
+STR_DESTORY %V.1%
+1
+mov eax,dword ptr[%V.1%]
+call _FreeMem@0
+}
+
+{
+MOV_RR %V.1% %V.3%
+1
+mov %V.3%,%V.1%
+}
+
+{
+ASSIGN_N %V.1% %V.2% %V.3%
+1
+/loadS
+/saveS
+mov ecx,%V.2%
+lea esi,dword ptr[%V.1%]
+lea edi,dword ptr[%V.3%]
+rep movs dword ptr[edi],dword ptr[esi]
+}

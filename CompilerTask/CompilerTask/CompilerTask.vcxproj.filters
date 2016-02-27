@@ -1,0 +1,147 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="源文件">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="头文件">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;hm;inl;inc;xsd</Extensions>
+    </Filter>
+    <Filter Include="资源文件">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="Common">
+      <UniqueIdentifier>{eefe1b78-90f6-4092-8cce-ef952aa2edce}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ConfigFile">
+      <UniqueIdentifier>{f4ef93bc-4455-4b86-907c-14ed3bba2022}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="GlobalData">
+      <UniqueIdentifier>{08e8c847-6b4c-436d-84b3-1c8945443e46}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Initialization">
+      <UniqueIdentifier>{892b4f60-775d-407d-8535-6893456a8bed}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="LexParser">
+      <UniqueIdentifier>{83192fa2-8f16-400c-b7d3-83f46c0191b0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Log">
+      <UniqueIdentifier>{268ff6df-4f97-4666-9398-f9c43e4f1172}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="SymbolTable">
+      <UniqueIdentifier>{619722b9-530e-4d02-99e3-f6e14d16d446}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="ReadMe.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="stdafx.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="targetver.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="Common\CommonLib.h">
+      <Filter>Common</Filter>
+    </ClInclude>
+    <ClInclude Include="Common\ErrorProcess.h">
+      <Filter>Common</Filter>
+    </ClInclude>
+    <ClInclude Include="Common\Global.h">
+      <Filter>Common</Filter>
+    </ClInclude>
+    <ClInclude Include="Common\IntStringConverter.h">
+      <Filter>Common</Filter>
+    </ClInclude>
+    <ClInclude Include="Common\Singleton.h">
+      <Filter>Common</Filter>
+    </ClInclude>
+    <ClInclude Include="Common\Structure.h">
+      <Filter>Common</Filter>
+    </ClInclude>
+    <ClInclude Include="ConfigFile\IniFile.h">
+      <Filter>ConfigFile</Filter>
+    </ClInclude>
+    <ClInclude Include="ConfigFile\State.h">
+      <Filter>ConfigFile</Filter>
+    </ClInclude>
+    <ClInclude Include="GlobalData\KeyWordTable.h">
+      <Filter>GlobalData</Filter>
+    </ClInclude>
+    <ClInclude Include="GlobalData\LexParseGlobalDataDef.h">
+      <Filter>GlobalData</Filter>
+    </ClInclude>
+    <ClInclude Include="GlobalData\LexStateTable.h">
+      <Filter>GlobalData</Filter>
+    </ClInclude>
+    <ClInclude Include="GlobalData\WordStreamTable.h">
+      <Filter>GlobalData</Filter>
+    </ClInclude>
+    <ClInclude Include="Initialization\Initializationer.h">
+      <Filter>Initialization</Filter>
+    </ClInclude>
+    <ClInclude Include="LexParser\LexParser.h">
+      <Filter>LexParser</Filter>
+    </ClInclude>
+    <ClInclude Include="Log\LogFile.h">
+      <Filter>Log</Filter>
+    </ClInclude>
+    <ClInclude Include="SymbolTable\SymbolTable.h">
+      <Filter>SymbolTable</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="stdafx.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="CompilerTask.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="Common\CommonLib.cpp">
+      <Filter>Common</Filter>
+    </ClCompile>
+    <ClCompile Include="Common\ErrorProcess.cpp">
+      <Filter>Common</Filter>
+    </ClCompile>
+    <ClCompile Include="Common\Global.cpp">
+      <Filter>Common</Filter>
+    </ClCompile>
+    <ClCompile Include="Common\IntStringConverter.cpp">
+      <Filter>Common</Filter>
+    </ClCompile>
+    <ClCompile Include="Common\Structure.cpp">
+      <Filter>Common</Filter>
+    </ClCompile>
+    <ClCompile Include="ConfigFile\IniFile.cpp">
+      <Filter>ConfigFile</Filter>
+    </ClCompile>
+    <ClCompile Include="ConfigFile\State.cpp">
+      <Filter>ConfigFile</Filter>
+    </ClCompile>
+    <ClCompile Include="GlobalData\KeyWordTable.cpp">
+      <Filter>GlobalData</Filter>
+    </ClCompile>
+    <ClCompile Include="GlobalData\LexStateTable.cpp">
+      <Filter>GlobalData</Filter>
+    </ClCompile>
+    <ClCompile Include="GlobalData\WordStreamTable.cpp">
+      <Filter>GlobalData</Filter>
+    </ClCompile>
+    <ClCompile Include="Initialization\Initializationer.cpp">
+      <Filter>Initialization</Filter>
+    </ClCompile>
+    <ClCompile Include="LexParser\LexParser.cpp">
+      <Filter>LexParser</Filter>
+    </ClCompile>
+    <ClCompile Include="Log\LogFile.cpp">
+      <Filter>Log</Filter>
+    </ClCompile>
+    <ClCompile Include="SymbolTable\SymbolTable.cpp">
+      <Filter>SymbolTable</Filter>
+    </ClCompile>
+  </ItemGroup>
+</Project>

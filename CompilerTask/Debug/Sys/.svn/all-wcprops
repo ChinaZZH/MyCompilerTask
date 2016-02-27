@@ -1,0 +1,59 @@
+K 25
+svn:wc:ra_dav:version-url
+V 34
+/svnroot/neopascal/!svn/ver/10/Sys
+END
+AsmScheme.txt
+K 25
+svn:wc:ra_dav:version-url
+V 47
+/svnroot/neopascal/!svn/ver/5/Sys/AsmScheme.txt
+END
+PeepHolescheme.txt
+K 25
+svn:wc:ra_dav:version-url
+V 52
+/svnroot/neopascal/!svn/ver/5/Sys/PeepHolescheme.txt
+END
+KEYWORDS.txt
+K 25
+svn:wc:ra_dav:version-url
+V 46
+/svnroot/neopascal/!svn/ver/5/Sys/KEYWORDS.txt
+END
+lex.txt
+K 25
+svn:wc:ra_dav:version-url
+V 41
+/svnroot/neopascal/!svn/ver/5/Sys/lex.txt
+END
+parse.txt
+K 25
+svn:wc:ra_dav:version-url
+V 43
+/svnroot/neopascal/!svn/ver/5/Sys/parse.txt
+END
+AsmSchm.txt
+K 25
+svn:wc:ra_dav:version-url
+V 46
+/svnroot/neopascal/!svn/ver/18/Sys/AsmSchm.txt
+END
+operators.txt
+K 25
+svn:wc:ra_dav:version-url
+V 47
+/svnroot/neopascal/!svn/ver/5/Sys/operators.txt
+END
+TypeSys.txt
+K 25
+svn:wc:ra_dav:version-url
+V 45
+/svnroot/neopascal/!svn/ver/5/Sys/TypeSys.txt
+END
+product.txt
+K 25
+svn:wc:ra_dav:version-url
+V 45
+/svnroot/neopascal/!svn/ver/5/Sys/product.txt
+END
