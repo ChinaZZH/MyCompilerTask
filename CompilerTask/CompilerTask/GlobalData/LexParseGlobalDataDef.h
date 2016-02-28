@@ -43,7 +43,7 @@ enum eLexStateValue
 
 	// 非终结符 程序结束符
 	eSLV_StartSyntaxParser = 100,
-	eSLV_Semantics
+	eSLV_SemanticsParserStart = 300, 
 };
 
 // 终结符号类型

@@ -29,6 +29,10 @@ typedef bool (CLex::*_HandleProcessSymbolStatus)(int nCurrentState);
 struct SSymbolHandler
 {
 	_HandleProcessSymbolStatus  m_handlerOfProcessSymbol;
+
+	SSymbolHandler()
+		:m_handlerOfProcessSymbol(NULL)
+	{ }
 };
 
 typedef map<eEndSymbolType, SSymbolHandler> SymbolHandlerMap;

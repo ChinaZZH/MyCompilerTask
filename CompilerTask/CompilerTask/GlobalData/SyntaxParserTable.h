@@ -32,15 +32,29 @@ public:
 public:
 	void init();
 
+public:
+	bool checkIsCorrectProduct(int nTableRowIndex, int nTableColIndex);
+
+	int getProductFromParserTable(int nTableRowIndex, int nTableColIndex);
+
+	std::string getProductById(int nProductId);
+
 private:
 	bool initSyntaxParserTable();
 
 	bool initProductTable();
 
+	// 判断数组是否越界（行）
+	bool checkRowIndexValue(int nRowIndexValue);
+
+	// 判断数组是否越界(列）
+	bool checkColIndexValue(int nColIndexValue);
+
 private:
 	int m_arrayParseTbl[g_s_ParseTableNum][g_s_ParseTableNum];
 	ProductListVec m_vecStringProductList;
 
+	const static int S_N_InvalidProduct = -1;
 	const static int S_N_ParserTableRow = 99;
 	const static int S_N_ParserTableCol = 100;
 };

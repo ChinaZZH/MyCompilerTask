@@ -8,7 +8,7 @@ SyntaxParserTable::SyntaxParserTable()
 {
 	for(int i = 0; i < g_s_ParseTableNum; ++i){
 		for(int j = 0; j < g_s_ParseTableNum; ++j){
-			m_arrayParseTbl[i][j] = -1;
+			m_arrayParseTbl[i][j] = S_N_InvalidProduct;
 		}
 	}
 
@@ -103,4 +103,76 @@ bool SyntaxParserTable::initProductTable()
 	
 	bInitTableResult = true;
 	return bInitTableResult;
+}
+
+
+bool SyntaxParserTable::checkIsCorrectProduct(int nTableRowIndex, int nTableColIndex)
+{
+	bool bCheckPorductResult = false;
+	if(false == this->checkRowIndexValue(nTableRowIndex)){
+		return bCheckPorductResult;
+	}
+
+	if(false == this->checkColIndexValue(nTableColIndex)){
+		return bCheckPorductResult;
+	}
+
+	if(S_N_InvalidProduct == m_arrayParseTbl[nTableRowIndex][nTableColIndex]){
+		return bCheckPorductResult;
+	}
+
+	bCheckPorductResult = true;
+	return bCheckPorductResult;
+}
+
+
+int SyntaxParserTable::getProductFromParserTable(int nTableRowIndex, int nTableColIndex)
+{
+	bool bCheckCorrectStatus = this->checkIsCorrectProduct(nTableRowIndex, nTableColIndex);
+	if(false == bCheckCorrectStatus){
+		return S_N_InvalidProduct;
+	}
+
+	return m_arrayParseTbl[nTableRowIndex][nTableColIndex];
+}
+
+std::string SyntaxParserTable::getProductById(int nProductId)
+{
+	if((nProductId <= 0) || (nProductId >= m_vecStringProductList.size())){
+		std::string strEmptyProductId;
+		return strEmptyProductId;
+	}
+
+	return m_vecStringProductList[nProductId];
+}
+
+
+bool SyntaxParserTable::checkRowIndexValue(int nRowIndexValue)
+{
+	bool bCheckRowIndex = false;
+	if(nRowIndexValue < 0){
+		return bCheckRowIndex;
+	}
+
+	if(nRowIndexValue >= g_s_ParseTableNum){
+		return bCheckRowIndex;
+	}
+
+	bCheckRowIndex = true;
+	return bCheckRowIndex;
+}
+
+bool SyntaxParserTable::checkColIndexValue(int nColIndexValue)
+{
+	bool bCheckColIndex = false;
+	if(nColIndexValue < 0){
+		return bCheckColIndex;
+	}
+
+	if(nColIndexValue >= g_s_ParseTableNum){
+		return bCheckColIndex;
+	}
+
+	bCheckColIndex = true;
+	return bCheckColIndex;
 }
