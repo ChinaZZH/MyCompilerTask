@@ -31,6 +31,12 @@ public:
 
 	std::string getKeyWordsFile() { return (m_szSysDir + "keywords.txt");  }
 
+	std::string getTypeSyssFile() { return (m_szSysDir + "TypeSys.txt"); }
+
+	std::string getSyntaxParserTableFileName() { return (m_szSysDir + "parse.txt"); }
+
+	std::string getProductFileName() { return (m_szSysDir + "product.txt"); }
+
 private:
 	std::string addSysPathDirTag(std::string& strPathDir);
 

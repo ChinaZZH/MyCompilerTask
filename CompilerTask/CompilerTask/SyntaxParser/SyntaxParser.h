@@ -14,31 +14,12 @@
 
 #pragma once
 #include "../Common/Singleton.h"
-#include <string>
-#include "ConstInfoTable.h"
-#include "TypeSysTable.h"
 
-
-
-class SymbolTable
+class SyntaxParser
 {
 public:
-	SymbolTable();
+	SyntaxParser();
+	~SyntaxParser();
+};
 
-	~SymbolTable();
-
-public:
-	void init();
-
-	void initTypeInfoByString(const std::string& szTypeInfoString);
-
-public:
-	int RecConstTbl(const std::string& szValue, int iType);
-
-private:
-	ConstInfoTable  m_constInfoTable;
-	TypeSysTable    m_typeSysTable;
-}; 
-
-typedef Singleton<SymbolTable> SymbolTableInst;
-
+typedef Singleton<SyntaxParser> SyntaxParserInst;

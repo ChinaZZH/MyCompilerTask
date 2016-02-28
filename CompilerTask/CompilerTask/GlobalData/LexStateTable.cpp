@@ -1,7 +1,7 @@
-
 #include "LexStateTable.h"
 #include "../ConfigFile/State.h"
 #include "../Common/CommonLib.h"
+#include "../Log/LogFile.h"
 
 LexStateTable::LexStateTable()
 {
@@ -24,16 +24,17 @@ void LexStateTable::initData()
 	// 设置词法分析状态表
 	std::string strLexStateFile = ConfigFileDataInst::instance().getLexPaserInstFileName();
 	if(true == strLexStateFile.empty()){
+		LogFileInst::instance().logError("LexStateTable::initData strLexStateFile null", __FILE__, __LINE__);
 		return;
 	}
 
 	std::string strLexContent = CommonLib::FileRead(strLexStateFile);
 	if(true == strLexContent.empty()){
+		LogFileInst::instance().logError("LexStateTable::initData strLexContent null", __FILE__, __LINE__);
 		return;
 	}
 
 	strLexContent = CommonLib::StrErase(strLexContent, '\n');
-	
 	this->parseInitDataToStateTable(strLexContent);
 }
 
@@ -67,7 +68,4 @@ void LexStateTable::parseInitDataToStateTable(const std::string& strInitStateDat
 			iTmp = iTmp + 3;
 		}
 	}
-
-	
-	int i = 0;
 }

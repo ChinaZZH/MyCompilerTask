@@ -34,6 +34,9 @@
     <Filter Include="SymbolTable">
       <UniqueIdentifier>{619722b9-530e-4d02-99e3-f6e14d16d446}</UniqueIdentifier>
     </Filter>
+    <Filter Include="SyntaxParser">
+      <UniqueIdentifier>{e768758d-0ecf-4573-8a53-924ecc3a270a}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <Text Include="ReadMe.txt" />
@@ -99,6 +102,15 @@
     <ClInclude Include="GlobalData\TypeSystemConfig.h">
       <Filter>GlobalData</Filter>
     </ClInclude>
+    <ClInclude Include="GlobalData\SyntaxParserTable.h">
+      <Filter>GlobalData</Filter>
+    </ClInclude>
+    <ClInclude Include="SymbolTable\TypeSysTable.h">
+      <Filter>SymbolTable</Filter>
+    </ClInclude>
+    <ClInclude Include="SyntaxParser\SyntaxParser.h">
+      <Filter>SyntaxParser</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -154,6 +166,15 @@
     </ClCompile>
     <ClCompile Include="GlobalData\TypeSystemConfig.cpp">
       <Filter>GlobalData</Filter>
+    </ClCompile>
+    <ClCompile Include="GlobalData\SyntaxParserTable.cpp">
+      <Filter>GlobalData</Filter>
+    </ClCompile>
+    <ClCompile Include="SymbolTable\TypeSysTable.cpp">
+      <Filter>SymbolTable</Filter>
+    </ClCompile>
+    <ClCompile Include="SyntaxParser\SyntaxParser.cpp">
+      <Filter>SyntaxParser</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

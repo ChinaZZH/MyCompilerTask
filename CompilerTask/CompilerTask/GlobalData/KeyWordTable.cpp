@@ -2,6 +2,7 @@
 #include "KeyWordTable.h"
 #include "../ConfigFile/State.h"
 #include "../Common/CommonLib.h"
+#include "../Log/LogFile.h"
 
 
 KeyWordTable::KeyWordTable()
@@ -17,14 +18,14 @@ KeyWordTable::~KeyWordTable()
 void KeyWordTable::initData()
 {
 	std::string strKeyWordsFile = ConfigFileDataInst::instance().getKeyWordsFile();
-	if(true == strKeyWordsFile.empty())
-	{
+	if(true == strKeyWordsFile.empty()){
+		LogFileInst::instance().logError("KeyWordTable::initData strKeyWordsFile null", __FILE__, __LINE__);
 		return;
 	}
 
 	std::string strKeyWordsContent = CommonLib::FileRead(strKeyWordsFile);
-	if(true == strKeyWordsContent.empty())
-	{
+	if(true == strKeyWordsContent.empty()){
+		LogFileInst::instance().logError("KeyWordTable::initData strKeyWordsContent null", __FILE__, __LINE__);
 		return;
 	}
 

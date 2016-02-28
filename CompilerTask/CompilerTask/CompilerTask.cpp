@@ -15,9 +15,10 @@
 #include "LexParser/LexParser.h"
 #include "Log/LogFile.h"
 #include "SymbolTable/SymbolTable.h"
+#include "GlobalData/TypeSystemConfig.h"
+#include "GlobalData/SyntaxParserTable.h"
 
 using namespace std;
-extern std::vector<CToken> TokenList;
 
 
 int _tmain(int argc, char* argv[])
@@ -46,8 +47,10 @@ int _tmain(int argc, char* argv[])
 
 	// 语法分析配置读取
 	TypeSystemConfigInst::instance().initTypeSysTbl();
-	SyntaxParserTableInst::instance().Init();
+	SyntaxParserTableInst::instance().init();
 	SymbolTableInst::instance().init();
+
+	//SyntaxPaserInst::instance()
 
 	std::cout << "词法分析成功, 继续语法分析" << std::endl;
 	system("pause");

@@ -103,7 +103,7 @@ bool ConfigFile::readConfigData(int argc, char** argv)
 		return bAceess;
 	}
 
-	if(m_szOutputFile.empty())
+	if(true == m_szOutputFile.empty())
 	{
 		EmitErrorFile::EmitError("缺少输出文件名");
 		return bAceess;
@@ -128,3 +128,5 @@ std::string ConfigFile::addSysPathDirTag(std::string& strPathDir)
 
 	return strPathDir;
 }
+
+
