@@ -30,6 +30,12 @@ public:
 
 	void pushNewWordToTable(int nWordStatus, std::string strContentValue, int nRowIndex);
 
+public:
+	const CToken* getWordTokenByTableIndex(int nTableIndex);
+
+private:
+	bool checkWordTableIndexIsCorrect(int nIndexValue);
+
 private:
 	std::vector<CToken> m_vecWordsStreamTable;
 };

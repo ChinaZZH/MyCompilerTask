@@ -25,6 +25,12 @@ public:
 
 public:
 	bool processSyntaxParse();
+
+private:
+	int enParserStack();
+
+private:
+	std::stack<int> m_stackSyntaxParser;
 };
 
 typedef Singleton<SyntaxParser> SyntaxParserInst;

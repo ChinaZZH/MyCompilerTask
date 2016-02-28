@@ -41,7 +41,9 @@ enum eLexStateValue
 	eSLV_OperatorStartIndex = 16,
 	eSLV_OperatorEndIndex = 28,    // 赋值
 
-
+	// 非终结符 程序结束符
+	eSLV_StartSyntaxParser = 100,
+	eSLV_Semantics
 };
 
 // 终结符号类型

@@ -35,3 +35,29 @@ void WordStreamTable::pushNewWordToTable(int nWordStatus, std::string strContent
 }
 
 
+const CToken* WordStreamTable::getWordTokenByTableIndex(int nTableIndex)
+{
+	bool bCheckIndexCorrect = this->checkWordTableIndexIsCorrect(nTableIndex);
+	if(false == bCheckIndexCorrect){
+		return NULL;
+	}
+
+	const CToken* pGetWordToken = &m_vecWordsStreamTable[nTableIndex];
+	return pGetWordToken;
+}
+
+
+bool WordStreamTable::checkWordTableIndexIsCorrect(int nIndexValue)
+{
+	bool bCheckIndexResult = false;
+	if(nIndexValue < 0){
+		return bCheckIndexResult;
+	}
+
+	if(nIndexValue >= m_vecWordsStreamTable.size()){
+		return bCheckIndexResult;
+	}
+
+	bCheckIndexResult = true;
+	return bCheckIndexResult;
+}
