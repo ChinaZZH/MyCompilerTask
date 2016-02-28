@@ -17,6 +17,7 @@
 #include "SymbolTable/SymbolTable.h"
 #include "GlobalData/TypeSystemConfig.h"
 #include "GlobalData/SyntaxParserTable.h"
+#include "SyntaxParser/SyntaxParser.h"
 
 using namespace std;
 
@@ -32,27 +33,34 @@ int _tmain(int argc, char* argv[])
 		return 1;
 	}
 
-	// 词法分析初始化
 	KeyWordTableInst::instance().initData();
 	LexStateTableInst::instance().initData();
-
-	std::cout << "词法分析开始......." << std::endl;
-	bool bTokenResult = LexPaserInst::instance().GenTokenFromSourceFile();
-	if (false == bTokenResult)
-	{
-		EmitErrorFile::PrintError();
-		system("pause");
-		return 1;
-	}
-
-	// 语法分析配置读取
 	TypeSystemConfigInst::instance().initTypeSysTbl();
 	SyntaxParserTableInst::instance().init();
 	SymbolTableInst::instance().init();
 
-	//SyntaxPaserInst::instance()
-
+	// 词法分析初始化
+	std::cout << "词法分析开始......." << std::endl;
+	bool bTokenResult = LexPaserInst::instance().GenTokenFromSourceFile();
+	if(false == bTokenResult){
+		EmitErrorFile::PrintError();
+		system("pause");
+		return 1;
+	}
 	std::cout << "词法分析成功, 继续语法分析" << std::endl;
+
+
+	// 语法分析配置读取
+	std::cout << std::endl << "语法分析开始......." << std::endl;
+	bool bProcessSyntax = SyntaxParserInst::instance().processSyntaxParse();
+	if(false == bProcessSyntax){
+		EmitErrorFile::PrintError();
+		system("pause");
+		return 1;
+	}
+	std::cout << "语法分析成功" << std::endl;
+	
+
 	system("pause");
 	return 0;
 }

@@ -14,12 +14,17 @@
 
 #pragma once
 #include "../Common/Singleton.h"
+#include <stack>
+
 
 class SyntaxParser
 {
 public:
 	SyntaxParser();
 	~SyntaxParser();
+
+public:
+	bool processSyntaxParse();
 };
 
 typedef Singleton<SyntaxParser> SyntaxParserInst;
