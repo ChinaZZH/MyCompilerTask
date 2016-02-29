@@ -33,6 +33,8 @@ public:
 public:
 	const CToken* getWordTokenByTableIndex(int nTableIndex);
 
+	int getMaxWordNumInTable();
+
 private:
 	bool checkWordTableIndexIsCorrect(int nIndexValue);
 

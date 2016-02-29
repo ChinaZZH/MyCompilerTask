@@ -35,6 +35,13 @@ void WordStreamTable::pushNewWordToTable(int nWordStatus, std::string strContent
 }
 
 
+int WordStreamTable::getMaxWordNumInTable()
+{
+	int nMaxWordNum = m_vecWordsStreamTable.size();
+	return nMaxWordNum;
+}
+
+
 const CToken* WordStreamTable::getWordTokenByTableIndex(int nTableIndex)
 {
 	bool bCheckIndexCorrect = this->checkWordTableIndexIsCorrect(nTableIndex);

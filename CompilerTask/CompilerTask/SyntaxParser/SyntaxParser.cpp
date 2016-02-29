@@ -3,6 +3,7 @@
 #include "../GlobalData/WordStreamTable.h"
 #include "../Log/LogFile.h"
 #include "../GlobalData/SyntaxParserTable.h"
+#include "../SemanticsParser/SemanticsParserMgr.h"
 
 
 
@@ -78,6 +79,14 @@ bool SyntaxParser::processSyntaxParse()
 		}
 	}
 
+	// 还有单词流的单词还没有分析完
+	int nMaxWordNum = WordStreamTableInst::instance().getMaxWordNumInTable();
+	if(m_nParserWordTableIndex < nMaxWordNum){
+		LogFileInst::instance().logError("SyntaxParser::processSyntaxParse SynataxParser error", __FILE__, __LINE__);
+		return bProcessResult;
+	}
+
+	// 语法分析正确
 	bProcessResult = false;
 	return bProcessResult;
 }
@@ -230,7 +239,12 @@ bool SyntaxParser::handleSemanticsSyntaxParser(int nStackElementValue, const CTo
 		return bHandleProcess;
 	}
 
-	// 省略
+	bHandleProcess = SemanticsParserMgrInst::instance().processSemanticsParser(nStackElementValue);
+	if(false == bHandleProcess){
+		LogFileInst::instance().logError("SyntaxParser::handleSemanticsSyntaxParser 语义分析出错", __FILE__, __LINE__);
+		return bHandleProcess;
+	}
+
 	bHandleProcess = true;
 	return bHandleProcess;
 }

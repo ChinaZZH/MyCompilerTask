@@ -37,6 +37,9 @@
     <Filter Include="SyntaxParser">
       <UniqueIdentifier>{e768758d-0ecf-4573-8a53-924ecc3a270a}</UniqueIdentifier>
     </Filter>
+    <Filter Include="SemanticsParser">
+      <UniqueIdentifier>{aaa41def-4147-4129-8dba-76d0c64cf1a6}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <Text Include="ReadMe.txt" />
@@ -111,6 +114,15 @@
     <ClInclude Include="SyntaxParser\SyntaxParser.h">
       <Filter>SyntaxParser</Filter>
     </ClInclude>
+    <ClInclude Include="SyntaxParser\SyntaxParserEnumValue.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="SemanticsParser\SemanticsParserMgr.h">
+      <Filter>SemanticsParser</Filter>
+    </ClInclude>
+    <ClInclude Include="SemanticsParser\BaseSemanticser.h">
+      <Filter>SemanticsParser</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -175,6 +187,9 @@
     </ClCompile>
     <ClCompile Include="SyntaxParser\SyntaxParser.cpp">
       <Filter>SyntaxParser</Filter>
+    </ClCompile>
+    <ClCompile Include="SemanticsParser\SemanticsParserMgr.cpp">
+      <Filter>SemanticsParser</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
