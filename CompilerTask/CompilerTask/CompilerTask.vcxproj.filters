@@ -22,9 +22,6 @@
     <Filter Include="GlobalData">
       <UniqueIdentifier>{08e8c847-6b4c-436d-84b3-1c8945443e46}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Initialization">
-      <UniqueIdentifier>{892b4f60-775d-407d-8535-6893456a8bed}</UniqueIdentifier>
-    </Filter>
     <Filter Include="LexParser">
       <UniqueIdentifier>{83192fa2-8f16-400c-b7d3-83f46c0191b0}</UniqueIdentifier>
     </Filter>
@@ -83,9 +80,6 @@
     </ClInclude>
     <ClInclude Include="GlobalData\WordStreamTable.h">
       <Filter>GlobalData</Filter>
-    </ClInclude>
-    <ClInclude Include="Initialization\Initializationer.h">
-      <Filter>Initialization</Filter>
     </ClInclude>
     <ClInclude Include="LexParser\LexParser.h">
       <Filter>LexParser</Filter>
@@ -148,9 +142,6 @@
     </ClCompile>
     <ClCompile Include="GlobalData\WordStreamTable.cpp">
       <Filter>GlobalData</Filter>
-    </ClCompile>
-    <ClCompile Include="Initialization\Initializationer.cpp">
-      <Filter>Initialization</Filter>
     </ClCompile>
     <ClCompile Include="LexParser\LexParser.cpp">
       <Filter>LexParser</Filter>
