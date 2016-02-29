@@ -229,7 +229,7 @@ bool CLex::handleProcessIdentifier(int nCurrentState)
 	int nTrueBuff = m_strWordBuff.compare("TRUE");
 	int nFalseBuff = m_strWordBuff.compare("FALSE");
 	if((0==nTrueBuff) || (0==nFalseBuff)){
-		int nConstAddress = SymbolTableInst::instance().RecConstTbl(m_strWordBuff, eCEV_ConstantBoolValue);
+		int nConstAddress = SymbolTableInst::instance().recConstTbl(m_strWordBuff, eCEV_ConstantBoolValue);
 		WordStreamTableInst::instance().pushNewWordToTable(eLSV_ConstantInteger, nConstAddress, m_nRowIndex);
 		return bProcessResult;
 	}
@@ -243,7 +243,7 @@ bool CLex::handleProcessConstant(int nCurrentState)
 {
 	bool bProcessResult = false;
 	nCurrentState = (-1)*(nCurrentState);
-	int nConstAddress = SymbolTableInst::instance().RecConstTbl(m_strWordBuff, nCurrentState);
+	int nConstAddress = SymbolTableInst::instance().recConstTbl(m_strWordBuff, nCurrentState);
 	WordStreamTableInst::instance().pushNewWordToTable(nCurrentState, nConstAddress, m_nRowIndex);
 	bProcessResult = true;
 	return bProcessResult;
@@ -275,7 +275,7 @@ bool CLex::handleProcessTwoPointSymbol(int nCurrentState)
 
 	m_strWordBuff = CommonLib::trim(m_strWordBuff);
 
-	int nConstAddress = SymbolTableInst::instance().RecConstTbl(m_strWordBuff, eCEV_ConstantInteger);
+	int nConstAddress = SymbolTableInst::instance().recConstTbl(m_strWordBuff, eCEV_ConstantInteger);
 	WordStreamTableInst::instance().pushNewWordToTable(eLSV_ConstantInteger, nConstAddress, m_nRowIndex);
 	bProcessResult = true;
 	return bProcessResult;

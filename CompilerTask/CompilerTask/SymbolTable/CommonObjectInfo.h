@@ -2,7 +2,7 @@
             Copyright (c) 2015
                    All rights reserved
          
-    创建日期：  2016年 月 日 时 分
+    创建日期：  2015年 月 日 时 分
     文件名称：  
     说    明：       
     
@@ -14,21 +14,14 @@
 
 #pragma once
 #include <string>
-#include <map>
 
-//
-typedef std::map<int, ConstInfo> ConstInfoMap;
-
-class ConstInfoTable
+struct CommonObjectInfo
 {
-public:
-	ConstInfoTable();
-	~ConstInfoTable();
+	std::string m_strName;  // 对应的名字
+	int m_nProcIndex;       // 所属过程的指针
 
-public:
-	int RecConstTbl(const std::string& szValue, int iType);
-
-public:
-	ConstInfoMap  m_mapConstInfoTable;
-
+	CommonObjectInfo()
+		:m_strName(0)
+		, m_nProcIndex(0)
+	{ }
 };

@@ -39,7 +39,7 @@ void SymbolTable::initTypeInfoByString(const std::string& szTypeInfoString)
 
 
 // 符号表 还没有去写
-int SymbolTable::RecConstTbl(const std::string& szValue, int iType)
+int SymbolTable::recConstTbl(const std::string& szValue, int iType)
 {
 	return m_constInfoTable.RecConstTbl(szValue, iType);
 }

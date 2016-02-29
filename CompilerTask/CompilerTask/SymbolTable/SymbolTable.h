@@ -33,7 +33,7 @@ public:
 	void initTypeInfoByString(const std::string& szTypeInfoString);
 
 public:
-	int RecConstTbl(const std::string& szValue, int iType);
+	int recConstTbl(const std::string& szValue, int iType);
 
 private:
 	ConstInfoTable  m_constInfoTable;
