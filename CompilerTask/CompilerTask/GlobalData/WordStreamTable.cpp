@@ -61,7 +61,7 @@ bool WordStreamTable::checkWordTableIndexIsCorrect(int nIndexValue)
 		return bCheckIndexResult;
 	}
 
-	if(nIndexValue >= m_vecWordsStreamTable.size()){
+	if(nIndexValue >= (int)m_vecWordsStreamTable.size()){
 		return bCheckIndexResult;
 	}
 

@@ -19,7 +19,7 @@
 #include <map>
 #include "SyntaxParserEnumValue.h"
 
-class CToken;
+struct CToken;
 class SyntaxParser;
 typedef bool(SyntaxParser::*_HandleSyntaxParserStatus)(int nStackElementValue, const CToken* pWordToken);
 struct SSyntaxParserHandler

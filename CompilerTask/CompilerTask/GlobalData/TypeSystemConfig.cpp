@@ -28,7 +28,7 @@ void TypeSystemConfig::initTypeSysTbl()
 		return;
 	}
 
-	for(int i = 0; i < strTypeSysContent.size(); i = i + TYPE_TABLE_FIELD_NUM){
+	for(int i = 0; i < (int)strTypeSysContent.size(); i = i + TYPE_TABLE_FIELD_NUM){
 		std::string strTempTypeSys = strTypeSysContent.substr(i, 35);
 		if(true == strTempTypeSys.empty()){
 			LogFileInst::instance().logError("TypeSystemConfig::initTypeSysTbl strTempTypeSys null", __FILE__, __LINE__);

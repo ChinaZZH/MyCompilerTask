@@ -83,7 +83,7 @@ bool SyntaxParserTable::initProductTable()
 	}
 
 	std::string strTmpWord = "";
-	for(int i = 0; i < strProductContent.length(); ++i){
+	for(int i = 0; i < (int)strProductContent.length(); ++i){
 		if('\n' != strProductContent[i]){
 			strTmpWord.append(1, strProductContent[i]);
 			continue;
@@ -138,7 +138,7 @@ int SyntaxParserTable::getProductFromParserTable(int nTableRowIndex, int nTableC
 
 std::string SyntaxParserTable::getProductById(int nProductId)
 {
-	if((nProductId <= 0) || (nProductId >= m_vecStringProductList.size())){
+	if((nProductId <= 0) || (nProductId >= (int)m_vecStringProductList.size())){
 		std::string strEmptyProductId;
 		return strEmptyProductId;
 	}
