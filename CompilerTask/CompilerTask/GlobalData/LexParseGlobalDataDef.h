@@ -46,6 +46,21 @@ enum eLexStateValue
 	eSLV_SemanticsParserStart = 300, 
 };
 
+enum eConstantEnumValue
+{
+	eCEV_ConstantNull = 0,
+	eCEV_ConstantString = 2,
+	eCEV_ConstantInteger = 3,
+	eCEV_ConstantCommonReal = 4,
+	eCEV_ConstantSciencePlusReal = 5,
+	eCEV_ConstantScienceReal = 6,
+	eCEV_ConstantBoolValue = 7,
+	eCEV_ConstantEnumValue = 8,
+	eCEV_ConstantSetValue = 9,
+	eCEV_ConstantPtrValue = 10,
+};
+
+
 // ÷’Ω·∑˚∫≈¿‡–Õ
 enum eEndSymbolType
 {
@@ -57,12 +72,3 @@ enum eEndSymbolType
 	eEST_Other = 6,
 };
 
-enum eConstantEnumValue
-{
-	eCEV_ConstantString = 2,
-	eCEV_ConstantInteger = 3,
-	eCEV_ConstantCommonReal = 4,
-	eCEV_ConstantSciencePlusReal = 5,
-	eCEV_ConstantScienceReal = 6,
-	eCEV_ConstantBoolValue = 7,
-};

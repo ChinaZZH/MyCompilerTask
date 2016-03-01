@@ -11,9 +11,20 @@ ConstInfoTable::~ConstInfoTable()
 
 }
 
-int ConstInfoTable::RecConstTbl(const std::string& szValue, int iType)
+int ConstInfoTable::recConstTbl(const std::string& szValue, int iType)
 {
-	return 1;
+	ConstInfo newConstInfo;
+	newConstInfo.m_strName = szValue;
+	newConstInfo.m_strConstStringValue = szValue;
+	newConstInfo.m_eDataStoreValue = eDSEV_Null;
+	newConstInfo.m_eConstBaseValue = static_cast<eConstantEnumValue>(iType);
+
+	int nConstAddressValue = m_mapConstInfoTable.size();
+	m_mapConstInfoTable[nConstAddressValue] = newConstInfo;
+
+	// 将其放入类型表中
+	//CType::ProcessConstType(nConstAddressValue);
+	return nConstAddressValue;
 }
 
 

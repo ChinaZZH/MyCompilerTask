@@ -225,7 +225,7 @@ bool CLex::handleProcessIdentifier(int nCurrentState)
 		return bProcessResult;
 	}
 
-	// true false;
+	
 	int nTrueBuff = m_strWordBuff.compare("TRUE");
 	int nFalseBuff = m_strWordBuff.compare("FALSE");
 	if((0==nTrueBuff) || (0==nFalseBuff)){

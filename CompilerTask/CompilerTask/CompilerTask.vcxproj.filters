@@ -108,14 +108,23 @@
     <ClInclude Include="SyntaxParser\SyntaxParser.h">
       <Filter>SyntaxParser</Filter>
     </ClInclude>
-    <ClInclude Include="SyntaxParser\SyntaxParserEnumValue.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
     <ClInclude Include="SemanticsParser\SemanticsParserMgr.h">
       <Filter>SemanticsParser</Filter>
     </ClInclude>
     <ClInclude Include="SemanticsParser\BaseSemanticser.h">
       <Filter>SemanticsParser</Filter>
+    </ClInclude>
+    <ClInclude Include="SymbolTable\CommonObjectInfo.h">
+      <Filter>SymbolTable</Filter>
+    </ClInclude>
+    <ClInclude Include="SyntaxParser\SyntaxParserEnumValue.h">
+      <Filter>SyntaxParser</Filter>
+    </ClInclude>
+    <ClInclude Include="SymbolTable\VarInfoTable.h">
+      <Filter>SymbolTable</Filter>
+    </ClInclude>
+    <ClInclude Include="GlobalData\SyntaxParserGlobalDataDef.h">
+      <Filter>GlobalData</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -181,6 +190,9 @@
     </ClCompile>
     <ClCompile Include="SemanticsParser\SemanticsParserMgr.cpp">
       <Filter>SemanticsParser</Filter>
+    </ClCompile>
+    <ClCompile Include="SymbolTable\VarInfoTable.cpp">
+      <Filter>SymbolTable</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
