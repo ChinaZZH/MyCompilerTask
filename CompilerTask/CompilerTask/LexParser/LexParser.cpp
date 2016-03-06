@@ -221,6 +221,7 @@ bool CLex::handleProcessIdentifier(int nCurrentState)
 	// 查找关键字表
 	int nKeyWordStatus = KeyWordTableInst::instance().searchKeyWordOnTable(m_strWordBuff);
 	if(0 != nKeyWordStatus){
+		// 关键字
 		WordStreamTableInst::instance().pushNewWordToTable(nKeyWordStatus, NULL, m_nRowIndex);
 		return bProcessResult;
 	}
@@ -238,6 +239,7 @@ bool CLex::handleProcessIdentifier(int nCurrentState)
 	WordStreamTableInst::instance().pushNewWordToTable(eLSV_Identifier, m_strWordBuff, m_nRowIndex);
 	return bProcessResult;
 }
+
 
 bool CLex::handleProcessConstant(int nCurrentState)
 {

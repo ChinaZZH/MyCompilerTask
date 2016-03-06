@@ -98,6 +98,11 @@ void SyntaxParser::clearSyntaxStack()
 	}
 }
 
+int SyntaxParser::getParserWordTableIndex() const
+{
+	return this->m_nParserWordTableIndex;
+}
+
 
 int SyntaxParser::popTopValueParserStack()
 {

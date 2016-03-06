@@ -42,6 +42,9 @@ public:
 public:
 	bool processSyntaxParse();
 
+public:
+	int getParserWordTableIndex() const;
+
 private:
 	void clearSyntaxStack();
 

@@ -37,6 +37,11 @@ void SymbolTable::initTypeInfoByString(const std::string& szTypeInfoString)
 	m_typeSysTable.addNewTypeSysUnit(tempTypeSysInfo);
 }
 
+int SymbolTable::getProcStackTop()
+{
+	return -1;
+}
+
 
 // 符号表 还没有去写
 int SymbolTable::recConstTbl(const std::string& szValue, int iType)
@@ -45,3 +50,20 @@ int SymbolTable::recConstTbl(const std::string& szValue, int iType)
 }
 
 
+int SymbolTable::searchConstInfoTable(const int nProcId, const std::string& strConstName)
+{
+	return m_constInfoTable.searchConstInfoTable(nProcId, strConstName);
+}
+
+
+
+ConstInfo* SymbolTable::getEmptyConstInfoByName(const std::string& strConstName)
+{
+	return m_constInfoTable.getEmptyConstInfoByName(strConstName);
+}
+
+
+int SymbolTable::searchLableInfoTable(const int nProcId, const std::string& strLableName)
+{
+	return m_labelInfoTable.searchLableInfoTable(nProcId, strLableName);
+}

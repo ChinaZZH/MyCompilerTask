@@ -13,18 +13,20 @@
 *********************************************************************/
 
 #pragma once
-#include "SemanticsEnumDef.h"
+#include "CommonObjectInfo.h"
+#include <vector>
 
-class BaseSemanticser;
-class BaseSemanticser
+struct EnumInfo :CommonObjectInfo
+{
+
+};
+
+class EnumInfoTable
 {
 public:
-	BaseSemanticser();
+	EnumInfoTable();
+	~EnumInfoTable();
 
-	virtual ~BaseSemanticser();
-
-public:
-	virtual bool processSemanticsParser();
-
-	virtual eSemansticeParserEnumValue returnSemanticserEnumValue();
+private:
+	std::vector<EnumInfo>  m_vecEnumInfoTable;
 };

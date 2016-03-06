@@ -12,19 +12,15 @@
 
 *********************************************************************/
 
-#pragma once
-#include "SemanticsEnumDef.h"
-
-class BaseSemanticser;
-class BaseSemanticser
+enum eSemansticeParserEnumValue
 {
-public:
-	BaseSemanticser();
+	eSPEV_NullParser = 0,  // 标号声明
 
-	virtual ~BaseSemanticser();
+	eSPEV_LabelStatmentParser = 303,  // 标号声明
+	eSPEV_ConstStatmentParser = 304,  // 常量声明
+	//eSPEV_ProcCallSentence    = 305,
 
-public:
-	virtual bool processSemanticsParser();
-
-	virtual eSemansticeParserEnumValue returnSemanticserEnumValue();
+	eSPEV_TypeDefineParser  = 306,  // 类型定义
+	//eSPEV_VarStatmentParser   = 306,
+	//eSPEV_ProcStatmentParser  = 307,
 };

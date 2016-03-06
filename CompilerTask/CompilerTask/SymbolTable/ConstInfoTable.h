@@ -63,6 +63,10 @@ public:
 public:
 	int recConstTbl(const std::string& szValue, int iType);
 
+	int searchConstInfoTable(const int nProcId, const std::string& strConstName);
+
+	ConstInfo* getEmptyConstInfoByName(const std::string& strConstName);
+
 public:
 	ConstInfoMap  m_mapConstInfoTable;
 

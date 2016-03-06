@@ -27,6 +27,43 @@ int ConstInfoTable::recConstTbl(const std::string& szValue, int iType)
 	return nConstAddressValue;
 }
 
+int ConstInfoTable::searchConstInfoTable(const int nProcId, const std::string& strConstName)
+{
+	for(ConstInfoMap::const_iterator itr = m_mapConstInfoTable.begin(); itr != m_mapConstInfoTable.end(); ++itr){
+		const ConstInfo& infoConst = (itr->second);
+		bool bEqualConstInfo = infoConst.compare(nProcId, strConstName);
+		if(false == bEqualConstInfo){
+			continue;
+		}
+
+		int nConstInfoAddress = itr->first;
+		return nConstInfoAddress;
+	}
+
+	int nErrorConstInfoAddress = -1;
+	return nErrorConstInfoAddress;
+}
+
+ConstInfo* ConstInfoTable::getEmptyConstInfoByName(const std::string& strConstName)
+{
+	for(ConstInfoMap::iterator itr = m_mapConstInfoTable.begin(); itr != m_mapConstInfoTable.end(); ++itr){
+		ConstInfo& infoConst = (itr->second);
+		bool bEmptyObject = infoConst.isEmptyObject();
+		if(false == bEmptyObject){
+			continue;
+		}
+
+		int nCompareResult = infoConst.m_strName.compare(strConstName);
+		if(0 != nCompareResult){
+			continue;
+		}
+
+		ConstInfo* pResultConstInfo = &(itr->second);
+		return pResultConstInfo;
+	}
+
+	return NULL;
+}
 
 // int SymbolTable::RecConstTbl(const std::string& szValue, int iType)
 // {
