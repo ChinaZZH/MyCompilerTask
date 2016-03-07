@@ -16,6 +16,7 @@ enum eSemansticeParserEnumValue
 {
 	eSPEV_NullParser = 0,  // 标号声明
 
+	eSPEV_MainProgramHeaderStatementParser = 301, // 主程序首部声明
 	eSPEV_LabelStatmentParser = 303,  // 标号声明
 	eSPEV_ConstStatmentParser = 304,  // 常量声明
 	//eSPEV_ProcCallSentence    = 305,

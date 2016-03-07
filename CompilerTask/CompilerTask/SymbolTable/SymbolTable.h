@@ -21,6 +21,7 @@
 #include "ProcInfoTable.h"
 #include "LabelInfoTable.h"
 #include "EnumInfoTable.h"
+#include "ProcParserStack.h"
 
 
 
@@ -37,9 +38,6 @@ public:
 	void initTypeInfoByString(const std::string& szTypeInfoString);
 
 public:
-	int getProcStackTop();
-
-public:
 	int recConstTbl(const std::string& szValue, int iType);
 
 	int searchConstInfoTable(const int nProcId, const std::string& strConstName);
@@ -49,6 +47,18 @@ public:
 public:
 	int searchLableInfoTable(const int nProcId, const std::string& strLableName);
 
+	bool addLabelInfo(LabelInfo newLabelInfo);
+
+public:
+	int addNewProcInfo(ProcInfo newProcInfo);
+
+	bool compareToProcName(int nStackTopProcId, const std::string& strCompareValue);
+
+public:
+	int getProcStackTop();
+
+	bool newProcCallAddToStack(int nProcIdAddress);
+
 private:
 	ConstInfoTable  m_constInfoTable;
 	TypeSysTable    m_typeSysTable;
@@ -57,6 +67,8 @@ private:
 	ProcInfoTable   m_procInfoTable;
 	LabelInfoTable  m_labelInfoTable;
 	EnumInfoTable   m_enumInfoTable;
+
+	ProcParserStack m_procParserStack;
 }; 
 
 typedef Singleton<SymbolTable> SymbolTableInst;

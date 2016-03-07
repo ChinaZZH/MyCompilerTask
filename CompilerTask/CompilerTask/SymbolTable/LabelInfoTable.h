@@ -25,6 +25,14 @@ struct LabelInfo :CommonObjectInfo
 		:m_bDef(false)
 		, m_bUse(false)
 	{ }
+
+	void initDefValue(bool bInitDefValue){
+		this->m_bDef = bInitDefValue;
+	}
+
+	void initUseValue(bool bInitUseValue){
+		this->m_bUse = bInitUseValue;
+	}
 };
 
 typedef std::map<int, LabelInfo> LabelInfoMap;

@@ -37,11 +37,6 @@ void SymbolTable::initTypeInfoByString(const std::string& szTypeInfoString)
 	m_typeSysTable.addNewTypeSysUnit(tempTypeSysInfo);
 }
 
-int SymbolTable::getProcStackTop()
-{
-	return -1;
-}
-
 
 // 符号表 还没有去写
 int SymbolTable::recConstTbl(const std::string& szValue, int iType)
@@ -66,4 +61,44 @@ ConstInfo* SymbolTable::getEmptyConstInfoByName(const std::string& strConstName)
 int SymbolTable::searchLableInfoTable(const int nProcId, const std::string& strLableName)
 {
 	return m_labelInfoTable.searchLableInfoTable(nProcId, strLableName);
+}
+
+bool SymbolTable::addLabelInfo(LabelInfo newLabelInfo)
+{
+	return m_labelInfoTable.addLabelInfo(newLabelInfo);
+}
+
+int SymbolTable::addNewProcInfo(ProcInfo newProcInfo)
+{
+	return m_procInfoTable.addNewProcInfo(newProcInfo);
+}
+
+bool SymbolTable::compareToProcName(int nStackTopProcId, const std::string& strCompareValue)
+{
+	bool bCompareResult = false;
+	ProcInfo* pProcInfoValue = m_procInfoTable.getProcInfoByIndex(nStackTopProcId);
+	if(NULL == pProcInfoValue){
+		return bCompareResult;
+	}
+
+	int nCompareResult = pProcInfoValue->m_strProcName.compare(strCompareValue);
+	if(0 != nCompareResult){
+		return bCompareResult;
+	}
+
+	bCompareResult = true;
+	return bCompareResult;
+}
+
+
+int SymbolTable::getProcStackTop()
+{
+	int nTopProcAddress = m_procParserStack.getTopProcStackProcAddress();
+	return nTopProcAddress;
+}
+
+
+bool SymbolTable::newProcCallAddToStack(int nProcIdAddress)
+{
+	return m_procParserStack.newProcCallAddToStack(nProcIdAddress);
 }

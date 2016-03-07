@@ -82,13 +82,20 @@ struct ProcInfo
 	{  }
 };
 
-
+typedef std::vector<ProcInfo> ProcInfoVec;
 class ProcInfoTable
 {
 public:
 	ProcInfoTable();
 	~ProcInfoTable();
 
+public:
+	int addNewProcInfo(ProcInfo newProcInfo);
+
+	int  getRecenetlyProcIndex();
+
+	ProcInfo* getProcInfoByIndex(int nProcIndex);
+
 private:
-	std::vector<ProcInfo> m_vecProcInfoTbl;			//过程信息表
+	ProcInfoVec m_vecProcInfoTbl;			//过程信息表
 };

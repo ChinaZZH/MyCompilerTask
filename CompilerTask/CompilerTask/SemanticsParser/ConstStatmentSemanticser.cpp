@@ -58,6 +58,13 @@ bool ConstStatementSemanticser::processSemanticsParser()
 		return bProcessResult;
 	}
 
+	// 不能跟过程名重名
+	bool bCompareProcName = SymbolTableInst::instance().compareToProcName(nProcStackId, pParserWord->m_szContentValue);
+	if(true == bCompareProcName){
+		LogFileInst::instance().logError("ConstStatementSemanticser::processSemanticsParser compareToProcName error", __FILE__, __LINE__);
+		return bProcessResult;
+	}
+
 	// 判断该过程是否有该常量 空间已经申请好了 从对应的const管理器中读取对应的空间
 	int nConstIndex = nParserWordTableIndex - 1;
 	const CToken* pGetEmptyConstWord = WordStreamTableInst::instance().getWordTokenByTableIndex(nConstIndex);

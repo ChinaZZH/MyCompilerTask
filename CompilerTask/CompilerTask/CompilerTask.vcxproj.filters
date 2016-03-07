@@ -147,6 +147,12 @@
     <ClInclude Include="SemanticsParser\TypeDefineSemanticser.h">
       <Filter>SemanticsParser</Filter>
     </ClInclude>
+    <ClInclude Include="SemanticsParser\MainProgramHeaderStatementSemanticser.h">
+      <Filter>SemanticsParser</Filter>
+    </ClInclude>
+    <ClInclude Include="SymbolTable\ProcParserStack.h">
+      <Filter>SymbolTable</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -235,6 +241,12 @@
     </ClCompile>
     <ClCompile Include="SemanticsParser\TypeDefineSemanticser.cpp">
       <Filter>SemanticsParser</Filter>
+    </ClCompile>
+    <ClCompile Include="SemanticsParser\MainProgramHeaderStatementSemanticser.cpp">
+      <Filter>SemanticsParser</Filter>
+    </ClCompile>
+    <ClCompile Include="SymbolTable\ProcParserStack.cpp">
+      <Filter>SymbolTable</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
