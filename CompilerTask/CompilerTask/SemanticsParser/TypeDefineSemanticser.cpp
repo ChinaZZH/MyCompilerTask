@@ -10,10 +10,14 @@ TypeDefineSemanticser::~TypeDefineSemanticser()
 
 }
 
-
+// 类型定义---> 标识符 006 = 类型
 bool TypeDefineSemanticser::processSemanticsParser()
 {
-	return true;
+	bool bProcessSemantics = false;
+	
+
+	bProcessSemantics = true;
+	return bProcessSemantics;
 }
 
 

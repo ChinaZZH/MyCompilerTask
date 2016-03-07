@@ -104,6 +104,9 @@
     <ClInclude Include="SemanticsParser\SemanticsEnumDef.h" />
     <ClInclude Include="SemanticsParser\SemanticsParserMgr.h" />
     <ClInclude Include="SemanticsParser\TypeDefineSemanticser.h" />
+    <ClInclude Include="SemanticsParser\VarDefineAfterListSemanticser.h" />
+    <ClInclude Include="SemanticsParser\VarDefineBeforeListSemanticser.h" />
+    <ClInclude Include="SemanticsParser\VarIdentifierDefineListSemanticser.h" />
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="SymbolTable\CommonObjectInfo.h" />
     <ClInclude Include="SymbolTable\ConstInfoTable.h" />
@@ -112,6 +115,7 @@
     <ClInclude Include="SymbolTable\ProcInfoTable.h" />
     <ClInclude Include="SymbolTable\ProcParserStack.h" />
     <ClInclude Include="SymbolTable\SymbolTable.h" />
+    <ClInclude Include="SymbolTable\TypeInfoTable.h" />
     <ClInclude Include="SymbolTable\TypeSysTable.h" />
     <ClInclude Include="SymbolTable\VarInfoTable.h" />
     <ClInclude Include="SyntaxParser\SyntaxParser.h" />
@@ -140,6 +144,9 @@
     <ClCompile Include="SemanticsParser\MainProgramHeaderStatementSemanticser.cpp" />
     <ClCompile Include="SemanticsParser\SemanticsParserMgr.cpp" />
     <ClCompile Include="SemanticsParser\TypeDefineSemanticser.cpp" />
+    <ClCompile Include="SemanticsParser\VarDefineAfterListSemanticser.cpp" />
+    <ClCompile Include="SemanticsParser\VarDefineBeforeListSemanticser.cpp" />
+    <ClCompile Include="SemanticsParser\VarIdentifierDefineListSemanticser.cpp" />
     <ClCompile Include="stdafx.cpp" />
     <ClCompile Include="SymbolTable\ConstInfoTable.cpp" />
     <ClCompile Include="SymbolTable\EnumInfoTable.cpp" />
@@ -147,6 +154,7 @@
     <ClCompile Include="SymbolTable\ProcInfoTable.cpp" />
     <ClCompile Include="SymbolTable\ProcParserStack.cpp" />
     <ClCompile Include="SymbolTable\SymbolTable.cpp" />
+    <ClCompile Include="SymbolTable\TypeInfoTable.cpp" />
     <ClCompile Include="SymbolTable\TypeSysTable.cpp" />
     <ClCompile Include="SymbolTable\VarInfoTable.cpp" />
     <ClCompile Include="SyntaxParser\SyntaxParser.cpp" />

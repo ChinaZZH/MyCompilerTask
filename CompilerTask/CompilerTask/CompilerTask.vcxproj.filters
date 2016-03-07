@@ -153,6 +153,18 @@
     <ClInclude Include="SymbolTable\ProcParserStack.h">
       <Filter>SymbolTable</Filter>
     </ClInclude>
+    <ClInclude Include="SymbolTable\TypeInfoTable.h">
+      <Filter>SymbolTable</Filter>
+    </ClInclude>
+    <ClInclude Include="SemanticsParser\VarIdentifierDefineListSemanticser.h">
+      <Filter>SemanticsParser</Filter>
+    </ClInclude>
+    <ClInclude Include="SemanticsParser\VarDefineBeforeListSemanticser.h">
+      <Filter>SemanticsParser</Filter>
+    </ClInclude>
+    <ClInclude Include="SemanticsParser\VarDefineAfterListSemanticser.h">
+      <Filter>SemanticsParser</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -247,6 +259,18 @@
     </ClCompile>
     <ClCompile Include="SymbolTable\ProcParserStack.cpp">
       <Filter>SymbolTable</Filter>
+    </ClCompile>
+    <ClCompile Include="SymbolTable\TypeInfoTable.cpp">
+      <Filter>SymbolTable</Filter>
+    </ClCompile>
+    <ClCompile Include="SemanticsParser\VarIdentifierDefineListSemanticser.cpp">
+      <Filter>SemanticsParser</Filter>
+    </ClCompile>
+    <ClCompile Include="SemanticsParser\VarDefineBeforeListSemanticser.cpp">
+      <Filter>SemanticsParser</Filter>
+    </ClCompile>
+    <ClCompile Include="SemanticsParser\VarDefineAfterListSemanticser.cpp">
+      <Filter>SemanticsParser</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

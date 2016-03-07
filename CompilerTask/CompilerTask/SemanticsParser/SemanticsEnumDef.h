@@ -24,4 +24,9 @@ enum eSemansticeParserEnumValue
 	eSPEV_TypeDefineParser  = 306,  // 类型定义
 	//eSPEV_VarStatmentParser   = 306,
 	//eSPEV_ProcStatmentParser  = 307,
+
+	// 变量部分
+	eSPEV_VarIdentifierDefineList = 312,  // 标识符列表->标识符 012 标识符列表1    标识符列表1->, 标识符 012 标识符列表1  
+	eSPEV_VarDefineBeforeList = 313,      // 变量定义 (变量定义-->013 标识符列表 040：类型)
+	eSPEV_VarDefineAfterList  = 340,      // 变量定义 (变量定义-->013 标识符列表 040：类型)
 };
