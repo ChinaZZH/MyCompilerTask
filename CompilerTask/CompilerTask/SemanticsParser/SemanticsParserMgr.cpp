@@ -3,6 +3,7 @@
 #include "BaseSemanticser.h"
 
 SemanticsParserMgr::SemanticsParserMgr()
+:m_semanticsParserIdFlag()
 {
 	this->initSemanticsParser();
 }
@@ -41,4 +42,10 @@ bool SemanticsParserMgr::processSemanticsParser(int nSemanticserValue)
 void SemanticsParserMgr::initSemanticsParser()
 {
 
+}
+
+
+SemanticsParserIdFlag& SemanticsParserMgr::getSemanticsParserIdFlag()
+{
+	return m_semanticsParserIdFlag;
 }

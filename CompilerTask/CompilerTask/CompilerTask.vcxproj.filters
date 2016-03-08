@@ -37,6 +37,9 @@
     <Filter Include="SemanticsParser">
       <UniqueIdentifier>{aaa41def-4147-4129-8dba-76d0c64cf1a6}</UniqueIdentifier>
     </Filter>
+    <Filter Include="SemanticsHelper">
+      <UniqueIdentifier>{db8f5fa2-77d1-41d5-9c9b-8ce0e2977ebe}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <Text Include="ReadMe.txt" />
@@ -156,13 +159,16 @@
     <ClInclude Include="SymbolTable\TypeInfoTable.h">
       <Filter>SymbolTable</Filter>
     </ClInclude>
-    <ClInclude Include="SemanticsParser\VarIdentifierDefineListSemanticser.h">
-      <Filter>SemanticsParser</Filter>
-    </ClInclude>
     <ClInclude Include="SemanticsParser\VarDefineBeforeListSemanticser.h">
       <Filter>SemanticsParser</Filter>
     </ClInclude>
     <ClInclude Include="SemanticsParser\VarDefineAfterListSemanticser.h">
+      <Filter>SemanticsParser</Filter>
+    </ClInclude>
+    <ClInclude Include="SemanticsHelper\SemanticsParserIdFlag.h">
+      <Filter>SemanticsHelper</Filter>
+    </ClInclude>
+    <ClInclude Include="SemanticsParser\IdentifierDefineListSemanticser.h">
       <Filter>SemanticsParser</Filter>
     </ClInclude>
   </ItemGroup>
@@ -263,13 +269,16 @@
     <ClCompile Include="SymbolTable\TypeInfoTable.cpp">
       <Filter>SymbolTable</Filter>
     </ClCompile>
-    <ClCompile Include="SemanticsParser\VarIdentifierDefineListSemanticser.cpp">
-      <Filter>SemanticsParser</Filter>
-    </ClCompile>
     <ClCompile Include="SemanticsParser\VarDefineBeforeListSemanticser.cpp">
       <Filter>SemanticsParser</Filter>
     </ClCompile>
     <ClCompile Include="SemanticsParser\VarDefineAfterListSemanticser.cpp">
+      <Filter>SemanticsParser</Filter>
+    </ClCompile>
+    <ClCompile Include="SemanticsHelper\SemanticsParserIdFlag.cpp">
+      <Filter>SemanticsHelper</Filter>
+    </ClCompile>
+    <ClCompile Include="SemanticsParser\IdentifierDefineListSemanticser.cpp">
       <Filter>SemanticsParser</Filter>
     </ClCompile>
   </ItemGroup>

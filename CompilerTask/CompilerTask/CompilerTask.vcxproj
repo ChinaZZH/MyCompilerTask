@@ -97,6 +97,7 @@
     <ClInclude Include="GlobalData\WordStreamTable.h" />
     <ClInclude Include="LexParser\LexParser.h" />
     <ClInclude Include="Log\LogFile.h" />
+    <ClInclude Include="SemanticsHelper\SemanticsParserIdFlag.h" />
     <ClInclude Include="SemanticsParser\BaseSemanticser.h" />
     <ClInclude Include="SemanticsParser\ConstStatmentSemanticser.h" />
     <ClInclude Include="SemanticsParser\LabelStatmentSemanticser.h" />
@@ -106,7 +107,7 @@
     <ClInclude Include="SemanticsParser\TypeDefineSemanticser.h" />
     <ClInclude Include="SemanticsParser\VarDefineAfterListSemanticser.h" />
     <ClInclude Include="SemanticsParser\VarDefineBeforeListSemanticser.h" />
-    <ClInclude Include="SemanticsParser\VarIdentifierDefineListSemanticser.h" />
+    <ClInclude Include="SemanticsParser\IdentifierDefineListSemanticser.h" />
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="SymbolTable\CommonObjectInfo.h" />
     <ClInclude Include="SymbolTable\ConstInfoTable.h" />
@@ -138,6 +139,7 @@
     <ClCompile Include="GlobalData\WordStreamTable.cpp" />
     <ClCompile Include="LexParser\LexParser.cpp" />
     <ClCompile Include="Log\LogFile.cpp" />
+    <ClCompile Include="SemanticsHelper\SemanticsParserIdFlag.cpp" />
     <ClCompile Include="SemanticsParser\BaseSemanticser.cpp" />
     <ClCompile Include="SemanticsParser\ConstStatmentSemanticser.cpp" />
     <ClCompile Include="SemanticsParser\LabelStatmentSemanticser.cpp" />
@@ -146,7 +148,7 @@
     <ClCompile Include="SemanticsParser\TypeDefineSemanticser.cpp" />
     <ClCompile Include="SemanticsParser\VarDefineAfterListSemanticser.cpp" />
     <ClCompile Include="SemanticsParser\VarDefineBeforeListSemanticser.cpp" />
-    <ClCompile Include="SemanticsParser\VarIdentifierDefineListSemanticser.cpp" />
+    <ClCompile Include="SemanticsParser\IdentifierDefineListSemanticser.cpp" />
     <ClCompile Include="stdafx.cpp" />
     <ClCompile Include="SymbolTable\ConstInfoTable.cpp" />
     <ClCompile Include="SymbolTable\EnumInfoTable.cpp" />

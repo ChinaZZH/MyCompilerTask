@@ -14,10 +14,13 @@
 
 #pragma once
 #include <map>
+#include <stack>
 #include "../Common/Singleton.h"
+#include "../SemanticsHelper/SemanticsParserIdFlag.h"
 
 class BaseSemanticser;
 typedef std::map<int, BaseSemanticser*> SemanticserHandlerMap;
+
 
 class SemanticsParserMgr
 {
@@ -31,8 +34,13 @@ public:
 private:
 	void initSemanticsParser();
 
+public:
+	SemanticsParserIdFlag& getSemanticsParserIdFlag();
+
 private:
 	SemanticserHandlerMap m_mapSemanticserHandler;
+
+	SemanticsParserIdFlag m_semanticsParserIdFlag;
 };
 
 typedef Singleton<SemanticsParserMgr> SemanticsParserMgrInst;
