@@ -96,6 +96,8 @@ public:
 
 	ProcInfo* getProcInfoByIndex(int nProcIndex);
 
+	bool compareProcNameIsSame(const std::string& strCompareName);
+
 private:
 	ProcInfoVec m_vecProcInfoTbl;			//过程信息表
 };

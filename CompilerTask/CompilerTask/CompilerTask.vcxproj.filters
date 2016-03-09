@@ -171,6 +171,9 @@
     <ClInclude Include="SemanticsParser\IdentifierDefineListSemanticser.h">
       <Filter>SemanticsParser</Filter>
     </ClInclude>
+    <ClInclude Include="SymbolTable\TypeInfoUserTable.h">
+      <Filter>SymbolTable</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -280,6 +283,9 @@
     </ClCompile>
     <ClCompile Include="SemanticsParser\IdentifierDefineListSemanticser.cpp">
       <Filter>SemanticsParser</Filter>
+    </ClCompile>
+    <ClCompile Include="SymbolTable\TypeInfoUserTable.cpp">
+      <Filter>SymbolTable</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

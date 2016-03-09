@@ -14,6 +14,7 @@
 
 #pragma once
 #include "BaseSemanticser.h"
+#include "SemanticsEnumDef.h"
 
 class VarDefineBeforeListSemanticser : public BaseSemanticser
 {

@@ -34,3 +34,19 @@ ProcInfo* ProcInfoTable::getProcInfoByIndex(int nProcIndex)
 	ProcInfo* pSearchProcInfo = &(m_vecProcInfoTbl[nProcIndex]);
 	return pSearchProcInfo;
 }
+
+
+bool ProcInfoTable::compareProcNameIsSame(const std::string& strCompareName)
+{
+	bool bCompareNameResult = false;
+	int nProcNum = m_vecProcInfoTbl.size();
+	for(int i = 0; i < nProcNum; i++){
+		const ProcInfo& searchProcInfo = m_vecProcInfoTbl[i];
+		if(true == searchProcInfo.m_strProcName.compare(strCompareName)){
+			bCompareNameResult = true;
+			return bCompareNameResult;
+		}
+	}
+
+	return bCompareNameResult;
+}

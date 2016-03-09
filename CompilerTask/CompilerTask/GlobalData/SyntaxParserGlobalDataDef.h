@@ -49,20 +49,3 @@ enum eDataStoreEnumValue
 
 
 
-// T_SMALLINT = 6,
-// T_WORD = 7,
-// T_LONGWORD = 8,
-// T_CARDINAL = 9,
-// T_REAL = 10,
-// T_SINGLE = 11,
-// T_ENUM = 12,
-// T_ARRAY = 13,
-// T_SET = 14,
-// T_RECORD = 15,
-// T_STRING = 16,
-// T_FILE = 17,
-// T_POINTER = 18,
-// T_LONG8 = 19,	//隐式类型，8字节的整型数据
-// T_FUNC = 20,
-// T_PROC = 21,
-// T_USER = 22

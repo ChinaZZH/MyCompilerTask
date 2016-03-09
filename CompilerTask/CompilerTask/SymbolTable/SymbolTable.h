@@ -35,8 +35,11 @@ public:
 public:
 	void init();
 
+// 类型系统表
+public:
 	void initTypeInfoByString(const std::string& szTypeInfoString);
 
+// 常量相关
 public:
 	int recConstTbl(const std::string& szValue, int iType);
 
@@ -44,20 +47,34 @@ public:
 	
 	ConstInfo* getEmptyConstInfoByName(const std::string& strConstName);
 
+// 标号相关
 public:
 	int searchLableInfoTable(const int nProcId, const std::string& strLableName);
 
 	bool addLabelInfo(LabelInfo newLabelInfo);
 
+// 过程相关
 public:
 	int addNewProcInfo(ProcInfo newProcInfo);
 
 	bool compareToProcName(int nStackTopProcId, const std::string& strCompareValue);
 
+	bool compareProcNameIsSame(const std::string& strCompareValu);
+
+// 正在分析的过程栈
 public:
 	int getProcStackTop();
 
 	bool newProcCallAddToStack(int nProcIdAddress);
+
+// 变量相关
+public:
+	void addNewVarToSpecficProcId(VarInfo newVarInfo);
+
+	int searchVarInfoTable(int nStackTopProcId, const std::string& strCompareValue);
+
+public:
+	int searchTypeInfoTable(int nStackTopProcId, const std::string& strCompareValue);
 
 private:
 	ConstInfoTable  m_constInfoTable;
@@ -68,7 +85,8 @@ private:
 	LabelInfoTable  m_labelInfoTable;
 	EnumInfoTable   m_enumInfoTable;
 
-	ProcParserStack m_procParserStack;
+	ProcParserStack    m_procParserStack;
+	TypeInfoUserTable  m_typeInfoUserTable;
 }; 
 
 typedef Singleton<SymbolTable> SymbolTableInst;

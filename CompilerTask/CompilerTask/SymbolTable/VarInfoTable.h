@@ -50,6 +50,11 @@ public:
 	VarInfoTable();
 	~VarInfoTable();
 
+public:
+	void addNewVarToSpecficProcId(VarInfo newVarInfo);
+
+	int searchVarInfoTable(int nStackTopProcId, const std::string& strCompareValue);
+
 private:
 	VarTableInfoMap  m_mapVarIntoTable;
 };
