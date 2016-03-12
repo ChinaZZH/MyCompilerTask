@@ -3,6 +3,7 @@
 #include "../Log/LogFile.h"
 #include "../SymbolTable/SymbolTable.h"
 #include "../GlobalData/WordStreamTable.h"
+#include "SemanticsParserMgr.h"
 
 ConstStatementSemanticser::ConstStatementSemanticser()
 {
@@ -38,7 +39,8 @@ bool ConstStatementSemanticser::processSemanticsParser()
 	}
 
 	// 找出当前正在执行的函数
-	int nProcStackId = SymbolTableInst::instance().getProcStackTop();
+	ProcStackParserHandler& procStackParserHandler = SemanticsParserMgrInst::instance().getProcStackParserHandler();
+	int nProcStackId = procStackParserHandler.getTopProcStackProcAddress();
 	if(nProcStackId < 0){
 		LogFileInst::instance().logError("ConstStatementSemanticser::processSemanticsParser getProcStackTop error", __FILE__, __LINE__);
 		return bProcessResult;
@@ -87,7 +89,7 @@ bool ConstStatementSemanticser::processSemanticsParser()
 }
 
 
-eSemansticeParserEnumValue ConstStatementSemanticser::returnSemanticserEnumValue()
+eSemansticeParserTypeValue ConstStatementSemanticser::returnSemanticserEnumValue()
 {
-	return eSPEV_ConstStatmentParser;
+	return eSemansticeParserTypeValue::eSPEV_ConstStatmentParser;
 }

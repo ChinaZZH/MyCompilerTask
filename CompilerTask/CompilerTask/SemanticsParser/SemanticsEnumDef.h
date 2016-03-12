@@ -12,21 +12,36 @@
 
 *********************************************************************/
 
-enum eSemansticeParserEnumValue
+#pragma once
+enum eSemansticeParserTypeValue
 {
-	eSPEV_NullParser = 0,  // 标号声明
+	eSPEV_NullParser = 0,
 
-	eSPEV_MainProgramHeaderStatementParser = 301, // 主程序首部声明
-	eSPEV_LabelStatmentParser = 303,  // 标号声明
-	eSPEV_ConstStatmentParser = 304,  // 常量声明
-	//eSPEV_ProcCallSentence    = 305,
+	eSPEV_MainProgramHeaderStatementParser = 301,
+	eSPEV_LabelStatmentParser = 303,
+	eSPEV_ConstStatmentParser = 304,
+	eSPEV_ProcCallSentence = 305,
 
-	eSPEV_TypeDefineParser  = 306,  // 类型定义
-	//eSPEV_VarStatmentParser   = 306,
-	//eSPEV_ProcStatmentParser  = 307,
+	eSPEV_TypeDefineParser = 306,
+	eSPEV_ProcStatmentParser = 307,
 
-	// 变量部分
-	eSPEV_VarIdentifierDefineList = 312,  // 标识符列表->标识符 012 标识符列表1    标识符列表1->, 标识符 012 标识符列表1  
-	eSPEV_VarDefineBeforeList = 313,      // 变量定义 (变量定义-->013 标识符列表 040：类型)
-	eSPEV_VarDefineAfterList  = 340,      // 变量定义 (变量定义-->013 标识符列表 040：类型)
+	eSPEV_VarIdentifierDefineList = 312,
+	eSPEV_VarDefineBeforeList = 313,
+	eSPEV_VarDefineAfterList = 340,
 };
+
+//eSPEV_NullParser = 0,   标号声明
+
+//eSPEV_MainProgramHeaderStatementParser = 301, // 主程序首部声明
+//eSPEV_LabelStatmentParser = 303,  // 标号声明
+//eSPEV_ConstStatmentParser = 304,  // 常量声明
+//eSPEV_ProcCallSentence    = 305,
+//
+//eSPEV_TypeDefineParser = 306,  // 类型定义
+//eSPEV_ProcStatmentParser  = 307,
+//
+// 变量部分
+//eSPEV_VarIdentifierDefineList = 312,  // 标识符列表->标识符 012 标识符列表1    标识符列表1->, 标识符 012 标识符列表1  
+//eSPEV_VarDefineBeforeList = 313,      // 变量定义 (变量定义-->013 标识符列表 040：类型)
+//eSPEV_VarDefineAfterList = 340,      // 变量定义 (变量定义-->013 标识符列表 040：类型)
+

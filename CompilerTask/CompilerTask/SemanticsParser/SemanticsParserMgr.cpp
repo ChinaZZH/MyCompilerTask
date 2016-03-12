@@ -45,7 +45,13 @@ void SemanticsParserMgr::initSemanticsParser()
 }
 
 
-SemanticsParserIdFlag& SemanticsParserMgr::getSemanticsParserIdFlag()
+IdentifierListFlagHandler& SemanticsParserMgr::getIdentifierListFlagHandler()
 {
 	return m_semanticsParserIdFlag;
+}
+
+
+ProcStackParserHandler& SemanticsParserMgr::getProcStackParserHandler()
+{
+	return m_procStackParserHandler;
 }

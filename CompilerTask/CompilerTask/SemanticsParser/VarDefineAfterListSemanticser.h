@@ -14,6 +14,7 @@
 
 #pragma once
 #include "BaseSemanticser.h"
+#include "SemanticsEnumDef.h"
 
 class VarDefineAfterListSemanticser : public BaseSemanticser
 {
@@ -24,5 +25,5 @@ public:
 public:
 	virtual bool processSemanticsParser();
 
-	virtual eSemansticeParserEnumValue returnSemanticserEnumValue();
+	virtual eSemansticeParserTypeValue returnSemanticserEnumValue();
 };

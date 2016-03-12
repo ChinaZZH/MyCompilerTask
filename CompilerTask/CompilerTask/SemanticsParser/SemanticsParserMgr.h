@@ -16,7 +16,8 @@
 #include <map>
 #include <stack>
 #include "../Common/Singleton.h"
-#include "../SemanticsHelper/SemanticsParserIdFlag.h"
+#include "../SemanticsFlagHandler/IdentifierListFlagHandler.h"
+#include "../SemanticsFlagHandler/ProcStackParserHandler.h"
 
 class BaseSemanticser;
 typedef std::map<int, BaseSemanticser*> SemanticserHandlerMap;
@@ -35,12 +36,16 @@ private:
 	void initSemanticsParser();
 
 public:
-	SemanticsParserIdFlag& getSemanticsParserIdFlag();
+	IdentifierListFlagHandler& getIdentifierListFlagHandler();
+
+	ProcStackParserHandler& getProcStackParserHandler();
 
 private:
 	SemanticserHandlerMap m_mapSemanticserHandler;
 
-	SemanticsParserIdFlag m_semanticsParserIdFlag;
+	IdentifierListFlagHandler m_semanticsParserIdFlag;
+
+	ProcStackParserHandler    m_procStackParserHandler;
 };
 
 typedef Singleton<SemanticsParserMgr> SemanticsParserMgrInst;

@@ -12,14 +12,14 @@
 
 *********************************************************************/
 
+
 #pragma once
 #include <vector>
 #include <string>
 #include "../Common/Singleton.h"
 
-#ifndef g_s_ParseTableNum 120
-#define g_s_ParseTableNum 120
-#endif
+
+const static int g_s_ParseTableNum = 120;
 
 typedef std::vector<std::string> ProductListVec;
 

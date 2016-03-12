@@ -4,6 +4,7 @@
 #include "../SyntaxParser/SyntaxParser.h"
 #include "../GlobalData/WordStreamTable.h"
 #include "../SymbolTable/SymbolTable.h"
+#include "SemanticsParserMgr.h"
 
 MainProgramHeaderStatementSemanticser::MainProgramHeaderStatementSemanticser()
 {
@@ -54,15 +55,16 @@ bool MainProgramHeaderStatementSemanticser::processSemanticsParser()
 	newProcInfo.m_ParaTable.clear();
 
 	int nProcIndexAddress = SymbolTableInst::instance().addNewProcInfo(newProcInfo);
-	SymbolTableInst::instance().newProcCallAddToStack(nProcIndexAddress);
+	ProcStackParserHandler& procStackParserHandler = SemanticsParserMgrInst::instance().getProcStackParserHandler();
+	procStackParserHandler.newProcCallAddToStack(nProcIndexAddress);
 
 	bProcessParserResult = true;
 	return bProcessParserResult;
 }
 
-eSemansticeParserEnumValue MainProgramHeaderStatementSemanticser::returnSemanticserEnumValue()
+eSemansticeParserTypeValue MainProgramHeaderStatementSemanticser::returnSemanticserEnumValue()
 {
-	return eSPEV_MainProgramHeaderStatementParser;
+	return eSemansticeParserTypeValue::eSPEV_MainProgramHeaderStatementParser;
 }
 
 

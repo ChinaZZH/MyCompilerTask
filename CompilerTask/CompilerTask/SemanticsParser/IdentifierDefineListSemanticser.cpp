@@ -18,7 +18,7 @@ IdentifierDefineListSemanticser::~IdentifierDefineListSemanticser()
 bool IdentifierDefineListSemanticser::processSemanticsParser()
 {
 	bool bProcessSemanticser = false;
-	SemanticsParserIdFlag&  flagIdStack = SemanticsParserMgrInst::instance().getSemanticsParserIdFlag();
+	IdentifierListFlagHandler&  flagIdStack = SemanticsParserMgrInst::instance().getIdentifierListFlagHandler();
 	eSemanticsStackIdFlag flagId = flagIdStack.getCurrentSemanticsParserId();
 	switch(flagId){
 	case eSPIF_VarIdentifierListStart:
@@ -35,9 +35,9 @@ bool IdentifierDefineListSemanticser::processSemanticsParser()
 }
 
 // 标识符列表->标识符 012 标识符列表1    标识符列表1->, 标识符 012 标识符列表1
-eSemansticeParserEnumValue IdentifierDefineListSemanticser::returnSemanticserEnumValue()
+eSemansticeParserTypeValue IdentifierDefineListSemanticser::returnSemanticserEnumValue()
 {
-	return eSPEV_VarIdentifierDefineList;
+	return eSemansticeParserTypeValue::eSPEV_VarIdentifierDefineList;
 }
 
 // 标识符列表->标识符 012 标识符列表1    标识符列表1->, 标识符 012 标识符列表1
@@ -60,7 +60,8 @@ bool IdentifierDefineListSemanticser::processVarIdentifierList()
 	}
 
 	// 正在分析的过程Id
-	int nStackTopProcId = SymbolTableInst::instance().getProcStackTop();
+	ProcStackParserHandler& procStackParserHandler = SemanticsParserMgrInst::instance().getProcStackParserHandler();
+	int nStackTopProcId = procStackParserHandler.getTopProcStackProcAddress();
 	if(nStackTopProcId < 0){
 		LogFileInst::instance().logError("IdentifierDefineListSemanticser::processVarIdentifierList getProcStackTop error", __FILE__, __LINE__);
 		return bProcessSemanticser;
@@ -79,14 +80,14 @@ bool IdentifierDefineListSemanticser::processVarIdentifierList()
 	}
 
 	// 在当前函数内 是否有标号 跟其变量同名(存在,则定义失败)
-	int nConstAddressValue = SymbolTableInst::instance().searchConstInfoTable(nStackTopProcId, pConstTokenWord->m_szContentValue);
-	if(nConstAddressValue >= 0){
+	int nLabelAddressValue = SymbolTableInst::instance().searchLableInfoTable(nStackTopProcId, pConstTokenWord->m_szContentValue);
+	if (nLabelAddressValue >= 0){
 		return bProcessSemanticser;
 	}
 
 	// 在当前函数内 是否有枚举 跟其变量同名(存在,则定义失败)
-	int nLabelAddressValue = SymbolTableInst::instance().searchLableInfoTable(nStackTopProcId, pConstTokenWord->m_szContentValue);
-	if(nLabelAddressValue >= 0){
+	int nEnumAddressValue = SymbolTableInst::instance().searchEnumInfoTable(nStackTopProcId, pConstTokenWord->m_szContentValue);
+	if(nEnumAddressValue >= 0){
 		return bProcessSemanticser;
 	}
 

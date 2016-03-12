@@ -4,6 +4,7 @@
 #include "../Log/LogFile.h"
 #include "../GlobalData/WordStreamTable.h"
 #include "../SymbolTable/SymbolTable.h"
+#include "SemanticsParserMgr.h"
 
 LabelStatementSemanticser::LabelStatementSemanticser()
 {
@@ -39,7 +40,8 @@ bool LabelStatementSemanticser::processSemanticsParser()
 	}
 
 	// 最开始的过程Id
-	int nStackTopProcId = SymbolTableInst::instance().getProcStackTop();
+	ProcStackParserHandler& procStackParserHandler = SemanticsParserMgrInst::instance().getProcStackParserHandler();
+	int nStackTopProcId = procStackParserHandler.getTopProcStackProcAddress();
 	if(nStackTopProcId < 0){
 		LogFileInst::instance().logError("LabelStatementSemanticser::processSemanticsParser getProcStackTop error", __FILE__, __LINE__);
 		return bProcessResult;
@@ -72,7 +74,7 @@ bool LabelStatementSemanticser::processSemanticsParser()
 	return bProcessResult;
 }
 
-eSemansticeParserEnumValue LabelStatementSemanticser::returnSemanticserEnumValue()
+eSemansticeParserTypeValue LabelStatementSemanticser::returnSemanticserEnumValue()
 {
-	return eSPEV_LabelStatmentParser;
+	return eSemansticeParserTypeValue::eSPEV_LabelStatmentParser;
 }

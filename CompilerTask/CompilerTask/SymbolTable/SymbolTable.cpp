@@ -96,17 +96,6 @@ bool SymbolTable::compareProcNameIsSame(const std::string& strCompareValu)
 	return bCompareNameResult;
 }
 
-int SymbolTable::getProcStackTop()
-{
-	int nTopProcAddress = m_procParserStack.getTopProcStackProcAddress();
-	return nTopProcAddress;
-}
-
-
-bool SymbolTable::newProcCallAddToStack(int nProcIdAddress)
-{
-	return m_procParserStack.newProcCallAddToStack(nProcIdAddress);
-}
 
 void SymbolTable::addNewVarToSpecficProcId(VarInfo newVarInfo)
 {
@@ -118,4 +107,17 @@ int SymbolTable::searchVarInfoTable(int nStackTopProcId, const std::string& strC
 {
 	int nVarAddressValue = m_varInfoTable.searchVarInfoTable(nStackTopProcId, strCompareValue);
 	return nVarAddressValue;
+}
+
+int SymbolTable::searchTypeInfoTable(int nStackTopProcId, const std::string& strCompareValue)
+{
+	int nTypeInfoAddressValue = m_typeInfoUserTable.searchTypeInfoTable(nStackTopProcId, strCompareValue);
+	return nTypeInfoAddressValue;
+}
+
+
+int SymbolTable::searchEnumInfoTable(int nStackTopProcId, const std::string& strCompareValue)
+{
+	int nEnumAddressValue = m_enumInfoTable.searchEnumInfoTable(nStackTopProcId, strCompareValue);
+	return nEnumAddressValue;
 }

@@ -37,7 +37,7 @@
     <Filter Include="SemanticsParser">
       <UniqueIdentifier>{aaa41def-4147-4129-8dba-76d0c64cf1a6}</UniqueIdentifier>
     </Filter>
-    <Filter Include="SemanticsHelper">
+    <Filter Include="SemanticsFlagHandler">
       <UniqueIdentifier>{db8f5fa2-77d1-41d5-9c9b-8ce0e2977ebe}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
@@ -153,9 +153,6 @@
     <ClInclude Include="SemanticsParser\MainProgramHeaderStatementSemanticser.h">
       <Filter>SemanticsParser</Filter>
     </ClInclude>
-    <ClInclude Include="SymbolTable\ProcParserStack.h">
-      <Filter>SymbolTable</Filter>
-    </ClInclude>
     <ClInclude Include="SymbolTable\TypeInfoTable.h">
       <Filter>SymbolTable</Filter>
     </ClInclude>
@@ -165,14 +162,17 @@
     <ClInclude Include="SemanticsParser\VarDefineAfterListSemanticser.h">
       <Filter>SemanticsParser</Filter>
     </ClInclude>
-    <ClInclude Include="SemanticsHelper\SemanticsParserIdFlag.h">
-      <Filter>SemanticsHelper</Filter>
-    </ClInclude>
     <ClInclude Include="SemanticsParser\IdentifierDefineListSemanticser.h">
       <Filter>SemanticsParser</Filter>
     </ClInclude>
     <ClInclude Include="SymbolTable\TypeInfoUserTable.h">
       <Filter>SymbolTable</Filter>
+    </ClInclude>
+    <ClInclude Include="SemanticsFlagHandler\IdentifierListFlagHandler.h">
+      <Filter>SemanticsFlagHandler</Filter>
+    </ClInclude>
+    <ClInclude Include="SemanticsFlagHandler\ProcStackParserHandler.h">
+      <Filter>SemanticsFlagHandler</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -266,9 +266,6 @@
     <ClCompile Include="SemanticsParser\MainProgramHeaderStatementSemanticser.cpp">
       <Filter>SemanticsParser</Filter>
     </ClCompile>
-    <ClCompile Include="SymbolTable\ProcParserStack.cpp">
-      <Filter>SymbolTable</Filter>
-    </ClCompile>
     <ClCompile Include="SymbolTable\TypeInfoTable.cpp">
       <Filter>SymbolTable</Filter>
     </ClCompile>
@@ -278,14 +275,17 @@
     <ClCompile Include="SemanticsParser\VarDefineAfterListSemanticser.cpp">
       <Filter>SemanticsParser</Filter>
     </ClCompile>
-    <ClCompile Include="SemanticsHelper\SemanticsParserIdFlag.cpp">
-      <Filter>SemanticsHelper</Filter>
-    </ClCompile>
     <ClCompile Include="SemanticsParser\IdentifierDefineListSemanticser.cpp">
       <Filter>SemanticsParser</Filter>
     </ClCompile>
     <ClCompile Include="SymbolTable\TypeInfoUserTable.cpp">
       <Filter>SymbolTable</Filter>
+    </ClCompile>
+    <ClCompile Include="SemanticsFlagHandler\IdentifierListFlagHandler.cpp">
+      <Filter>SemanticsFlagHandler</Filter>
+    </ClCompile>
+    <ClCompile Include="SemanticsFlagHandler\ProcStackParserHandler.cpp">
+      <Filter>SemanticsFlagHandler</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

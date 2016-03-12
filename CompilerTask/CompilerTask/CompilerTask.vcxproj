@@ -52,6 +52,7 @@
       <Optimization>Disabled</Optimization>
       <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;_LIB;_CRT_SECURE_NO_WARNINGS;_CRT_NONSTDC_NO_DEPRECATE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <SDLCheck>true</SDLCheck>
+      <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -97,7 +98,8 @@
     <ClInclude Include="GlobalData\WordStreamTable.h" />
     <ClInclude Include="LexParser\LexParser.h" />
     <ClInclude Include="Log\LogFile.h" />
-    <ClInclude Include="SemanticsHelper\SemanticsParserIdFlag.h" />
+    <ClInclude Include="SemanticsFlagHandler\IdentifierListFlagHandler.h" />
+    <ClInclude Include="SemanticsFlagHandler\ProcStackParserHandler.h" />
     <ClInclude Include="SemanticsParser\BaseSemanticser.h" />
     <ClInclude Include="SemanticsParser\ConstStatmentSemanticser.h" />
     <ClInclude Include="SemanticsParser\LabelStatmentSemanticser.h" />
@@ -114,7 +116,6 @@
     <ClInclude Include="SymbolTable\EnumInfoTable.h" />
     <ClInclude Include="SymbolTable\LabelInfoTable.h" />
     <ClInclude Include="SymbolTable\ProcInfoTable.h" />
-    <ClInclude Include="SymbolTable\ProcParserStack.h" />
     <ClInclude Include="SymbolTable\SymbolTable.h" />
     <ClInclude Include="SymbolTable\TypeInfoTable.h" />
     <ClInclude Include="SymbolTable\TypeInfoUserTable.h" />
@@ -140,7 +141,8 @@
     <ClCompile Include="GlobalData\WordStreamTable.cpp" />
     <ClCompile Include="LexParser\LexParser.cpp" />
     <ClCompile Include="Log\LogFile.cpp" />
-    <ClCompile Include="SemanticsHelper\SemanticsParserIdFlag.cpp" />
+    <ClCompile Include="SemanticsFlagHandler\IdentifierListFlagHandler.cpp" />
+    <ClCompile Include="SemanticsFlagHandler\ProcStackParserHandler.cpp" />
     <ClCompile Include="SemanticsParser\BaseSemanticser.cpp" />
     <ClCompile Include="SemanticsParser\ConstStatmentSemanticser.cpp" />
     <ClCompile Include="SemanticsParser\LabelStatmentSemanticser.cpp" />
@@ -155,7 +157,6 @@
     <ClCompile Include="SymbolTable\EnumInfoTable.cpp" />
     <ClCompile Include="SymbolTable\LabelInfoTable.cpp" />
     <ClCompile Include="SymbolTable\ProcInfoTable.cpp" />
-    <ClCompile Include="SymbolTable\ProcParserStack.cpp" />
     <ClCompile Include="SymbolTable\SymbolTable.cpp" />
     <ClCompile Include="SymbolTable\TypeInfoTable.cpp" />
     <ClCompile Include="SymbolTable\TypeInfoUserTable.cpp" />

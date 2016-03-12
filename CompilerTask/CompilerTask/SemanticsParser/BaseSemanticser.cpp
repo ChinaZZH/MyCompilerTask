@@ -18,7 +18,7 @@ bool BaseSemanticser::processSemanticsParser()
 
 
 
-eSemansticeParserEnumValue BaseSemanticser::returnSemanticserEnumValue()
+eSemansticeParserTypeValue BaseSemanticser::returnSemanticserEnumValue()
 {
 	return eSPEV_NullParser;
 }

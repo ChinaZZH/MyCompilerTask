@@ -1,4 +1,7 @@
 #include "VarDefineAfterListSemanticser.h"
+#include "SemanticsParserMgr.h"
+#include "SemanticsEnumDef.h"
+
 
 VarDefineAfterListSemanticser::VarDefineAfterListSemanticser()
 {
@@ -14,11 +17,15 @@ bool VarDefineAfterListSemanticser::processSemanticsParser()
 {
 	bool bProcessSemanticser = false;
 
+	// µ¯³öÕ»¶¥µÄÔªËØ
+	IdentifierListFlagHandler& semanticsParserFlagStack = SemanticsParserMgrInst::instance().getIdentifierListFlagHandler();
+	semanticsParserFlagStack.endSemanticserParserFlag();
+
 	bProcessSemanticser = true;
 	return bProcessSemanticser;
 }
 
-eSemansticeParserEnumValue VarDefineAfterListSemanticser::returnSemanticserEnumValue()
+eSemansticeParserTypeValue VarDefineAfterListSemanticser::returnSemanticserEnumValue()
 {
-	return eSPEV_VarDefineAfterList;
+	return eSemansticeParserTypeValue::eSPEV_VarDefineAfterList;
 }

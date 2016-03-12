@@ -25,5 +25,5 @@ public:
 public:
 	virtual bool processSemanticsParser();
 
-	virtual eSemansticeParserEnumValue returnSemanticserEnumValue();
+	virtual eSemansticeParserTypeValue returnSemanticserEnumValue();
 };

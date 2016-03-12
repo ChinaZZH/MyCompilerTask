@@ -21,12 +21,17 @@ struct EnumInfo :CommonObjectInfo
 
 };
 
+typedef std::vector<EnumInfo> EnumInfoVec;
+
 class EnumInfoTable
 {
 public:
 	EnumInfoTable();
 	~EnumInfoTable();
 
+public:
+	int searchEnumInfoTable(int nStackTopProcId, const std::string& strCompareValue);
+
 private:
-	std::vector<EnumInfo>  m_vecEnumInfoTable;
+	EnumInfoVec  m_vecEnumInfoTable;
 };

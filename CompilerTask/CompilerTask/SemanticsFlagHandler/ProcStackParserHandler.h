@@ -11,18 +11,17 @@
     ¸Å    Êö£º      
 
 *********************************************************************/
-				
 
 #pragma once
 #include <stack>
 
 typedef std::stack<int> ProcStack;
 
-class ProcParserStack
+class ProcStackParserHandler
 {
 public:
-	ProcParserStack();
-	~ProcParserStack();
+	ProcStackParserHandler();
+	~ProcStackParserHandler();
 
 public:
 	int getTopProcStackProcAddress();

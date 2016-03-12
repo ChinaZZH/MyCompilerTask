@@ -21,7 +21,7 @@
 #include "ProcInfoTable.h"
 #include "LabelInfoTable.h"
 #include "EnumInfoTable.h"
-#include "ProcParserStack.h"
+#include "TypeInfoUserTable.h"
 
 
 
@@ -61,20 +61,19 @@ public:
 
 	bool compareProcNameIsSame(const std::string& strCompareValu);
 
-// 正在分析的过程栈
-public:
-	int getProcStackTop();
-
-	bool newProcCallAddToStack(int nProcIdAddress);
-
 // 变量相关
 public:
 	void addNewVarToSpecficProcId(VarInfo newVarInfo);
 
 	int searchVarInfoTable(int nStackTopProcId, const std::string& strCompareValue);
 
+// 类型信息表
 public:
 	int searchTypeInfoTable(int nStackTopProcId, const std::string& strCompareValue);
+
+// 枚举值
+public:
+	int searchEnumInfoTable(int nStackTopProcId, const std::string& strCompareValue);
 
 private:
 	ConstInfoTable  m_constInfoTable;
@@ -85,7 +84,6 @@ private:
 	LabelInfoTable  m_labelInfoTable;
 	EnumInfoTable   m_enumInfoTable;
 
-	ProcParserStack    m_procParserStack;
 	TypeInfoUserTable  m_typeInfoUserTable;
 }; 
 

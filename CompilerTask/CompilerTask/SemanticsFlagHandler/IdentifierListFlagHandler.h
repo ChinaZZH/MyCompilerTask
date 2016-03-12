@@ -23,11 +23,11 @@ enum eSemanticsStackIdFlag
 typedef std::stack<eSemanticsStackIdFlag> SemanticserParserFlagStack;
 
 // 语法分析当前标识
-class SemanticsParserIdFlag
+class IdentifierListFlagHandler
 {
 public:
-	SemanticsParserIdFlag();
-	~SemanticsParserIdFlag();
+	IdentifierListFlagHandler();
+	~IdentifierListFlagHandler();
 
 public:
 	void startNewSemanticserParserFlag(eSemanticsStackIdFlag newFlag);

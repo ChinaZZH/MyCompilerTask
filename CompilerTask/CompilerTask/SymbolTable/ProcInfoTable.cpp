@@ -27,7 +27,7 @@ int ProcInfoTable::getRecenetlyProcIndex()
 
 ProcInfo* ProcInfoTable::getProcInfoByIndex(int nProcIndex)
 {
-	if((nProcIndex < 0) || (nProcIndex >= m_vecProcInfoTbl.size())){
+	if((nProcIndex < 0) || (nProcIndex >= (int)m_vecProcInfoTbl.size())){
 		return NULL;
 	}
 
@@ -42,7 +42,7 @@ bool ProcInfoTable::compareProcNameIsSame(const std::string& strCompareName)
 	int nProcNum = m_vecProcInfoTbl.size();
 	for(int i = 0; i < nProcNum; i++){
 		const ProcInfo& searchProcInfo = m_vecProcInfoTbl[i];
-		if(true == searchProcInfo.m_strProcName.compare(strCompareName)){
+		if(0 == searchProcInfo.m_strProcName.compare(strCompareName)){
 			bCompareNameResult = true;
 			return bCompareNameResult;
 		}

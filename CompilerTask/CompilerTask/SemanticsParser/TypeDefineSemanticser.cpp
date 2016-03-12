@@ -21,7 +21,7 @@ bool TypeDefineSemanticser::processSemanticsParser()
 }
 
 
-eSemansticeParserEnumValue TypeDefineSemanticser::returnSemanticserEnumValue()
+eSemansticeParserTypeValue TypeDefineSemanticser::returnSemanticserEnumValue()
 {
-	return eSPEV_TypeDefineParser;
+	return eSemansticeParserTypeValue::eSPEV_TypeDefineParser;
 }
