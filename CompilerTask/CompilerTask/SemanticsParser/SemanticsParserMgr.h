@@ -18,6 +18,7 @@
 #include "../Common/Singleton.h"
 #include "../SemanticsFlagHandler/IdentifierListFlagHandler.h"
 #include "../SemanticsFlagHandler/ProcStackParserHandler.h"
+#include "../SemanticsFlagHandler/TypePositionParseHandler.h"
 
 class BaseSemanticser;
 typedef std::map<int, BaseSemanticser*> SemanticserHandlerMap;
@@ -40,12 +41,17 @@ public:
 
 	ProcStackParserHandler& getProcStackParserHandler();
 
+	TypePositionParseHandler& getTypePositionParseHandler();
+
 private:
 	SemanticserHandlerMap m_mapSemanticserHandler;
 
+private:
 	IdentifierListFlagHandler m_semanticsParserIdFlag;
 
 	ProcStackParserHandler    m_procStackParserHandler;
+
+	TypePositionParseHandler  m_typeInfPositionParserHandler;
 };
 
 typedef Singleton<SemanticsParserMgr> SemanticsParserMgrInst;

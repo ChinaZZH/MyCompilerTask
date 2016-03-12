@@ -55,3 +55,8 @@ ProcStackParserHandler& SemanticsParserMgr::getProcStackParserHandler()
 {
 	return m_procStackParserHandler;
 }
+
+TypePositionParseHandler& SemanticsParserMgr::getTypePositionParseHandler()
+{
+	return m_typeInfPositionParserHandler;
+}

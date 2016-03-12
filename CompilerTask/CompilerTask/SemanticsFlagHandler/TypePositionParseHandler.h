@@ -13,14 +13,21 @@
 *********************************************************************/
 
 #pragma once
-#include "CommonObjectInfo.h"
-#include <map>
+#include <stack>
 
-class TypeInfoTable
+
+typedef std::stack<int> TypePaserStack; 
+
+class TypePositionParseHandler
 {
 public:
-	TypeInfoTable();
-	~TypeInfoTable();
+	TypePositionParseHandler();
+	~TypePositionParseHandler();
+
+public:
+	void addProcessingTypeInfoAddress(int nTypeInfoAddress);
 
 private:
+	TypePaserStack  m_stackTypePaser;
 };
+

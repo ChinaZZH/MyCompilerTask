@@ -33,6 +33,9 @@ public:
 	~SymbolTable();
 
 public:
+	int getSerialId();
+
+public:
 	void init();
 
 // 类型系统表
@@ -70,10 +73,15 @@ public:
 // 类型信息表
 public:
 	int searchTypeInfoTable(int nStackTopProcId, const std::string& strCompareValue);
+	
+	int addNewUserTypeInfoToTable(TypeInfo newUserTypeInfo);
 
 // 枚举值
 public:
 	int searchEnumInfoTable(int nStackTopProcId, const std::string& strCompareValue);
+
+private:
+	int  m_nSerialId;
 
 private:
 	ConstInfoTable  m_constInfoTable;

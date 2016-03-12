@@ -8,5 +8,3 @@
 
 
 extern std::vector<ErrorInfo> ErrorProcess;
-
-typedef bool (*SemanticFunc)();

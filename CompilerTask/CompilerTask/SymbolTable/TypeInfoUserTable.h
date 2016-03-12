@@ -73,6 +73,11 @@ struct TypeInfo :CommonObjectInfo
 		, m_nProcessState(0)
 		, m_nsSize(0)
 	{  }
+
+	void nullLinkAddressValue()
+	{
+		m_nAddressLink = -1;
+	}
 };
 
 typedef std::map<int, TypeInfo> TypeInfoMap;			//类型信息表
@@ -85,6 +90,8 @@ public:
 
 public:
 	int searchTypeInfoTable(int nStackTopProcId, const std::string& strCompareValue);
+
+	int addNewUserTypeInfoToTable(TypeInfo newUserTypeInfo);
 
 private:
 	TypeInfoMap  m_mapTypeUserInfoTable;

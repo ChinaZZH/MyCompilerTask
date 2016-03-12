@@ -153,9 +153,6 @@
     <ClInclude Include="SemanticsParser\MainProgramHeaderStatementSemanticser.h">
       <Filter>SemanticsParser</Filter>
     </ClInclude>
-    <ClInclude Include="SymbolTable\TypeInfoTable.h">
-      <Filter>SymbolTable</Filter>
-    </ClInclude>
     <ClInclude Include="SemanticsParser\VarDefineBeforeListSemanticser.h">
       <Filter>SemanticsParser</Filter>
     </ClInclude>
@@ -172,6 +169,9 @@
       <Filter>SemanticsFlagHandler</Filter>
     </ClInclude>
     <ClInclude Include="SemanticsFlagHandler\ProcStackParserHandler.h">
+      <Filter>SemanticsFlagHandler</Filter>
+    </ClInclude>
+    <ClInclude Include="SemanticsFlagHandler\TypePositionParseHandler.h">
       <Filter>SemanticsFlagHandler</Filter>
     </ClInclude>
   </ItemGroup>
@@ -266,9 +266,6 @@
     <ClCompile Include="SemanticsParser\MainProgramHeaderStatementSemanticser.cpp">
       <Filter>SemanticsParser</Filter>
     </ClCompile>
-    <ClCompile Include="SymbolTable\TypeInfoTable.cpp">
-      <Filter>SymbolTable</Filter>
-    </ClCompile>
     <ClCompile Include="SemanticsParser\VarDefineBeforeListSemanticser.cpp">
       <Filter>SemanticsParser</Filter>
     </ClCompile>
@@ -285,6 +282,9 @@
       <Filter>SemanticsFlagHandler</Filter>
     </ClCompile>
     <ClCompile Include="SemanticsFlagHandler\ProcStackParserHandler.cpp">
+      <Filter>SemanticsFlagHandler</Filter>
+    </ClCompile>
+    <ClCompile Include="SemanticsFlagHandler\TypePositionParseHandler.cpp">
       <Filter>SemanticsFlagHandler</Filter>
     </ClCompile>
   </ItemGroup>

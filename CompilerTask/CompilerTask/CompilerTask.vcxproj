@@ -100,6 +100,7 @@
     <ClInclude Include="Log\LogFile.h" />
     <ClInclude Include="SemanticsFlagHandler\IdentifierListFlagHandler.h" />
     <ClInclude Include="SemanticsFlagHandler\ProcStackParserHandler.h" />
+    <ClInclude Include="SemanticsFlagHandler\TypePositionParseHandler.h" />
     <ClInclude Include="SemanticsParser\BaseSemanticser.h" />
     <ClInclude Include="SemanticsParser\ConstStatmentSemanticser.h" />
     <ClInclude Include="SemanticsParser\LabelStatmentSemanticser.h" />
@@ -117,7 +118,6 @@
     <ClInclude Include="SymbolTable\LabelInfoTable.h" />
     <ClInclude Include="SymbolTable\ProcInfoTable.h" />
     <ClInclude Include="SymbolTable\SymbolTable.h" />
-    <ClInclude Include="SymbolTable\TypeInfoTable.h" />
     <ClInclude Include="SymbolTable\TypeInfoUserTable.h" />
     <ClInclude Include="SymbolTable\TypeSysTable.h" />
     <ClInclude Include="SymbolTable\VarInfoTable.h" />
@@ -143,6 +143,7 @@
     <ClCompile Include="Log\LogFile.cpp" />
     <ClCompile Include="SemanticsFlagHandler\IdentifierListFlagHandler.cpp" />
     <ClCompile Include="SemanticsFlagHandler\ProcStackParserHandler.cpp" />
+    <ClCompile Include="SemanticsFlagHandler\TypePositionParseHandler.cpp" />
     <ClCompile Include="SemanticsParser\BaseSemanticser.cpp" />
     <ClCompile Include="SemanticsParser\ConstStatmentSemanticser.cpp" />
     <ClCompile Include="SemanticsParser\LabelStatmentSemanticser.cpp" />
@@ -158,7 +159,6 @@
     <ClCompile Include="SymbolTable\LabelInfoTable.cpp" />
     <ClCompile Include="SymbolTable\ProcInfoTable.cpp" />
     <ClCompile Include="SymbolTable\SymbolTable.cpp" />
-    <ClCompile Include="SymbolTable\TypeInfoTable.cpp" />
     <ClCompile Include="SymbolTable\TypeInfoUserTable.cpp" />
     <ClCompile Include="SymbolTable\TypeSysTable.cpp" />
     <ClCompile Include="SymbolTable\VarInfoTable.cpp" />

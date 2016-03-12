@@ -4,6 +4,7 @@
 
 SymbolTable::SymbolTable()
 :m_constInfoTable()
+, m_nSerialId(0)
 {
 
 }
@@ -12,6 +13,13 @@ SymbolTable::~SymbolTable()
 {
 
 }
+
+int SymbolTable::getSerialId()
+{
+	m_nSerialId += 1;
+	return m_nSerialId;
+}
+
 
 void SymbolTable::init()
 {
@@ -112,6 +120,12 @@ int SymbolTable::searchVarInfoTable(int nStackTopProcId, const std::string& strC
 int SymbolTable::searchTypeInfoTable(int nStackTopProcId, const std::string& strCompareValue)
 {
 	int nTypeInfoAddressValue = m_typeInfoUserTable.searchTypeInfoTable(nStackTopProcId, strCompareValue);
+	return nTypeInfoAddressValue;
+}
+
+int SymbolTable::addNewUserTypeInfoToTable(TypeInfo newUserTypeInfo)
+{
+	int nTypeInfoAddressValue = m_typeInfoUserTable.addNewUserTypeInfoToTable(newUserTypeInfo);
 	return nTypeInfoAddressValue;
 }
 

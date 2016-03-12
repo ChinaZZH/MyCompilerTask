@@ -1,5 +1,5 @@
 #include "BaseSemanticser.h"
-#include <afx.h>
+
 
 BaseSemanticser::BaseSemanticser()
 {

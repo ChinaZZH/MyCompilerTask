@@ -26,3 +26,10 @@ int TypeInfoUserTable::searchTypeInfoTable(int nStackTopProcId, const std::strin
 
 	return nTypeInfoAddressValue;
 }
+
+int TypeInfoUserTable::addNewUserTypeInfoToTable(TypeInfo newUserTypeInfo)
+{
+	int nNewAddressValue = m_mapTypeUserInfoTable.size();
+	m_mapTypeUserInfoTable[nNewAddressValue] = newUserTypeInfo;
+	return nNewAddressValue;
+}
