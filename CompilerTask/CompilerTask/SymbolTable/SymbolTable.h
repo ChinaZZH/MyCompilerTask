@@ -75,7 +75,7 @@ public:
 public:
 	int searchTypeInfoTable(int nStackTopProcId, const std::string& strCompareValue);
 	
-	int addNewUserTypeInfoToTable(TypeInfo newUserTypeInfo);
+	int addNewUserTypeInfoToTable(const std::string& strInitTypeName, int nProcAddress);
 
 // Ã¶¾ÙÖµ
 public:

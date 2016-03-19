@@ -72,39 +72,9 @@ bool IdentifierDefineListSemanticser::processVarIdentifierList()
 		return bProcessSemanticser;
 	}
 
-	// 是否跟类型表信息表中的类型同名
-	int nTypeInfoAddressValue = SymbolTableInst::instance().searchTypeInfoTable(nStackTopProcId, pConstTokenWord->m_szContentValue);
-	if(nTypeInfoAddressValue >= 0){
-		return bProcessSemanticser;
-	}
-
-	// 在当前函数内 是否有常量跟其变量同名(存在,则定义失败)
-	int nConstAddressValue = SymbolTableInst::instance().searchConstInfoTable(nStackTopProcId, pConstTokenWord->m_szContentValue);
-	if(nConstAddressValue >= 0){
-		return bProcessSemanticser;
-	}
-
-	// 在当前函数内 是否有标号 跟其变量同名(存在,则定义失败)
-	int nLabelAddressValue = SymbolTableInst::instance().searchLableInfoTable(nStackTopProcId, pConstTokenWord->m_szContentValue);
-	if (nLabelAddressValue >= 0){
-		return bProcessSemanticser;
-	}
-
-	// 在当前函数内 是否有枚举 跟其变量同名(存在,则定义失败)
-	int nEnumAddressValue = SymbolTableInst::instance().searchEnumInfoTable(nStackTopProcId, pConstTokenWord->m_szContentValue);
-	if(nEnumAddressValue >= 0){
-		return bProcessSemanticser;
-	}
-
-	// 在当前函数内 是否有变量 跟其变量同名(存在,则定义失败)
-	int nVarAddressValue = SymbolTableInst::instance().searchVarInfoTable(nStackTopProcId, pConstTokenWord->m_szContentValue);
-	if(nVarAddressValue >= 0){
-		return bProcessSemanticser;
-	}
-
-	// 是否跟过程同名(存在,则定义失败)
-	bool bIsSameNameProc = SymbolTableInst::instance().compareProcNameIsSame(pConstTokenWord->m_szContentValue);
-	if(true == bIsSameNameProc){
+	// 是否同名
+	bool bCompareNameWithWord = checkCompareIsSameNameWithWord(nStackTopProcId, pConstTokenWord->m_szContentValue);
+	if(true == bCompareNameWithWord){
 		return bProcessSemanticser;
 	}
 

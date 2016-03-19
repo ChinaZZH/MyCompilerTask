@@ -123,8 +123,13 @@ int SymbolTable::searchTypeInfoTable(int nStackTopProcId, const std::string& str
 	return nTypeInfoAddressValue;
 }
 
-int SymbolTable::addNewUserTypeInfoToTable(TypeInfo newUserTypeInfo)
+int SymbolTable::addNewUserTypeInfoToTable(const std::string& strInitTypeName, int nProcAddress)
 {
+	TypeInfo newUserTypeInfo;
+	newUserTypeInfo.initStrName(strInitTypeName);
+	newUserTypeInfo.initProcIndex(nProcAddress);
+	newUserTypeInfo.nullLinkAddressValue();
+
 	int nTypeInfoAddressValue = m_typeInfoUserTable.addNewUserTypeInfoToTable(newUserTypeInfo);
 	return nTypeInfoAddressValue;
 }

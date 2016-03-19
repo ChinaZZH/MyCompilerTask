@@ -27,4 +27,7 @@ public:
 	virtual bool processSemanticsParser();
 
 	virtual eSemansticeParserTypeValue returnSemanticserEnumValue();
+
+protected:
+	bool checkCompareIsSameNameWithWord(int nTopProcId, const std::string& strWordValue);
 };

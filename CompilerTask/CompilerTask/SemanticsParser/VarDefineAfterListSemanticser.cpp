@@ -28,18 +28,14 @@ bool VarDefineAfterListSemanticser::processSemanticsParser()
 		return bProcessSemanticser;
 	}
 
-	
+	// 初始化类型名
 	int nSerialIdValue = SymbolTableInst::instance().getSerialId();
 	std::string strSerialValue = IntStringConverter::intValueConvertToString(nSerialIdValue);
 	std::string strInitTypeName("_noname");
 	strInitTypeName.append(strSerialValue);
-
-	TypeInfo newUserTypeInfo;
-	newUserTypeInfo.initStrName(strInitTypeName);
-	newUserTypeInfo.initProcIndex(nTopProcAddress);
-	newUserTypeInfo.nullLinkAddressValue();
 	
-	int nTypeUserInfoMaxAddress = SymbolTableInst::instance().addNewUserTypeInfoToTable(newUserTypeInfo);
+	// 放入类型表中
+	int nTypeUserInfoMaxAddress = SymbolTableInst::instance().addNewUserTypeInfoToTable(strInitTypeName, nTopProcAddress);
 	if(nTypeUserInfoMaxAddress < 0){
 		LogFileInst::instance().logError("VarDefineAfterListSemanticser::processSemanticsParser nTypeUserInfoMaxAddress error", __FILE__, __LINE__);
 		return bProcessSemanticser;
