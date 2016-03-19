@@ -135,3 +135,14 @@ int SymbolTable::searchEnumInfoTable(int nStackTopProcId, const std::string& str
 	int nEnumAddressValue = m_enumInfoTable.searchEnumInfoTable(nStackTopProcId, strCompareValue);
 	return nEnumAddressValue;
 }
+
+
+int SymbolTable::searchUseFileTable(const std::string& strUseFileName)
+{
+	return  m_useFileTable.searchUseFileTable(strUseFileName);
+}
+
+int SymbolTable::addNewUseFlieData(const std::string& strUseFileName)
+{
+	return m_useFileTable.addNewUseFlieData(strUseFileName);
+}

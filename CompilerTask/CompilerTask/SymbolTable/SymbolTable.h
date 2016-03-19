@@ -22,6 +22,7 @@
 #include "LabelInfoTable.h"
 #include "EnumInfoTable.h"
 #include "TypeInfoUserTable.h"
+#include "UseFileTable.h"
 
 
 
@@ -80,6 +81,12 @@ public:
 public:
 	int searchEnumInfoTable(int nStackTopProcId, const std::string& strCompareValue);
 
+// 文件包含说明
+public:
+	int searchUseFileTable(const std::string& strUseFileName);
+
+	int addNewUseFlieData(const std::string& strUseFileName);
+
 private:
 	int  m_nSerialId;
 
@@ -93,6 +100,7 @@ private:
 	EnumInfoTable   m_enumInfoTable;
 
 	TypeInfoUserTable  m_typeInfoUserTable;
+	UseFileTable    m_useFileTable;
 }; 
 
 typedef Singleton<SymbolTable> SymbolTableInst;

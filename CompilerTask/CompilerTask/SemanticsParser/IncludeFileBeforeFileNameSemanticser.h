@@ -14,20 +14,17 @@
 
 #pragma once
 #include "BaseSemanticser.h"
+#include "SemanticsEnumDef.h"
 
-class IdentifierDefineListSemanticser : public BaseSemanticser
+
+class IncludeFileBeforeFileNameSemanticser : public BaseSemanticser
 {
 public:
-	IdentifierDefineListSemanticser();
-	~IdentifierDefineListSemanticser();
+	IncludeFileBeforeFileNameSemanticser();
+	~IncludeFileBeforeFileNameSemanticser();
 
 public:
 	virtual bool processSemanticsParser();
 
 	virtual eSemansticeParserTypeValue returnSemanticserEnumValue();
-
-private:
-	bool processVarIdentifierList();
-
-	bool processFileIdentifierList();
 };

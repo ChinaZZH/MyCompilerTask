@@ -1,6 +1,15 @@
 #include "SemanticsParserMgr.h"
 #include "../Log/LogFile.h"
 #include "BaseSemanticser.h"
+#include "MainProgramHeaderStatementSemanticser.h"
+#include "LabelStatmentSemanticser.h"
+#include "ConstStatmentSemanticser.h"
+#include "IdentifierDefineListSemanticser.h"
+#include "VarDefineBeforeListSemanticser.h"
+#include "VarDefineAfterListSemanticser.h"
+#include "TypeDefineSemanticser.h"
+#include "IncludeFileBeforeFileNameSemanticser.h"
+#include "IncludeFileAfterFileNameSemanticser.h"
 
 SemanticsParserMgr::SemanticsParserMgr()
 :m_semanticsParserIdFlag()
@@ -41,7 +50,16 @@ bool SemanticsParserMgr::processSemanticsParser(int nSemanticserValue)
 
 void SemanticsParserMgr::initSemanticsParser()
 {
+	m_mapSemanticserHandler[eSPEV_MainProgramHeaderStatementParser] = new MainProgramHeaderStatementSemanticser();
+	m_mapSemanticserHandler[eSPEV_LabelStatmentParser] = new LabelStatementSemanticser();
+	m_mapSemanticserHandler[eSPEV_ConstStatmentParser] = new ConstStatementSemanticser();
+	m_mapSemanticserHandler[eSPEV_IdentifierTypeDefineList] = new IdentifierDefineListSemanticser();
+	m_mapSemanticserHandler[eSPEV_TypeDefineParser] = new TypeDefineSemanticser();
 
+	m_mapSemanticserHandler[eSPEV_VarDefineBeforeList] = new VarDefineBeforeListSemanticser();
+	m_mapSemanticserHandler[eSPEV_VarDefineAfterList] = new VarDefineAfterListSemanticser();
+	m_mapSemanticserHandler[eSPEV_IncludeFileBeforeFileName] = new IncludeFileBeforeFileNameSemanticser();
+	m_mapSemanticserHandler[eSPEV_IncludeFileAfterFileName] = new IncludeFileAfterFileNameSemanticser();
 }
 
 

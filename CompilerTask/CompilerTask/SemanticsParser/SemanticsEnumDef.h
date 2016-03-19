@@ -13,6 +13,7 @@
 *********************************************************************/
 
 #pragma once
+
 enum eSemansticeParserTypeValue
 {
 	eSPEV_NullParser = 0,
@@ -20,14 +21,26 @@ enum eSemansticeParserTypeValue
 	eSPEV_MainProgramHeaderStatementParser = 301,
 	eSPEV_LabelStatmentParser = 303,
 	eSPEV_ConstStatmentParser = 304,
-	eSPEV_ProcCallSentence = 305,
+	//eSPEV_ProcCallSentence = 305,  // 未实现
 
-	eSPEV_TypeDefineParser = 306,
-	eSPEV_ProcStatmentParser = 307,
+	eSPEV_TypeDefineParser = 306,     // 未实现
+	//eSPEV_BaseTypeParser = 307,
 
-	eSPEV_VarIdentifierDefineList = 312,
+	//eSPEV_AfterBaseTypeStatement = 310,
+
+	eSPEV_IdentifierTypeDefineList = 312,
 	eSPEV_VarDefineBeforeList = 313,
+	//eSPEV_EnumTypeDefine = 314,
+	//eSPEV_BeforeBaseTypeStatement = 315,
+
+
+	//eSPEV_ProcedureTypeBeforeArgsList = 321,
+	//eSPEV_ProcedureTypeAfterArgsList = 339,
 	eSPEV_VarDefineAfterList = 340,
+
+	eSPEV_IncludeFileBeforeFileName = 393,
+	eSPEV_IncludeFileAfterFileName = 394,
+	//eSPEV_ProcedureTypeAfterArgsListNextTwo = 344,
 };
 
 //eSPEV_NullParser = 0,   标号声明

@@ -40,6 +40,27 @@
     <Filter Include="SemanticsFlagHandler">
       <UniqueIdentifier>{db8f5fa2-77d1-41d5-9c9b-8ce0e2977ebe}</UniqueIdentifier>
     </Filter>
+    <Filter Include="SemanticsParser\变量声明">
+      <UniqueIdentifier>{e045c8d3-5860-4eb0-9f8f-d96fb4aca0ec}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="SemanticsParser\主程序首部声明">
+      <UniqueIdentifier>{7e0a66a6-b989-4746-a724-04a54a64a7aa}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="SemanticsParser\标号声明部分">
+      <UniqueIdentifier>{6084d90c-abab-4927-9ba7-e516c674b166}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="SemanticsParser\常量声明部分">
+      <UniqueIdentifier>{75d8d6dc-4e8b-49e5-9f94-a16bde3cc7dc}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="SemanticsParser\类型声明部分">
+      <UniqueIdentifier>{2de2d5c1-0e21-4934-9867-e566cd047f93}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="SemanticsParser\标识符列表声明">
+      <UniqueIdentifier>{3cffb25e-2bf7-4bf7-bf44-594da1c35919}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="SemanticsParser\包含文件声明部分">
+      <UniqueIdentifier>{dfce308b-ed30-4e4e-9594-8d485ef2f175}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <Text Include="ReadMe.txt" />
@@ -141,27 +162,6 @@
     <ClInclude Include="SemanticsParser\SemanticsEnumDef.h">
       <Filter>SemanticsParser</Filter>
     </ClInclude>
-    <ClInclude Include="SemanticsParser\LabelStatmentSemanticser.h">
-      <Filter>SemanticsParser</Filter>
-    </ClInclude>
-    <ClInclude Include="SemanticsParser\ConstStatmentSemanticser.h">
-      <Filter>SemanticsParser</Filter>
-    </ClInclude>
-    <ClInclude Include="SemanticsParser\TypeDefineSemanticser.h">
-      <Filter>SemanticsParser</Filter>
-    </ClInclude>
-    <ClInclude Include="SemanticsParser\MainProgramHeaderStatementSemanticser.h">
-      <Filter>SemanticsParser</Filter>
-    </ClInclude>
-    <ClInclude Include="SemanticsParser\VarDefineBeforeListSemanticser.h">
-      <Filter>SemanticsParser</Filter>
-    </ClInclude>
-    <ClInclude Include="SemanticsParser\VarDefineAfterListSemanticser.h">
-      <Filter>SemanticsParser</Filter>
-    </ClInclude>
-    <ClInclude Include="SemanticsParser\IdentifierDefineListSemanticser.h">
-      <Filter>SemanticsParser</Filter>
-    </ClInclude>
     <ClInclude Include="SymbolTable\TypeInfoUserTable.h">
       <Filter>SymbolTable</Filter>
     </ClInclude>
@@ -173,6 +173,36 @@
     </ClInclude>
     <ClInclude Include="SemanticsFlagHandler\TypePositionParseHandler.h">
       <Filter>SemanticsFlagHandler</Filter>
+    </ClInclude>
+    <ClInclude Include="SemanticsParser\VarDefineAfterListSemanticser.h">
+      <Filter>SemanticsParser\变量声明</Filter>
+    </ClInclude>
+    <ClInclude Include="SemanticsParser\VarDefineBeforeListSemanticser.h">
+      <Filter>SemanticsParser\变量声明</Filter>
+    </ClInclude>
+    <ClInclude Include="SemanticsParser\MainProgramHeaderStatementSemanticser.h">
+      <Filter>SemanticsParser\主程序首部声明</Filter>
+    </ClInclude>
+    <ClInclude Include="SemanticsParser\LabelStatmentSemanticser.h">
+      <Filter>SemanticsParser\标号声明部分</Filter>
+    </ClInclude>
+    <ClInclude Include="SemanticsParser\ConstStatmentSemanticser.h">
+      <Filter>SemanticsParser\常量声明部分</Filter>
+    </ClInclude>
+    <ClInclude Include="SemanticsParser\TypeDefineSemanticser.h">
+      <Filter>SemanticsParser\类型声明部分</Filter>
+    </ClInclude>
+    <ClInclude Include="SemanticsParser\IdentifierDefineListSemanticser.h">
+      <Filter>SemanticsParser\标识符列表声明</Filter>
+    </ClInclude>
+    <ClInclude Include="SemanticsParser\IncludeFileBeforeFileNameSemanticser.h">
+      <Filter>SemanticsParser\包含文件声明部分</Filter>
+    </ClInclude>
+    <ClInclude Include="SemanticsParser\IncludeFileAfterFileNameSemanticser.h">
+      <Filter>SemanticsParser\包含文件声明部分</Filter>
+    </ClInclude>
+    <ClInclude Include="SymbolTable\UseFileTable.h">
+      <Filter>SymbolTable</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -254,27 +284,6 @@
     <ClCompile Include="SemanticsParser\BaseSemanticser.cpp">
       <Filter>SemanticsParser</Filter>
     </ClCompile>
-    <ClCompile Include="SemanticsParser\LabelStatmentSemanticser.cpp">
-      <Filter>SemanticsParser</Filter>
-    </ClCompile>
-    <ClCompile Include="SemanticsParser\ConstStatmentSemanticser.cpp">
-      <Filter>SemanticsParser</Filter>
-    </ClCompile>
-    <ClCompile Include="SemanticsParser\TypeDefineSemanticser.cpp">
-      <Filter>SemanticsParser</Filter>
-    </ClCompile>
-    <ClCompile Include="SemanticsParser\MainProgramHeaderStatementSemanticser.cpp">
-      <Filter>SemanticsParser</Filter>
-    </ClCompile>
-    <ClCompile Include="SemanticsParser\VarDefineBeforeListSemanticser.cpp">
-      <Filter>SemanticsParser</Filter>
-    </ClCompile>
-    <ClCompile Include="SemanticsParser\VarDefineAfterListSemanticser.cpp">
-      <Filter>SemanticsParser</Filter>
-    </ClCompile>
-    <ClCompile Include="SemanticsParser\IdentifierDefineListSemanticser.cpp">
-      <Filter>SemanticsParser</Filter>
-    </ClCompile>
     <ClCompile Include="SymbolTable\TypeInfoUserTable.cpp">
       <Filter>SymbolTable</Filter>
     </ClCompile>
@@ -286,6 +295,36 @@
     </ClCompile>
     <ClCompile Include="SemanticsFlagHandler\TypePositionParseHandler.cpp">
       <Filter>SemanticsFlagHandler</Filter>
+    </ClCompile>
+    <ClCompile Include="SemanticsParser\VarDefineAfterListSemanticser.cpp">
+      <Filter>SemanticsParser\变量声明</Filter>
+    </ClCompile>
+    <ClCompile Include="SemanticsParser\VarDefineBeforeListSemanticser.cpp">
+      <Filter>SemanticsParser\变量声明</Filter>
+    </ClCompile>
+    <ClCompile Include="SemanticsParser\MainProgramHeaderStatementSemanticser.cpp">
+      <Filter>SemanticsParser\主程序首部声明</Filter>
+    </ClCompile>
+    <ClCompile Include="SemanticsParser\LabelStatmentSemanticser.cpp">
+      <Filter>SemanticsParser\标号声明部分</Filter>
+    </ClCompile>
+    <ClCompile Include="SemanticsParser\ConstStatmentSemanticser.cpp">
+      <Filter>SemanticsParser\常量声明部分</Filter>
+    </ClCompile>
+    <ClCompile Include="SemanticsParser\TypeDefineSemanticser.cpp">
+      <Filter>SemanticsParser\类型声明部分</Filter>
+    </ClCompile>
+    <ClCompile Include="SemanticsParser\IdentifierDefineListSemanticser.cpp">
+      <Filter>SemanticsParser\标识符列表声明</Filter>
+    </ClCompile>
+    <ClCompile Include="SemanticsParser\IncludeFileBeforeFileNameSemanticser.cpp">
+      <Filter>SemanticsParser\包含文件声明部分</Filter>
+    </ClCompile>
+    <ClCompile Include="SemanticsParser\IncludeFileAfterFileNameSemanticser.cpp">
+      <Filter>SemanticsParser\包含文件声明部分</Filter>
+    </ClCompile>
+    <ClCompile Include="SymbolTable\UseFileTable.cpp">
+      <Filter>SymbolTable</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

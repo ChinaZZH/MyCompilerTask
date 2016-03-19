@@ -25,6 +25,10 @@ bool IdentifierDefineListSemanticser::processSemanticsParser()
 		bProcessSemanticser = this->processVarIdentifierList();
 		break;
 
+	case eSPIF_FileIdentifierListStart:
+		bProcessSemanticser = this->processFileIdentifierList();
+		break;
+
 	default:
 		bProcessSemanticser = true;
 		break;
@@ -37,14 +41,15 @@ bool IdentifierDefineListSemanticser::processSemanticsParser()
 // 标识符列表->标识符 012 标识符列表1    标识符列表1->, 标识符 012 标识符列表1
 eSemansticeParserTypeValue IdentifierDefineListSemanticser::returnSemanticserEnumValue()
 {
-	return eSemansticeParserTypeValue::eSPEV_VarIdentifierDefineList;
+	return eSemansticeParserTypeValue::eSPEV_IdentifierTypeDefineList;
 }
 
-// 标识符列表->标识符 012 标识符列表1    标识符列表1->, 标识符 012 标识符列表1
+//变量列表的标识符
 bool IdentifierDefineListSemanticser::processVarIdentifierList()
 {
 	bool bProcessSemanticser = false;
 
+	// 获得单词的下标值
 	int nParserWordIndex = SyntaxParserInst::instance().getParserWordTableIndex();
 	nParserWordIndex = nParserWordIndex - 1;
 	if(nParserWordIndex < 0){
@@ -109,6 +114,41 @@ bool IdentifierDefineListSemanticser::processVarIdentifierList()
 	newVarInfo.initProcIndex(nStackTopProcId);
 	newVarInfo.m_eRank = VarInfo::eR_Var;
 	SymbolTableInst::instance().addNewVarToSpecficProcId(newVarInfo);
+
+	bProcessSemanticser = true;
+	return bProcessSemanticser;
+}
+
+
+//处理USES模块包含声明
+bool IdentifierDefineListSemanticser::processFileIdentifierList()
+{
+	bool bProcessSemanticser = false;
+
+	// 获得单词的下标值
+	int nParserWordIndex = SyntaxParserInst::instance().getParserWordTableIndex();
+	nParserWordIndex = nParserWordIndex - 1;
+	if(nParserWordIndex < 0){
+		LogFileInst::instance().logError("IdentifierDefineListSemanticser::processFileIdentifierList nParserWordIndex error", __FILE__, __LINE__);
+		return bProcessSemanticser;
+	}
+
+	// 从单词流表中获取对应的单词
+	const CToken* pConstTokenWord = WordStreamTableInst::instance().getWordTokenByTableIndex(nParserWordIndex);
+	if(NULL == pConstTokenWord){
+		LogFileInst::instance().logError("IdentifierDefineListSemanticser::processFileIdentifierList pConstTokenWord null", __FILE__, __LINE__);
+		return bProcessSemanticser;
+	}
+
+	// 查询符号表是否已经包含该使用文件
+	int nUseFileAddressValue = SymbolTableInst::instance().searchUseFileTable(pConstTokenWord->m_szContentValue);
+	if(nUseFileAddressValue > 0){
+		LogFileInst::instance().logError("IdentifierDefineListSemanticser::processFileIdentifierList 模块已经包含了 null", __FILE__, __LINE__);
+		return bProcessSemanticser;
+	}
+
+	// 没有的话 符号表进行包含
+	SymbolTableInst::instance().addNewUseFlieData(pConstTokenWord->m_szContentValue);
 
 	bProcessSemanticser = true;
 	return bProcessSemanticser;
