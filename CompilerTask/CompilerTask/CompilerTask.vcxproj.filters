@@ -204,6 +204,18 @@
     <ClInclude Include="SymbolTable\UseFileTable.h">
       <Filter>SymbolTable</Filter>
     </ClInclude>
+    <ClInclude Include="SemanticsFlagHandler\TypeFlagHandler.h">
+      <Filter>SemanticsFlagHandler</Filter>
+    </ClInclude>
+    <ClInclude Include="SemanticsParser\TypeBeforeTypeConstructSemanticser.h">
+      <Filter>SemanticsParser\类型声明部分</Filter>
+    </ClInclude>
+    <ClInclude Include="SemanticsParser\PointerSimpleIdentifierTypeSemanticser.h">
+      <Filter>SemanticsParser\类型声明部分</Filter>
+    </ClInclude>
+    <ClInclude Include="SemanticsParser\PointerSimpleTypeSemanticser.h">
+      <Filter>SemanticsParser\类型声明部分</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -325,6 +337,18 @@
     </ClCompile>
     <ClCompile Include="SymbolTable\UseFileTable.cpp">
       <Filter>SymbolTable</Filter>
+    </ClCompile>
+    <ClCompile Include="SemanticsFlagHandler\TypeFlagHandler.cpp">
+      <Filter>SemanticsFlagHandler</Filter>
+    </ClCompile>
+    <ClCompile Include="SemanticsParser\TypeBeforeTypeConstructSemanticser.cpp">
+      <Filter>SemanticsParser\类型声明部分</Filter>
+    </ClCompile>
+    <ClCompile Include="SemanticsParser\PointerSimpleIdentifierTypeSemanticser.cpp">
+      <Filter>SemanticsParser\类型声明部分</Filter>
+    </ClCompile>
+    <ClCompile Include="SemanticsParser\PointerSimpleTypeSemanticser.cpp">
+      <Filter>SemanticsParser\类型声明部分</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

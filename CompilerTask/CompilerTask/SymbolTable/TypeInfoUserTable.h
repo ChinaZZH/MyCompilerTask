@@ -93,6 +93,8 @@ public:
 
 	int addNewUserTypeInfoToTable(TypeInfo newUserTypeInfo);
 
+	TypeInfo* getTypeInfoFromTableAddress(int nTypeAddressValue);
+
 private:
 	TypeInfoMap  m_mapTypeUserInfoTable;
 };

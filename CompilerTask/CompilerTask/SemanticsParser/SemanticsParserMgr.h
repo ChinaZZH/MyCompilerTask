@@ -19,6 +19,7 @@
 #include "../SemanticsFlagHandler/IdentifierListFlagHandler.h"
 #include "../SemanticsFlagHandler/ProcStackParserHandler.h"
 #include "../SemanticsFlagHandler/TypePositionParseHandler.h"
+#include "../SemanticsFlagHandler/TypeFlagHandler.h"
 
 class BaseSemanticser;
 typedef std::map<int, BaseSemanticser*> SemanticserHandlerMap;
@@ -29,6 +30,9 @@ class SemanticsParserMgr
 public:
 	SemanticsParserMgr();
 	~SemanticsParserMgr();
+
+public:
+	void clearAllData();
 
 public:
 	bool processSemanticsParser(int nSemanticserValue);
@@ -43,6 +47,8 @@ public:
 
 	TypePositionParseHandler& getTypePositionParseHandler();
 
+	TypeFlagHandler& getTypeFlagHandler();
+
 private:
 	SemanticserHandlerMap m_mapSemanticserHandler;
 
@@ -52,6 +58,8 @@ private:
 	ProcStackParserHandler    m_procStackParserHandler;
 
 	TypePositionParseHandler  m_typeInfPositionParserHandler;
+
+	TypeFlagHandler   m_typeFlagHandler;
 };
 
 typedef Singleton<SemanticsParserMgr> SemanticsParserMgrInst;

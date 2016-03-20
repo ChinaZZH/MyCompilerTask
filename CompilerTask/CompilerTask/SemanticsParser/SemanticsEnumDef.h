@@ -23,15 +23,17 @@ enum eSemansticeParserTypeValue
 	eSPEV_ConstStatmentParser = 304,
 	//eSPEV_ProcCallSentence = 305,  // 未实现
 
-	eSPEV_TypeDefineParser = 306,     // 未实现
+	eSPEV_TypeDefineParser = 306,     
 	//eSPEV_BaseTypeParser = 307,
+	eSPEV_PointerSimpleIndetifierType = 308,  // 简单类型->标识符
+	eSPEV_PointerSimpleType = 309,
 
 	//eSPEV_AfterBaseTypeStatement = 310,
 
 	eSPEV_IdentifierTypeDefineList = 312,
 	eSPEV_VarDefineBeforeList = 313,
 	//eSPEV_EnumTypeDefine = 314,
-	//eSPEV_BeforeBaseTypeStatement = 315,
+	eSPEV_TypeBeforeTypeConstruct = 315,
 
 
 	//eSPEV_ProcedureTypeBeforeArgsList = 321,

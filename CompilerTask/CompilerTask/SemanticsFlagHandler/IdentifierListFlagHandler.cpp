@@ -10,6 +10,13 @@ IdentifierListFlagHandler::~IdentifierListFlagHandler()
 
 }
 
+void IdentifierListFlagHandler::clearData()
+{
+	while(false == m_stackSemanticserParserFlag.empty()){
+		m_stackSemanticserParserFlag.pop();
+	}
+}
+
 void IdentifierListFlagHandler::startNewSemanticserParserFlag(eSemanticsStackIdFlag newFlag)
 {
 	m_stackSemanticserParserFlag.push(newFlag);

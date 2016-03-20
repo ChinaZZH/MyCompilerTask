@@ -135,6 +135,13 @@ int SymbolTable::addNewUserTypeInfoToTable(const std::string& strInitTypeName, i
 }
 
 
+TypeInfo* SymbolTable::getTypeInfoFromTableAddress(int nTypeAddressValue)
+{
+	TypeInfo* pTypeInfoUnit = m_typeInfoUserTable.getTypeInfoFromTableAddress(nTypeAddressValue);
+	return pTypeInfoUnit;
+}
+
+
 int SymbolTable::searchEnumInfoTable(int nStackTopProcId, const std::string& strCompareValue)
 {
 	int nEnumAddressValue = m_enumInfoTable.searchEnumInfoTable(nStackTopProcId, strCompareValue);

@@ -10,6 +10,13 @@ ProcStackParserHandler::~ProcStackParserHandler()
 
 }
 
+void ProcStackParserHandler::clearData()
+{
+	while(false == m_stackProcParser.empty()){
+		m_stackProcParser.pop();
+	}
+}
+
 int ProcStackParserHandler::getTopProcStackProcAddress()
 {
 	int nTopProcAddressValue = m_stackProcParser.top();

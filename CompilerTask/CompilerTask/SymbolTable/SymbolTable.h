@@ -25,6 +25,7 @@
 #include "UseFileTable.h"
 
 
+struct TypeInfo;
 
 class SymbolTable
 {
@@ -70,6 +71,8 @@ public:
 	void addNewVarToSpecficProcId(VarInfo newVarInfo);
 
 	int searchVarInfoTable(int nStackTopProcId, const std::string& strCompareValue);
+
+	TypeInfo* getTypeInfoFromTableAddress(int nTypeAddressValue);
 
 // 类型信息表
 public:

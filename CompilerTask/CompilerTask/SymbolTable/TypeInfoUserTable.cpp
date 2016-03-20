@@ -33,3 +33,15 @@ int TypeInfoUserTable::addNewUserTypeInfoToTable(TypeInfo newUserTypeInfo)
 	m_mapTypeUserInfoTable[nNewAddressValue] = newUserTypeInfo;
 	return nNewAddressValue;
 }
+
+
+TypeInfo* TypeInfoUserTable::getTypeInfoFromTableAddress(int nTypeAddressValue)
+{
+	TypeInfoMap::iterator itr = m_mapTypeUserInfoTable.find(nTypeAddressValue);
+	if(itr == m_mapTypeUserInfoTable.end()){
+		return NULL;
+	}
+
+	TypeInfo* pTypeInfoUnit = &(itr->second);
+	return pTypeInfoUnit;
+}

@@ -13,24 +13,14 @@
 *********************************************************************/
 
 #pragma once
-#include <stack>
+#include "../GlobalData/SyntaxParserGlobalDataDef.h"
 
-typedef std::stack<int> ProcStack;
-
-class ProcStackParserHandler
+class TypeEnumConverter
 {
 public:
-	ProcStackParserHandler();
-	~ProcStackParserHandler();
+	TypeEnumConverter();
+	~TypeEnumConverter();
 
 public:
-	void clearData();
-
-public:
-	int getTopProcStackProcAddress();
-
-	bool newProcCallAddToStack(int nProcIdAddress);
-
-private:
-	ProcStack  m_stackProcParser;   //¹ý³Ì·ÖÎöÕ»
+	static eDataStoreEnumValue wordStatusToDataStoreType(int nWordStatus);
 };

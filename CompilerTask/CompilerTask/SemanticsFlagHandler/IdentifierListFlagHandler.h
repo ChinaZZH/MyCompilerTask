@@ -17,6 +17,8 @@
 
 enum eSemanticsStackIdFlag
 {
+	eSPIF_MainProgramIdentifierListStart = 0,  // 主程序首部 标识符
+
 	eSPIF_VarIdentifierListStart  = 6,  // 变量标识符
 	eSPIF_FileIdentifierListStart = 7,  // 文件标识符
 };
@@ -29,6 +31,9 @@ class IdentifierListFlagHandler
 public:
 	IdentifierListFlagHandler();
 	~IdentifierListFlagHandler();
+
+public:
+	void clearData();
 
 public:
 	void startNewSemanticserParserFlag(eSemanticsStackIdFlag newFlag);

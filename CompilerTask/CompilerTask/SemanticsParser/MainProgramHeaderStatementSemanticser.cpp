@@ -47,6 +47,8 @@ bool MainProgramHeaderStatementSemanticser::processSemanticsParser()
 		return bProcessParserResult;
 	}
 
+	SemanticsParserMgrInst::instance().clearAllData();
+
 	// 创建新的一个过程
 	ProcInfo newProcInfo;
 	newProcInfo.m_strProcName = pParserWord->m_szContentValue;
@@ -54,9 +56,20 @@ bool MainProgramHeaderStatementSemanticser::processSemanticsParser()
 	newProcInfo.m_eType = ProcInfo::Type::Procedure;
 	newProcInfo.m_ParaTable.clear();
 
+	// 将该过程放入符号表中
 	int nProcIndexAddress = SymbolTableInst::instance().addNewProcInfo(newProcInfo);
+
+	// 放入过程栈中
 	ProcStackParserHandler& procStackParserHandler = SemanticsParserMgrInst::instance().getProcStackParserHandler();
 	procStackParserHandler.newProcCallAddToStack(nProcIndexAddress);
+
+	// 标识符标识 处理器
+	IdentifierListFlagHandler& identifierListHandler = SemanticsParserMgrInst::instance().getIdentifierListFlagHandler();
+	identifierListHandler.startNewSemanticserParserFlag(eSPIF_MainProgramIdentifierListStart);
+
+	// 类型标志 处理器
+	TypeFlagHandler& typeFlagHandler = SemanticsParserMgrInst::instance().getTypeFlagHandler();
+	typeFlagHandler.pushTypeFlagValueToStack(eTFEV_MainTypeValue);
 
 	bProcessParserResult = true;
 	return bProcessParserResult;

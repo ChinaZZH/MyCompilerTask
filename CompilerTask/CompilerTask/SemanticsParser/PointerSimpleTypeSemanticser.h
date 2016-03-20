@@ -13,24 +13,16 @@
 *********************************************************************/
 
 #pragma once
-#include <stack>
+#include "BaseSemanticser.h"
 
-typedef std::stack<int> ProcStack;
-
-class ProcStackParserHandler
+class PointerSimpleTypeSemanticser : public BaseSemanticser
 {
 public:
-	ProcStackParserHandler();
-	~ProcStackParserHandler();
+	PointerSimpleTypeSemanticser();
+	~PointerSimpleTypeSemanticser();
 
 public:
-	void clearData();
+	virtual bool processSemanticsParser();
 
-public:
-	int getTopProcStackProcAddress();
-
-	bool newProcCallAddToStack(int nProcIdAddress);
-
-private:
-	ProcStack  m_stackProcParser;   //¹ý³Ì·ÖÎöÕ»
+	virtual eSemansticeParserTypeValue returnSemanticserEnumValue();
 };

@@ -100,6 +100,7 @@
     <ClInclude Include="Log\LogFile.h" />
     <ClInclude Include="SemanticsFlagHandler\IdentifierListFlagHandler.h" />
     <ClInclude Include="SemanticsFlagHandler\ProcStackParserHandler.h" />
+    <ClInclude Include="SemanticsFlagHandler\TypeFlagHandler.h" />
     <ClInclude Include="SemanticsFlagHandler\TypePositionParseHandler.h" />
     <ClInclude Include="SemanticsParser\BaseSemanticser.h" />
     <ClInclude Include="SemanticsParser\ConstStatmentSemanticser.h" />
@@ -110,6 +111,9 @@
     <ClInclude Include="SemanticsParser\MainProgramHeaderStatementSemanticser.h" />
     <ClInclude Include="SemanticsParser\SemanticsEnumDef.h" />
     <ClInclude Include="SemanticsParser\SemanticsParserMgr.h" />
+    <ClInclude Include="SemanticsParser\PointerSimpleIdentifierTypeSemanticser.h" />
+    <ClInclude Include="SemanticsParser\PointerSimpleTypeSemanticser.h" />
+    <ClInclude Include="SemanticsParser\TypeBeforeTypeConstructSemanticser.h" />
     <ClInclude Include="SemanticsParser\TypeDefineSemanticser.h" />
     <ClInclude Include="SemanticsParser\VarDefineAfterListSemanticser.h" />
     <ClInclude Include="SemanticsParser\VarDefineBeforeListSemanticser.h" />
@@ -146,6 +150,7 @@
     <ClCompile Include="Log\LogFile.cpp" />
     <ClCompile Include="SemanticsFlagHandler\IdentifierListFlagHandler.cpp" />
     <ClCompile Include="SemanticsFlagHandler\ProcStackParserHandler.cpp" />
+    <ClCompile Include="SemanticsFlagHandler\TypeFlagHandler.cpp" />
     <ClCompile Include="SemanticsFlagHandler\TypePositionParseHandler.cpp" />
     <ClCompile Include="SemanticsParser\BaseSemanticser.cpp" />
     <ClCompile Include="SemanticsParser\ConstStatmentSemanticser.cpp" />
@@ -155,6 +160,9 @@
     <ClCompile Include="SemanticsParser\LabelStatmentSemanticser.cpp" />
     <ClCompile Include="SemanticsParser\MainProgramHeaderStatementSemanticser.cpp" />
     <ClCompile Include="SemanticsParser\SemanticsParserMgr.cpp" />
+    <ClCompile Include="SemanticsParser\PointerSimpleIdentifierTypeSemanticser.cpp" />
+    <ClCompile Include="SemanticsParser\PointerSimpleTypeSemanticser.cpp" />
+    <ClCompile Include="SemanticsParser\TypeBeforeTypeConstructSemanticser.cpp" />
     <ClCompile Include="SemanticsParser\TypeDefineSemanticser.cpp" />
     <ClCompile Include="SemanticsParser\VarDefineAfterListSemanticser.cpp" />
     <ClCompile Include="SemanticsParser\VarDefineBeforeListSemanticser.cpp" />

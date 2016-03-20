@@ -25,7 +25,12 @@ public:
 	~TypePositionParseHandler();
 
 public:
+	void clearData();
+
+public:
 	void addProcessingTypeInfoAddress(int nTypeInfoAddress);
+
+	int  getProcessingTypeAddress();
 
 private:
 	TypePaserStack  m_stackTypePaser;

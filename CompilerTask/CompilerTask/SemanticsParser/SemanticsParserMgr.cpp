@@ -22,6 +22,14 @@ SemanticsParserMgr::~SemanticsParserMgr()
 
 }
 
+void SemanticsParserMgr::clearAllData()
+{
+	m_semanticsParserIdFlag.clearData();
+	m_procStackParserHandler.clearData();
+	m_typeInfPositionParserHandler.clearData();
+	m_typeFlagHandler.clearData();
+}
+
 bool SemanticsParserMgr::processSemanticsParser(int nSemanticserValue)
 {
 	bool bProcessSemantics = false;
@@ -77,4 +85,9 @@ ProcStackParserHandler& SemanticsParserMgr::getProcStackParserHandler()
 TypePositionParseHandler& SemanticsParserMgr::getTypePositionParseHandler()
 {
 	return m_typeInfPositionParserHandler;
+}
+
+TypeFlagHandler& SemanticsParserMgr::getTypeFlagHandler()
+{
+	return m_typeFlagHandler;
 }
