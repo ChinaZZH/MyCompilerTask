@@ -14,12 +14,13 @@
 
 #pragma once
 #include "BaseSemanticser.h"
+#include "SemanticsEnumDef.h"
 
-class TypeBeforeTypeConstructSemanticser : public BaseSemanticser
+class SetTypeBeforeSpecficTypeSemanticser : public BaseSemanticser
 {
 public:
-	TypeBeforeTypeConstructSemanticser();
-	~TypeBeforeTypeConstructSemanticser();
+	SetTypeBeforeSpecficTypeSemanticser();
+	~SetTypeBeforeSpecficTypeSemanticser();
 
 public:
 	virtual bool processSemanticsParser();

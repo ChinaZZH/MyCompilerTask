@@ -28,3 +28,14 @@ int TypePositionParseHandler::getProcessingTypeAddress()
 	int nTypePositionAddress = m_stackTypePaser.top();
 	return nTypePositionAddress;
 }
+
+bool TypePositionParseHandler::isEmptyStatus()
+{
+	return m_stackTypePaser.empty();
+}
+
+
+void TypePositionParseHandler::popTypeAddressData()
+{
+	m_stackTypePaser.pop();
+}

@@ -14,7 +14,7 @@
 SemanticsParserMgr::SemanticsParserMgr()
 :m_semanticsParserIdFlag()
 {
-	this->initSemanticsParser();
+	
 }
 
 SemanticsParserMgr::~SemanticsParserMgr()
@@ -55,20 +55,6 @@ bool SemanticsParserMgr::processSemanticsParser(int nSemanticserValue)
 	return bProcessSemantics;
 }
 
-
-void SemanticsParserMgr::initSemanticsParser()
-{
-	m_mapSemanticserHandler[eSPEV_MainProgramHeaderStatementParser] = new MainProgramHeaderStatementSemanticser();
-	m_mapSemanticserHandler[eSPEV_LabelStatmentParser] = new LabelStatementSemanticser();
-	m_mapSemanticserHandler[eSPEV_ConstStatmentParser] = new ConstStatementSemanticser();
-	m_mapSemanticserHandler[eSPEV_IdentifierTypeDefineList] = new IdentifierDefineListSemanticser();
-	m_mapSemanticserHandler[eSPEV_TypeDefineParser] = new TypeDefineSemanticser();
-
-	m_mapSemanticserHandler[eSPEV_VarDefineBeforeList] = new VarDefineBeforeListSemanticser();
-	m_mapSemanticserHandler[eSPEV_VarDefineAfterList] = new VarDefineAfterListSemanticser();
-	m_mapSemanticserHandler[eSPEV_IncludeFileBeforeFileName] = new IncludeFileBeforeFileNameSemanticser();
-	m_mapSemanticserHandler[eSPEV_IncludeFileAfterFileName] = new IncludeFileAfterFileNameSemanticser();
-}
 
 
 IdentifierListFlagHandler& SemanticsParserMgr::getIdentifierListFlagHandler()

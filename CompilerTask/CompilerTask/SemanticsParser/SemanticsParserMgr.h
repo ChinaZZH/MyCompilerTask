@@ -37,9 +37,6 @@ public:
 public:
 	bool processSemanticsParser(int nSemanticserValue);
 
-private:
-	void initSemanticsParser();
-
 public:
 	IdentifierListFlagHandler& getIdentifierListFlagHandler();
 

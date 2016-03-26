@@ -45,3 +45,8 @@ TypeInfo* TypeInfoUserTable::getTypeInfoFromTableAddress(int nTypeAddressValue)
 	TypeInfo* pTypeInfoUnit = &(itr->second);
 	return pTypeInfoUnit;
 }
+
+int TypeInfoUserTable::getTopTypeUserInfoAddress()
+{
+	int nNewAddressValue = m_mapTypeUserInfoTable.size();
+}

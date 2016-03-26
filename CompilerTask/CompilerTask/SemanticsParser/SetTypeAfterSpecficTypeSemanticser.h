@@ -13,30 +13,17 @@
 *********************************************************************/
 
 #pragma once
-#include <stack>
+#include "BaseSemanticser.h"
+#include "SemanticsEnumDef.h"
 
-
-typedef std::stack<int> TypePaserStack; 
-
-class TypePositionParseHandler
+class SetTypeAfterSpecficTypeSemanticser : public BaseSemanticser
 {
 public:
-	TypePositionParseHandler();
-	~TypePositionParseHandler();
+	SetTypeAfterSpecficTypeSemanticser();
+	~SetTypeAfterSpecficTypeSemanticser();
 
 public:
-	void clearData();
+	virtual bool processSemanticsParser();
 
-public:
-	void addProcessingTypeInfoAddress(int nTypeInfoAddress);
-
-	int  getProcessingTypeAddress();
-
-	bool isEmptyStatus();
-
-	void popTypeAddressData();
-
-private:
-	TypePaserStack  m_stackTypePaser;
+	virtual eSemansticeParserTypeValue returnSemanticserEnumValue();
 };
-

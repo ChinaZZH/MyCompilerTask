@@ -52,14 +52,23 @@
     <Filter Include="SemanticsParser\常量声明部分">
       <UniqueIdentifier>{75d8d6dc-4e8b-49e5-9f94-a16bde3cc7dc}</UniqueIdentifier>
     </Filter>
-    <Filter Include="SemanticsParser\类型声明部分">
-      <UniqueIdentifier>{2de2d5c1-0e21-4934-9867-e566cd047f93}</UniqueIdentifier>
-    </Filter>
     <Filter Include="SemanticsParser\标识符列表声明">
       <UniqueIdentifier>{3cffb25e-2bf7-4bf7-bf44-594da1c35919}</UniqueIdentifier>
     </Filter>
     <Filter Include="SemanticsParser\包含文件声明部分">
       <UniqueIdentifier>{dfce308b-ed30-4e4e-9594-8d485ef2f175}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="SemanticsParser\集合类型">
+      <UniqueIdentifier>{0a2987e4-fb80-4412-809c-48ff2fc61304}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="SemanticsParser\指针类型部分">
+      <UniqueIdentifier>{3ef0e711-c286-4167-bcb4-af20ead21ce6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="SemanticsParser\自定义类型">
+      <UniqueIdentifier>{3ab87b54-9090-426a-a095-d60db0ad1e66}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="SemanticsParser\类型构造部分">
+      <UniqueIdentifier>{2de2d5c1-0e21-4934-9867-e566cd047f93}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -189,9 +198,6 @@
     <ClInclude Include="SemanticsParser\ConstStatmentSemanticser.h">
       <Filter>SemanticsParser\常量声明部分</Filter>
     </ClInclude>
-    <ClInclude Include="SemanticsParser\TypeDefineSemanticser.h">
-      <Filter>SemanticsParser\类型声明部分</Filter>
-    </ClInclude>
     <ClInclude Include="SemanticsParser\IdentifierDefineListSemanticser.h">
       <Filter>SemanticsParser\标识符列表声明</Filter>
     </ClInclude>
@@ -207,14 +213,29 @@
     <ClInclude Include="SemanticsFlagHandler\TypeFlagHandler.h">
       <Filter>SemanticsFlagHandler</Filter>
     </ClInclude>
-    <ClInclude Include="SemanticsParser\TypeBeforeTypeConstructSemanticser.h">
-      <Filter>SemanticsParser\类型声明部分</Filter>
+    <ClInclude Include="SemanticsParser\TypeEnumConverter.h">
+      <Filter>SemanticsParser</Filter>
+    </ClInclude>
+    <ClInclude Include="SemanticsParser\SetTypeBeforeSpecficTypeSemanticser.h">
+      <Filter>SemanticsParser\集合类型</Filter>
+    </ClInclude>
+    <ClInclude Include="SemanticsParser\SetTypeAfterSpecficTypeSemanticser.h">
+      <Filter>SemanticsParser\集合类型</Filter>
     </ClInclude>
     <ClInclude Include="SemanticsParser\PointerSimpleIdentifierTypeSemanticser.h">
-      <Filter>SemanticsParser\类型声明部分</Filter>
+      <Filter>SemanticsParser\指针类型部分</Filter>
     </ClInclude>
     <ClInclude Include="SemanticsParser\PointerSimpleTypeSemanticser.h">
-      <Filter>SemanticsParser\类型声明部分</Filter>
+      <Filter>SemanticsParser\指针类型部分</Filter>
+    </ClInclude>
+    <ClInclude Include="SemanticsParser\TypeDefineSemanticser.h">
+      <Filter>SemanticsParser\自定义类型</Filter>
+    </ClInclude>
+    <ClInclude Include="SemanticsParser\AfterAllTypeConstructSemanticser.h">
+      <Filter>SemanticsParser\类型构造部分</Filter>
+    </ClInclude>
+    <ClInclude Include="SemanticsParser\BeforeAllTypeConstructSemanticser.h">
+      <Filter>SemanticsParser\类型构造部分</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -323,9 +344,6 @@
     <ClCompile Include="SemanticsParser\ConstStatmentSemanticser.cpp">
       <Filter>SemanticsParser\常量声明部分</Filter>
     </ClCompile>
-    <ClCompile Include="SemanticsParser\TypeDefineSemanticser.cpp">
-      <Filter>SemanticsParser\类型声明部分</Filter>
-    </ClCompile>
     <ClCompile Include="SemanticsParser\IdentifierDefineListSemanticser.cpp">
       <Filter>SemanticsParser\标识符列表声明</Filter>
     </ClCompile>
@@ -341,14 +359,29 @@
     <ClCompile Include="SemanticsFlagHandler\TypeFlagHandler.cpp">
       <Filter>SemanticsFlagHandler</Filter>
     </ClCompile>
-    <ClCompile Include="SemanticsParser\TypeBeforeTypeConstructSemanticser.cpp">
-      <Filter>SemanticsParser\类型声明部分</Filter>
+    <ClCompile Include="SemanticsParser\TypeEnumConverter.cpp">
+      <Filter>SemanticsParser</Filter>
+    </ClCompile>
+    <ClCompile Include="SemanticsParser\SetTypeBeforeSpecficTypeSemanticser.cpp">
+      <Filter>SemanticsParser\集合类型</Filter>
+    </ClCompile>
+    <ClCompile Include="SemanticsParser\SetTypeAfterSpecficTypeSemanticser.cpp">
+      <Filter>SemanticsParser\集合类型</Filter>
     </ClCompile>
     <ClCompile Include="SemanticsParser\PointerSimpleIdentifierTypeSemanticser.cpp">
-      <Filter>SemanticsParser\类型声明部分</Filter>
+      <Filter>SemanticsParser\指针类型部分</Filter>
     </ClCompile>
     <ClCompile Include="SemanticsParser\PointerSimpleTypeSemanticser.cpp">
-      <Filter>SemanticsParser\类型声明部分</Filter>
+      <Filter>SemanticsParser\指针类型部分</Filter>
+    </ClCompile>
+    <ClCompile Include="SemanticsParser\TypeDefineSemanticser.cpp">
+      <Filter>SemanticsParser\自定义类型</Filter>
+    </ClCompile>
+    <ClCompile Include="SemanticsParser\AfterAllTypeConstructSemanticser.cpp">
+      <Filter>SemanticsParser\类型构造部分</Filter>
+    </ClCompile>
+    <ClCompile Include="SemanticsParser\BeforeAllTypeConstructSemanticser.cpp">
+      <Filter>SemanticsParser\类型构造部分</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

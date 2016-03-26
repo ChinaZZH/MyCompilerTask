@@ -95,6 +95,8 @@ public:
 
 	TypeInfo* getTypeInfoFromTableAddress(int nTypeAddressValue);
 
+	int getTopTypeUserInfoAddress();
+
 private:
 	TypeInfoMap  m_mapTypeUserInfoTable;
 };

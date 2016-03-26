@@ -141,6 +141,12 @@ TypeInfo* SymbolTable::getTypeInfoFromTableAddress(int nTypeAddressValue)
 	return pTypeInfoUnit;
 }
 
+int SymbolTable::getTopTypeUserInfoAddress()
+{
+	int nTopUserTypeAddress = m_typeInfoUserTable.getTopTypeUserInfoAddress();
+	return nTopUserTypeAddress;
+}
+
 
 int SymbolTable::searchEnumInfoTable(int nStackTopProcId, const std::string& strCompareValue)
 {

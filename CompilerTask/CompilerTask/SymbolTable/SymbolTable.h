@@ -72,13 +72,15 @@ public:
 
 	int searchVarInfoTable(int nStackTopProcId, const std::string& strCompareValue);
 
-	TypeInfo* getTypeInfoFromTableAddress(int nTypeAddressValue);
-
 // 类型信息表
 public:
 	int searchTypeInfoTable(int nStackTopProcId, const std::string& strCompareValue);
 	
 	int addNewUserTypeInfoToTable(const std::string& strInitTypeName, int nProcAddress);
+
+	TypeInfo* getTypeInfoFromTableAddress(int nTypeAddressValue);
+
+	int getTopTypeUserInfoAddress();
 
 // 枚举值
 public:
