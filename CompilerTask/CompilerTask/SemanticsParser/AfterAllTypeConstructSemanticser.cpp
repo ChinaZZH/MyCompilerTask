@@ -1,7 +1,7 @@
 #include "AfterAllTypeConstructSemanticser.h"
 #include "SemanticsParserMgr.h"
-#include "..\SymbolTable\SymbolTable.h"
-#include "..\Log\LogFile.h"
+#include "../SymbolTable/SymbolTable.h"
+#include "../Log/LogFile.h"
 
 AfterAllTypeConstructSemanticser::AfterAllTypeConstructSemanticser()
 {

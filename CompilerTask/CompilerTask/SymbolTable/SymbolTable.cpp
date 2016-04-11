@@ -1,4 +1,3 @@
-
 #include "SymbolTable.h"
 #include "../GlobalData/TypeSystemConfig.h"
 

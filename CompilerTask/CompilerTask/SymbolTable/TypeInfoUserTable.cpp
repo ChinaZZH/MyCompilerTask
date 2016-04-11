@@ -48,5 +48,7 @@ TypeInfo* TypeInfoUserTable::getTypeInfoFromTableAddress(int nTypeAddressValue)
 
 int TypeInfoUserTable::getTopTypeUserInfoAddress()
 {
-	int nNewAddressValue = m_mapTypeUserInfoTable.size();
+	int nTopTypeUserInfoAddress = m_mapTypeUserInfoTable.size();
+	nTopTypeUserInfoAddress = nTopTypeUserInfoAddress - 1;
+	return nTopTypeUserInfoAddress;
 }

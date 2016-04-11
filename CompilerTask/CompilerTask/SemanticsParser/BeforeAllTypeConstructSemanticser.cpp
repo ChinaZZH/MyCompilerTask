@@ -1,6 +1,9 @@
 #include "BeforeAllTypeConstructSemanticser.h"
 #include "SemanticsParserMgr.h"
 #include "../SemanticsFlagHandler/TypeFlagHandler.h"
+#include "../SymbolTable/SymbolTable.h"
+#include "../Common/IntStringConverter.h"
+#include "../Log/LogFile.h"
 
 BeforeAllTypeConstructSemanticser::BeforeAllTypeConstructSemanticser()
 {
@@ -62,17 +65,73 @@ bool BeforeAllTypeConstructSemanticser::processSemanticsParser()
 
 void BeforeAllTypeConstructSemanticser::helpProcessRecordType()
 {
+	// 设置需要分析的类型
+	TypePositionParseHandler& typePosHandler = SemanticsParserMgrInst::instance().getTypePositionParseHandler();
+	int nProcessTypeAddress = typePosHandler.getProcessingTypeAddress();
+	TypeInfo* pUserTypeInfo = SymbolTableInst::instance().getTypeInfoFromTableAddress(nProcessTypeAddress);
+	if(NULL == pUserTypeInfo){
+		LogFileInst::instance().logError("BeforeAllTypeConstructSemanticser::helpProcessRecordType pTypeInfoUser null ", __FILE__, __LINE__);
+		return;
+	}
 
+
+	// 添加新的类型到类型信息表中
+	ProcStackParserHandler& procParserHandler = SemanticsParserMgrInst::instance().getProcStackParserHandler();
+	int nTopProcAddress = procParserHandler.getTopProcStackProcAddress();
+
+	int nSerialIdValue = SymbolTableInst::instance().getSerialId();
+	std::string strSerialValue = IntStringConverter::intValueConvertToString(nSerialIdValue);
+	std::string strInitTypeName("_noname");
+	strInitTypeName.append(strSerialValue);
+
+	int nUserTypeAddressValue = SymbolTableInst::instance().addNewUserTypeInfoToTable(strInitTypeName, nTopProcAddress);
+	typePosHandler.addProcessingTypeInfoAddress(nUserTypeAddressValue);
+	
+
+	// 设置记录类型字段域的值
+	int nNewProcessAddress = typePosHandler.getProcessingTypeAddress();
+	int nTotalFieldNum = pUserTypeInfo->m_FieldInfo.size();
+	for (int i = 0; i < nTotalFieldNum; ++i){
+		if (0 == (pUserTypeInfo->m_FieldInfo[i].m_nProcessState)){
+			continue;
+		}
+
+		pUserTypeInfo->m_FieldInfo[i].m_nAddressLink = nNewProcessAddress;
+		pUserTypeInfo->m_FieldInfo[i].m_nProcessState = 1;
+	}
 }
 
 
 void BeforeAllTypeConstructSemanticser::helpProcessArrayType()
 {
+	ProcStackParserHandler& procParserHandler = SemanticsParserMgrInst::instance().getProcStackParserHandler();
+	int nTopProcAddress = procParserHandler.getTopProcStackProcAddress();
 
+	// 初始化类型名
+	int nSerialIdValue = SymbolTableInst::instance().getSerialId();
+	std::string strSerialValue = IntStringConverter::intValueConvertToString(nSerialIdValue);
+	std::string strInitTypeName("_noname");
+	strInitTypeName.append(strSerialValue);
+
+	int nUserTypeAddressValue = SymbolTableInst::instance().addNewUserTypeInfoToTable(strInitTypeName, nTopProcAddress);
+
+	TypePositionParseHandler& typePosHandler = SemanticsParserMgrInst::instance().getTypePositionParseHandler();
+	int nProcessTypeAddress = typePosHandler.getProcessingTypeAddress();
+	TypeInfo* pTypeInfoUser = SymbolTableInst::instance().getTypeInfoFromTableAddress(nProcessTypeAddress);
+	if(NULL == pTypeInfoUser){
+		LogFileInst::instance().logError("BeforeAllTypeConstructSemanticser::helpProcessArrayType pTypeInfoUser null ", __FILE__, __LINE__);
+		return;
+	}
+
+	pTypeInfoUser->m_nAddressLink = nUserTypeAddressValue;
+	typePosHandler.addProcessingTypeInfoAddress(nUserTypeAddressValue);
 }
 
 
 void BeforeAllTypeConstructSemanticser::helpProcessFunctionType()
 {
-
+	int nTopUserTypeAddress = SymbolTableInst::instance().getTopTypeUserInfoAddress();
+	
+	TypePositionParseHandler& typePosHandler = SemanticsParserMgrInst::instance().getTypePositionParseHandler();
+	typePosHandler.addProcessingTypeInfoAddress(nTopUserTypeAddress);
 }
