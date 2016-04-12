@@ -18,9 +18,9 @@
 enum eSemanticsStackIdFlag
 {
 	eSPIF_MainProgramIdentifierListStart = 0,  // 主程序首部 标识符
-
-	eSPIF_VarIdentifierListStart  = 6,  // 变量标识符
-	eSPIF_FileIdentifierListStart = 7,  // 文件标识符
+	eSPIF_RecordIdentifierListStart = 2, // 记录类型标识符
+	eSPIF_VarIdentifierListStart  = 6,   // 变量标识符
+	eSPIF_FileIdentifierListStart = 7,   // 文件标识符
 };
 
 typedef std::stack<eSemanticsStackIdFlag> SemanticserParserFlagStack;

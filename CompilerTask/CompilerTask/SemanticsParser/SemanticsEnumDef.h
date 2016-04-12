@@ -34,6 +34,8 @@ enum eSemansticeParserTypeValue
 	//eSPEV_EnumTypeDefine = 314,
 	eSPEV_BeforeAllTypeConstruct = 315,  
 
+	eSPEV_BeforeRecordTypeStatement = 319,
+	eSPEV_AfterRecordTypeStatement  = 320,
 
 	//eSPEV_ProcedureTypeBeforeArgsList = 321,
 	eSPEV_SetTypeBeforeSpecficType = 324,
