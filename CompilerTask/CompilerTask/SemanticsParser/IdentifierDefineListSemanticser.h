@@ -27,6 +27,8 @@ public:
 	virtual eSemansticeParserTypeValue returnSemanticserEnumValue();
 
 private:
+	bool processRecordIdentifierList();
+
 	bool processVarIdentifierList();
 
 	bool processFileIdentifierList();

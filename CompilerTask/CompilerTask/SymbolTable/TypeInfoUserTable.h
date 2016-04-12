@@ -53,12 +53,15 @@ struct ArrayInfo
 	{ }
 };
 
+typedef std::vector<FieldInfo> FieldInfoVec;
+typedef std::vector<ArrayInfo> ArrayInfoVec;
+
 struct TypeInfo :CommonObjectInfo
 {
 	eDataStoreEnumValue m_eDataType;	  //数据类型
 	int m_nAddressLink;					  //复杂类型指针
-	std::vector<FieldInfo> m_FieldInfo;	  //记录类型字段域
-	std::vector<ArrayInfo> m_ArrayInfo;	  //数组类型的维度域
+	FieldInfoVec m_FieldInfo;	          //记录类型字段域
+	ArrayInfoVec m_ArrayInfo;	          //数组类型的维度域
 	eDataStoreEnumValue m_eBaseType;	  //基本类型
 	std::string m_strContentValue;		  //备注
 	int m_nProcessState;				  //处理状态
