@@ -13,32 +13,17 @@
 *********************************************************************/
 
 #pragma once
+#include "BaseSemanticser.h"
 #include "SemanticsEnumDef.h"
 
-class BaseSemanticser;
-class CToken;
-
-class BaseSemanticser
+class ArrayIntegerConstantSemanticser : public BaseSemanticser
 {
 public:
-	BaseSemanticser();
-
-	virtual ~BaseSemanticser();
+	ArrayIntegerConstantSemanticser();
+	~ArrayIntegerConstantSemanticser();
 
 public:
 	virtual bool processSemanticsParser();
 
 	virtual eSemansticeParserTypeValue returnSemanticserEnumValue();
-
-protected:
-	bool checkCompareIsSameNameWithWord(int nTopProcId, const std::string& strWordValue);
-
-	const CToken* getTokenWordByCurrentWordIndex();
-
-	const CToken* getTokenWordByLastWordIndex();
-
-	const CToken* getTokenWordByLastSomeWordIndex(int nLastWordIndex);
-
-protected:
-	TypeInfo* getTypeInfoByParsingTypePosition();
 };

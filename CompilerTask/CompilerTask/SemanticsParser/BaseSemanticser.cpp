@@ -4,6 +4,7 @@
 #include "../SyntaxParser/SyntaxParser.h"
 #include "../Log/LogFile.h"
 #include "../GlobalData/WordStreamTable.h"
+#include "SemanticsParserMgr.h"
 
 
 BaseSemanticser::BaseSemanticser()
@@ -109,4 +110,23 @@ const CToken* BaseSemanticser::getTokenWordByLastSomeWordIndex(int nLastWordInde
 	}
 
 	return pParserWord;
+}
+
+
+TypeInfo* BaseSemanticser::getTypeInfoByParsingTypePosition()
+{
+	TypePositionParseHandler& typePositionHandler = SemanticsParserMgrInst::instance().getTypePositionParseHandler();
+	int nProcessTypeAddressValue = typePositionHandler.getProcessingTypeAddress();
+	if(nProcessTypeAddressValue < 0){
+		LogFileInst::instance().logError("BaseSemanticser::getTypeInfoByParsingTypePosition nProcessTypeAddressValue error", __FILE__, __LINE__);
+		return NULL;
+	}
+
+	TypeInfo* pUserTypeInfo = SymbolTableInst::instance().getTypeInfoFromTableAddress(nProcessTypeAddressValue);
+	if(NULL == pUserTypeInfo){
+		LogFileInst::instance().logError("BaseSemanticser::getTypeInfoByParsingTypePosition pUserTypeInfo null", __FILE__, __LINE__);
+		return NULL;
+	}
+
+	return pUserTypeInfo;
 }

@@ -38,16 +38,10 @@ bool AfterAllTypeConstructSemanticser::processSemanticsParser()
 		bProcessSemanticsResult = true;
 		return bProcessSemanticsResult;
 	}
-	
-	int nTypeAddressValue = typePositionParserHandler.getProcessingTypeAddress();
-	if(-1 == nTypeAddressValue){
-		bProcessSemanticsResult = true;
-		return bProcessSemanticsResult;
-	}
 
-	TypeInfo* pTypeInfoAddress = SymbolTableInst::instance().getTypeInfoFromTableAddress(nTypeAddressValue);
-	if(NULL == pTypeInfoAddress){
-		LogFileInst::instance().logError("AfterAllTypeConstructSemanticser::processSemanticsParser pTypeInfoAddress null ", __FILE__, __LINE__);
+	TypeInfo* pTypeInfoAddress = this->getTypeInfoByParsingTypePosition();
+	if (NULL == pTypeInfoAddress){
+		LogFileInst::instance().logError("ArrayTypeBeforeLeftBracketSemanticser::processSemanticsParser pUserTypeInfo null", __FILE__, __LINE__);
 		return bProcessSemanticsResult;
 	}
 

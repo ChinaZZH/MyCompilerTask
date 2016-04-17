@@ -63,10 +63,9 @@ bool IdentifierDefineListSemanticser::processRecordIdentifierList()
 		return bProcessSemanticser;
 	}
 
-	TypePositionParseHandler& typePositionHandler = SemanticsParserMgrInst::instance().getTypePositionParseHandler();
-	TypeInfo* pUserDefineTypeInfo = SymbolTableInst::instance().getTypeInfoFromTableAddress(typePositionHandler.getProcessingTypeAddress());
+	TypeInfo* pUserDefineTypeInfo = this->getTypeInfoByParsingTypePosition();
 	if(NULL == pUserDefineTypeInfo){
-		LogFileInst::instance().logError("IdentifierDefineListSemanticser::processRecordIdentifierList pUserDefineTypeInfo null", __FILE__, __LINE__);
+		LogFileInst::instance().logError("IdentifierDefineListSemanticser::processRecordIdentifierList pUserDefineTypeInfo null ", __FILE__, __LINE__);
 		return bProcessSemanticser;
 	}
 
@@ -169,10 +168,9 @@ bool IdentifierDefineListSemanticser::processFieldOfRecordList()
 		return bProcessSemanticser;
 	}
 
-	TypePositionParseHandler& typePositionHandler = SemanticsParserMgrInst::instance().getTypePositionParseHandler();
-	TypeInfo* pUserDefineTypeInfo = SymbolTableInst::instance().getTypeInfoFromTableAddress(typePositionHandler.getProcessingTypeAddress());
-	if (NULL == pUserDefineTypeInfo){
-		LogFileInst::instance().logError("IdentifierDefineListSemanticser::processRecordIdentifierList pUserDefineTypeInfo null", __FILE__, __LINE__);
+	TypeInfo* pUserDefineTypeInfo = this->getTypeInfoByParsingTypePosition();
+	if(NULL == pUserDefineTypeInfo){
+		LogFileInst::instance().logError("IdentifierDefineListSemanticser::processRecordIdentifierList  pUserDefineTypeInfo null ", __FILE__, __LINE__);
 		return bProcessSemanticser;
 	}
 

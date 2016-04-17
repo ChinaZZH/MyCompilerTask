@@ -17,16 +17,9 @@ bool BeforeRecordTypeStatementSemanticser::processSemanticsParser()
 {
 	bool bProcessSemanticsResult = false;
 
-	TypePositionParseHandler& typePostionHandler = SemanticsParserMgrInst::instance().getTypePositionParseHandler();
-	int nProcessTypeAddressValue = typePostionHandler.getProcessingTypeAddress();
-	if(-1 == nProcessTypeAddressValue){
-		LogFileInst::instance().logError("BeforeRecordTypeStatementSemanticser::processSemanticsParser nProcessTypeAddressValue error ", __FILE__, __LINE__);
-		return bProcessSemanticsResult;
-	}
-
-	TypeInfo* pTypeInfoAddress = SymbolTableInst::instance().getTypeInfoFromTableAddress(nProcessTypeAddressValue);
+	TypeInfo* pTypeInfoAddress = this->getTypeInfoByParsingTypePosition();
 	if(NULL == pTypeInfoAddress){
-		LogFileInst::instance().logError("BeforeRecordTypeStatementSemanticser::processSemanticsParser pTypeInfoAddress null ", __FILE__, __LINE__);
+		LogFileInst::instance().logError("BeforeRecordTypeStatementSemanticser::processSemanticsParser pTypeInfoValue null ", __FILE__, __LINE__);
 		return bProcessSemanticsResult;
 	}
 

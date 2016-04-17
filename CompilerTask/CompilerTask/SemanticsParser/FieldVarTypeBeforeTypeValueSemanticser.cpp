@@ -36,9 +36,7 @@ bool FieldVarTypeBeforeTypeValueSemanticser::processSemanticsParser()
 	newFieldInfo.m_nProcessState = 0;
 	
 	// 取出正在分析的类型， 将该字段加在类型上
-	TypePositionParseHandler& typePositionHandler = SemanticsParserMgrInst::instance().getTypePositionParseHandler();
-	int nTypePositionAddressValue = typePositionHandler.getProcessingTypeAddress();
-	TypeInfo* pTypeInfoValue = SymbolTableInst::instance().getTypeInfoFromTableAddress(nTypePositionAddressValue);
+	TypeInfo* pTypeInfoValue = this->getTypeInfoByParsingTypePosition();
 	if(NULL == pTypeInfoValue){
 		LogFileInst::instance().logError("FieldVarTypeBeforeTypeValueSemanticser::processSemanticsParser pTypeInfoValue null ", __FILE__, __LINE__);
 		return bProcessSemanticsResult;

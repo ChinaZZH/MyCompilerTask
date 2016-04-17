@@ -66,14 +66,11 @@ bool BeforeAllTypeConstructSemanticser::processSemanticsParser()
 void BeforeAllTypeConstructSemanticser::helpProcessRecordType()
 {
 	// 设置需要分析的类型
-	TypePositionParseHandler& typePosHandler = SemanticsParserMgrInst::instance().getTypePositionParseHandler();
-	int nProcessTypeAddress = typePosHandler.getProcessingTypeAddress();
-	TypeInfo* pUserTypeInfo = SymbolTableInst::instance().getTypeInfoFromTableAddress(nProcessTypeAddress);
-	if(NULL == pUserTypeInfo){
-		LogFileInst::instance().logError("BeforeAllTypeConstructSemanticser::helpProcessRecordType pTypeInfoUser null ", __FILE__, __LINE__);
-		return;
+	TypeInfo* pTypeInfoAddress = this->getTypeInfoByParsingTypePosition();
+	if(NULL == pTypeInfoAddress){
+		LogFileInst::instance().logError("BeforeAllTypeConstructSemanticser::helpProcessRecordType pUserTypeInfo null", __FILE__, __LINE__);
+		return ;
 	}
-
 
 	// 添加新的类型到类型信息表中
 	ProcStackParserHandler& procParserHandler = SemanticsParserMgrInst::instance().getProcStackParserHandler();
@@ -85,19 +82,20 @@ void BeforeAllTypeConstructSemanticser::helpProcessRecordType()
 	strInitTypeName.append(strSerialValue);
 
 	int nUserTypeAddressValue = SymbolTableInst::instance().addNewUserTypeInfoToTable(strInitTypeName, nTopProcAddress);
+	TypePositionParseHandler& typePosHandler = SemanticsParserMgrInst::instance().getTypePositionParseHandler();
 	typePosHandler.addProcessingTypeInfoAddress(nUserTypeAddressValue);
 	
 
 	// 设置记录类型字段域的值
 	int nNewProcessAddress = typePosHandler.getProcessingTypeAddress();
-	int nTotalFieldNum = pUserTypeInfo->m_FieldInfo.size();
-	for (int i = 0; i < nTotalFieldNum; ++i){
-		if (0 == (pUserTypeInfo->m_FieldInfo[i].m_nProcessState)){
+	int nTotalFieldNum = pTypeInfoAddress->m_FieldInfo.size();
+	for(int i = 0; i < nTotalFieldNum; ++i){
+		if(0 == (pTypeInfoAddress->m_FieldInfo[i].m_nProcessState)){
 			continue;
 		}
 
-		pUserTypeInfo->m_FieldInfo[i].m_nAddressLink = nNewProcessAddress;
-		pUserTypeInfo->m_FieldInfo[i].m_nProcessState = 1;
+		pTypeInfoAddress->m_FieldInfo[i].m_nAddressLink = nNewProcessAddress;
+		pTypeInfoAddress->m_FieldInfo[i].m_nProcessState = 1;
 	}
 }
 
@@ -113,17 +111,17 @@ void BeforeAllTypeConstructSemanticser::helpProcessArrayType()
 	std::string strInitTypeName("_noname");
 	strInitTypeName.append(strSerialValue);
 
-	int nUserTypeAddressValue = SymbolTableInst::instance().addNewUserTypeInfoToTable(strInitTypeName, nTopProcAddress);
-
-	TypePositionParseHandler& typePosHandler = SemanticsParserMgrInst::instance().getTypePositionParseHandler();
-	int nProcessTypeAddress = typePosHandler.getProcessingTypeAddress();
-	TypeInfo* pTypeInfoUser = SymbolTableInst::instance().getTypeInfoFromTableAddress(nProcessTypeAddress);
+	
+	TypeInfo* pTypeInfoUser = this->getTypeInfoByParsingTypePosition();
 	if(NULL == pTypeInfoUser){
-		LogFileInst::instance().logError("BeforeAllTypeConstructSemanticser::helpProcessArrayType pTypeInfoUser null ", __FILE__, __LINE__);
+		LogFileInst::instance().logError("BeforeAllTypeConstructSemanticser::helpProcessArrayType pUserTypeInfo null", __FILE__, __LINE__);
 		return;
 	}
 
+	int nUserTypeAddressValue = SymbolTableInst::instance().addNewUserTypeInfoToTable(strInitTypeName, nTopProcAddress);
 	pTypeInfoUser->m_nAddressLink = nUserTypeAddressValue;
+
+	TypePositionParseHandler& typePosHandler = SemanticsParserMgrInst::instance().getTypePositionParseHandler();
 	typePosHandler.addProcessingTypeInfoAddress(nUserTypeAddressValue);
 }
 

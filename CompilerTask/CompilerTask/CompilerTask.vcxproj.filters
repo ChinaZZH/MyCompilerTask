@@ -73,6 +73,9 @@
     <Filter Include="SemanticsParser\记录类型">
       <UniqueIdentifier>{447eb170-0ec8-4e0f-b714-ff5e36a9b874}</UniqueIdentifier>
     </Filter>
+    <Filter Include="SemanticsParser\数组类型声明">
+      <UniqueIdentifier>{eb8ec4d4-0a00-4eba-b5ef-9b168459dc5a}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <Text Include="ReadMe.txt" />
@@ -267,6 +270,15 @@
     <ClInclude Include="SemanticsFlagHandler\FieldOfRecordParserHandler.h">
       <Filter>SemanticsFlagHandler</Filter>
     </ClInclude>
+    <ClInclude Include="SemanticsParser\ArrayTypeBeforeLeftBracketSemanticser.h">
+      <Filter>SemanticsParser\数组类型声明</Filter>
+    </ClInclude>
+    <ClInclude Include="SemanticsParser\ArrayIntegerConstantSemanticser.h">
+      <Filter>SemanticsParser\数组类型声明</Filter>
+    </ClInclude>
+    <ClInclude Include="SemanticsParser\ArrayEndIntegerConstantSemanticser.h">
+      <Filter>SemanticsParser\数组类型声明</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -439,6 +451,15 @@
     </ClCompile>
     <ClCompile Include="SemanticsFlagHandler\FieldOfRecordParserHandler.cpp">
       <Filter>SemanticsFlagHandler</Filter>
+    </ClCompile>
+    <ClCompile Include="SemanticsParser\ArrayTypeBeforeLeftBracketSemanticser.cpp">
+      <Filter>SemanticsParser\数组类型声明</Filter>
+    </ClCompile>
+    <ClCompile Include="SemanticsParser\ArrayIntegerConstantSemanticser.cpp">
+      <Filter>SemanticsParser\数组类型声明</Filter>
+    </ClCompile>
+    <ClCompile Include="SemanticsParser\ArrayEndIntegerConstantSemanticser.cpp">
+      <Filter>SemanticsParser\数组类型声明</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

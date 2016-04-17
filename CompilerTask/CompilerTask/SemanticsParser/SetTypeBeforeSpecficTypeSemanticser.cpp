@@ -17,13 +17,9 @@ bool SetTypeBeforeSpecficTypeSemanticser::processSemanticsParser()
 {
 	bool bProcessSemanticsResult = false;
 	
-	// 类型节点分析处理器
-	TypePositionParseHandler& typeInfoPositionHandler = SemanticsParserMgrInst::instance().getTypePositionParseHandler();
-	int nProcessTypeValue = typeInfoPositionHandler.getProcessingTypeAddress();
-
-	TypeInfo* pUserTypeInfo = SymbolTableInst::instance().getTypeInfoFromTableAddress(nProcessTypeValue);
+	TypeInfo* pUserTypeInfo = this->getTypeInfoByParsingTypePosition();
 	if(NULL == pUserTypeInfo){
-		LogFileInst::instance().logError("SetTypeBeforeSpecficTypeSemanticser::processSemanticsParser pUserTypeInfo null ", __FILE__, __LINE__);
+		LogFileInst::instance().logError("SetTypeBeforeSpecficTypeSemanticser::processSemanticsParser  pUserDefineTypeInfo null ", __FILE__, __LINE__);
 		return bProcessSemanticsResult;
 	}
 

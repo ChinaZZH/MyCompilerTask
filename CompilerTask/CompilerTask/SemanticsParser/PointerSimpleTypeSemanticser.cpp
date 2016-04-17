@@ -39,16 +39,9 @@ bool PointerSimpleTypeSemanticser::processSemanticsParser()
 {
 	bool bProcessSemanticsResult = false;
 
-	TypePositionParseHandler& typePositionHandler = SemanticsParserMgrInst::instance().getTypePositionParseHandler();
-	int nTopTypeAddressValue = typePositionHandler.getProcessingTypeAddress();
-	if(nTopTypeAddressValue < 0){
-		LogFileInst::instance().logError("PointerSimpleTypeSemanticser::processSemanticsParser nTopTypeAddressValue error", __FILE__, __LINE__);
-		return bProcessSemanticsResult;
-	}
-
-	TypeInfo* pTypeInfoUnit = SymbolTableInst::instance().getTypeInfoFromTableAddress(nTopTypeAddressValue);
+	TypeInfo* pTypeInfoUnit = this->getTypeInfoByParsingTypePosition();
 	if(NULL == pTypeInfoUnit){
-		LogFileInst::instance().logError("PointerSimpleTypeSemanticser::processSemanticsParser pTypeInfoUnit null", __FILE__, __LINE__);
+		LogFileInst::instance().logError("PointerSimpleTypeSemanticser::processSemanticsParser  pTypeInfoUnit null ", __FILE__, __LINE__);
 		return bProcessSemanticsResult;
 	}
 
