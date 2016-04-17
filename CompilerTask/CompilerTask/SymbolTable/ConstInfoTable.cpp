@@ -65,6 +65,17 @@ ConstInfo* ConstInfoTable::getEmptyConstInfoByName(const std::string& strConstNa
 	return NULL;
 }
 
+ConstInfo* ConstInfoTable::getConstDataByAddressValue(int nAddressValue)
+{
+	ConstInfoMap::iterator itr = m_mapConstInfoTable.find(nAddressValue);
+	if(itr == m_mapConstInfoTable.end()){
+		return NULL;
+	}
+
+	ConstInfo* pConstDataInfo = &(itr->second);
+	return pConstDataInfo;
+}
+
 // int SymbolTable::RecConstTbl(const std::string& szValue, int iType)
 // {
 // 	ConstInfo Tmp;

@@ -20,6 +20,7 @@
 #include "../SemanticsFlagHandler/ProcStackParserHandler.h"
 #include "../SemanticsFlagHandler/TypePositionParseHandler.h"
 #include "../SemanticsFlagHandler/TypeFlagHandler.h"
+#include "../SemanticsFlagHandler/FieldOfRecordParserHandler.h"
 
 class BaseSemanticser;
 typedef std::map<int, BaseSemanticser*> SemanticserHandlerMap;
@@ -46,6 +47,8 @@ public:
 
 	TypeFlagHandler& getTypeFlagHandler();
 
+	FieldOfRecordParserHandler& getFieldOfRecordParserHandler();
+
 private:
 	SemanticserHandlerMap m_mapSemanticserHandler;
 
@@ -57,6 +60,8 @@ private:
 	TypePositionParseHandler  m_typeInfPositionParserHandler;
 
 	TypeFlagHandler   m_typeFlagHandler;
+
+	FieldOfRecordParserHandler  m_fieldOfRecordHandler;
 };
 
 typedef Singleton<SemanticsParserMgr> SemanticsParserMgrInst;

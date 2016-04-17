@@ -1,6 +1,9 @@
 #include "BaseSemanticser.h"
 #include <string>
 #include "../SymbolTable/SymbolTable.h"
+#include "../SyntaxParser/SyntaxParser.h"
+#include "../Log/LogFile.h"
+#include "../GlobalData/WordStreamTable.h"
 
 
 BaseSemanticser::BaseSemanticser()
@@ -67,4 +70,43 @@ bool BaseSemanticser::checkCompareIsSameNameWithWord(int nStackTopProcId, const 
 
 	bSameName = false;
 	return bSameName;
+}
+
+const CToken* BaseSemanticser::getTokenWordByCurrentWordIndex()
+{
+	const CToken* pWordToken = this->getTokenWordByLastSomeWordIndex(0);
+	return pWordToken;
+}
+
+
+const CToken* BaseSemanticser::getTokenWordByLastWordIndex()
+{
+	const CToken* pWordToken = this->getTokenWordByLastSomeWordIndex(1);
+	return pWordToken;
+}
+
+
+const CToken* BaseSemanticser::getTokenWordByLastSomeWordIndex(int nLastWordIndex)
+{
+	int nParserWordTableIndex = SyntaxParserInst::instance().getParserWordTableIndex();
+	if(nParserWordTableIndex <= 0){
+		LogFileInst::instance().logError("BaseSemanticser::getTokenWordByLastSomeWordIndex nParserWordTableIndex error", __FILE__, __LINE__);
+		return NULL;
+	}
+
+	// 标识符列表标识符
+	int nLastParserWordIndex = nParserWordTableIndex - nLastWordIndex;
+	if(nLastParserWordIndex <= 0){
+		LogFileInst::instance().logError("BaseSemanticser::getTokenWordByLastSomeWordIndex nLastParserWordIndex error", __FILE__, __LINE__);
+		return NULL;
+	}
+
+	// 从词法分析中得到的 单词集  中去朝 对应的单词
+	const CToken* pParserWord = WordStreamTableInst::instance().getWordTokenByTableIndex(nLastParserWordIndex);
+	if(NULL == pParserWord){
+		LogFileInst::instance().logError("BaseSemanticser::getTokenWordByLastSomeWordIndex pParserWord null", __FILE__, __LINE__);
+		return NULL;
+	}
+
+	return pParserWord;
 }

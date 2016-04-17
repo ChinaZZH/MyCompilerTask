@@ -28,6 +28,7 @@ void SemanticsParserMgr::clearAllData()
 	m_procStackParserHandler.clearData();
 	m_typeInfPositionParserHandler.clearData();
 	m_typeFlagHandler.clearData();
+	m_fieldOfRecordHandler.clearData();
 }
 
 bool SemanticsParserMgr::processSemanticsParser(int nSemanticserValue)
@@ -76,4 +77,9 @@ TypePositionParseHandler& SemanticsParserMgr::getTypePositionParseHandler()
 TypeFlagHandler& SemanticsParserMgr::getTypeFlagHandler()
 {
 	return m_typeFlagHandler;
+}
+
+FieldOfRecordParserHandler& SemanticsParserMgr::getFieldOfRecordParserHandler()
+{
+	return m_fieldOfRecordHandler;
 }

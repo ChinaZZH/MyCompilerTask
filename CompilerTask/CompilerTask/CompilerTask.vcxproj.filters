@@ -246,6 +246,27 @@
     <ClInclude Include="SemanticsParser\AfterRecordTypeStatementSemanticser.h">
       <Filter>SemanticsParser\记录类型</Filter>
     </ClInclude>
+    <ClInclude Include="SemanticsParser\FieldVarTypeBeforeTypeValueSemanticser.h">
+      <Filter>SemanticsParser\记录类型</Filter>
+    </ClInclude>
+    <ClInclude Include="SemanticsParser\FieldVarTypeAfterTypeValueSemanticser.h">
+      <Filter>SemanticsParser\记录类型</Filter>
+    </ClInclude>
+    <ClInclude Include="SemanticsParser\FieldVarTypeAfterEndStatusSemanticser.h">
+      <Filter>SemanticsParser\记录类型</Filter>
+    </ClInclude>
+    <ClInclude Include="SemanticsParser\FieldVarTypeBeforeEndStatusSemanticser.h">
+      <Filter>SemanticsParser\记录类型</Filter>
+    </ClInclude>
+    <ClInclude Include="SemanticsParser\OneFieldVarTypeBeforeListSemanticser.h">
+      <Filter>SemanticsParser\记录类型</Filter>
+    </ClInclude>
+    <ClInclude Include="SemanticsParser\OneFieldVarTypeAfterListSemanticser.h">
+      <Filter>SemanticsParser\记录类型</Filter>
+    </ClInclude>
+    <ClInclude Include="SemanticsFlagHandler\FieldOfRecordParserHandler.h">
+      <Filter>SemanticsFlagHandler</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -397,6 +418,27 @@
     </ClCompile>
     <ClCompile Include="SemanticsParser\AfterRecordTypeStatementSemanticser.cpp">
       <Filter>SemanticsParser\记录类型</Filter>
+    </ClCompile>
+    <ClCompile Include="SemanticsParser\FieldVarTypeBeforeTypeValueSemanticser.cpp">
+      <Filter>SemanticsParser\记录类型</Filter>
+    </ClCompile>
+    <ClCompile Include="SemanticsParser\FieldVarTypeAfterTypeValueSemanticser.cpp">
+      <Filter>SemanticsParser\记录类型</Filter>
+    </ClCompile>
+    <ClCompile Include="SemanticsParser\FieldVarTypeAfterEndStatusSemanticser.cpp">
+      <Filter>SemanticsParser\记录类型</Filter>
+    </ClCompile>
+    <ClCompile Include="SemanticsParser\FieldVarTypeBeforeEndStatusSemanticser.cpp">
+      <Filter>SemanticsParser\记录类型</Filter>
+    </ClCompile>
+    <ClCompile Include="SemanticsParser\OneFieldVarTypeBeforeListSemanticser.cpp">
+      <Filter>SemanticsParser\记录类型</Filter>
+    </ClCompile>
+    <ClCompile Include="SemanticsParser\OneFieldVarTypeAfterListSemanticser.cpp">
+      <Filter>SemanticsParser\记录类型</Filter>
+    </ClCompile>
+    <ClCompile Include="SemanticsFlagHandler\FieldOfRecordParserHandler.cpp">
+      <Filter>SemanticsFlagHandler</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

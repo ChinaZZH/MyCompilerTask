@@ -26,16 +26,7 @@ bool TypeDefineSemanticser::processSemanticsParser()
 {
 	bool bProcessSemanticser = false;
 
-	// 获得单词的下标值
-	int nParserWordIndex = SyntaxParserInst::instance().getParserWordTableIndex();
-	nParserWordIndex = nParserWordIndex - 1;
-	if(nParserWordIndex < 0){
-		LogFileInst::instance().logError("TypeDefineSemanticser::processSemanticsParser nParserWordIndex error", __FILE__, __LINE__);
-		return bProcessSemanticser;
-	}
-
-	// 从单词流表中获取对应的单词
-	const CToken* pConstTokenWord = WordStreamTableInst::instance().getWordTokenByTableIndex(nParserWordIndex);
+	const CToken* pConstTokenWord = this->getTokenWordByLastWordIndex();
 	if(NULL == pConstTokenWord){
 		LogFileInst::instance().logError("TypeDefineSemanticser::processSemanticsParser pConstTokenWord null", __FILE__, __LINE__);
 		return bProcessSemanticser;

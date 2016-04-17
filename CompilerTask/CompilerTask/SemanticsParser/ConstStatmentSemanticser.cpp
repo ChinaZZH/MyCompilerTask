@@ -19,22 +19,16 @@ ConstStatementSemanticser::~ConstStatementSemanticser()
 bool ConstStatementSemanticser::processSemanticsParser()
 {
 	bool bProcessResult = false;
-	int nParserWordTableIndex = SyntaxParserInst::instance().getParserWordTableIndex();
-	if(nParserWordTableIndex <= 0){
-		LogFileInst::instance().logError("ConstStatementSemanticser::processSemanticsParser nParserWordTableIndex error", __FILE__, __LINE__);
+
+	const CToken* pConstWord = this->getTokenWordByLastSomeWordIndex(1);
+	if(NULL == pConstWord){
+		LogFileInst::instance().logError("ConstStatementSemanticser::processSemanticsParser pConstWord null", __FILE__, __LINE__);
 		return bProcessResult;
 	}
 
-	// 找到const常量的标识符
-	int nLastParserWordIndex = nParserWordTableIndex - 3;
-	if(nLastParserWordIndex <= 0){
-		LogFileInst::instance().logError("ConstStatementSemanticser::processSemanticsParser nLastParserWordIndex error", __FILE__, __LINE__);
-		return bProcessResult;
-	}
-
-	const CToken* pParserWord = WordStreamTableInst::instance().getWordTokenByTableIndex(nLastParserWordIndex);
-	if(NULL == pParserWord){
-		LogFileInst::instance().logError("ConstStatementSemanticser::processSemanticsParser pParserWord null", __FILE__, __LINE__);
+	const CToken* pIdentifierWord = this->getTokenWordByLastSomeWordIndex(3);
+	if(NULL == pIdentifierWord){
+		LogFileInst::instance().logError("ConstStatementSemanticser::processSemanticsParser pIdentifierWord null", __FILE__, __LINE__);
 		return bProcessResult;
 	}
 
@@ -47,41 +41,34 @@ bool ConstStatementSemanticser::processSemanticsParser()
 	}
 
 	// label表中找到了 不能重复声明
-	int nLabelTableIndex = SymbolTableInst::instance().searchLableInfoTable(nProcStackId, pParserWord->m_szContentValue);
+	int nLabelTableIndex = SymbolTableInst::instance().searchLableInfoTable(nProcStackId, pIdentifierWord->m_szContentValue);
 	if(nLabelTableIndex >= 0){
 		LogFileInst::instance().logError("ConstStatementSemanticser::processSemanticsParser searchLableInfoTable error", __FILE__, __LINE__);
 		return bProcessResult;
 	}
 
 	// const表
-	int nConstTableIndex = SymbolTableInst::instance().searchConstInfoTable(nProcStackId, pParserWord->m_szContentValue);
+	int nConstTableIndex = SymbolTableInst::instance().searchConstInfoTable(nProcStackId, pIdentifierWord->m_szContentValue);
 	if(nConstTableIndex >= 0){
 		LogFileInst::instance().logError("ConstStatementSemanticser::processSemanticsParser searchConstInfoTable error", __FILE__, __LINE__);
 		return bProcessResult;
 	}
 
 	// 不能跟过程名重名
-	bool bCompareProcName = SymbolTableInst::instance().compareToProcName(nProcStackId, pParserWord->m_szContentValue);
+	bool bCompareProcName = SymbolTableInst::instance().compareToProcName(nProcStackId, pIdentifierWord->m_szContentValue);
 	if(true == bCompareProcName){
 		LogFileInst::instance().logError("ConstStatementSemanticser::processSemanticsParser compareToProcName error", __FILE__, __LINE__);
 		return bProcessResult;
 	}
 
-	// 判断该过程是否有该常量 空间已经申请好了 从对应的const管理器中读取对应的空间
-	int nConstIndex = nParserWordTableIndex - 1;
-	const CToken* pGetEmptyConstWord = WordStreamTableInst::instance().getWordTokenByTableIndex(nConstIndex);
-	if(NULL == pGetEmptyConstWord){
-		LogFileInst::instance().logError("ConstStatementSemanticser::processSemanticsParser pGetEmptyConstWord null", __FILE__, __LINE__);
-		return bProcessResult;
-	}
 
-	ConstInfo* pConstInfo = SymbolTableInst::instance().getEmptyConstInfoByName(pGetEmptyConstWord->m_szContentValue);
+	ConstInfo* pConstInfo = SymbolTableInst::instance().getEmptyConstInfoByName(pConstWord->m_szContentValue);
 	if(NULL == pConstInfo){
 		LogFileInst::instance().logError("ConstStatementSemanticser::processSemanticsParser createEmptyNewConstInfoByName error", __FILE__, __LINE__);
 		return bProcessResult;
 	}
 
-	pConstInfo->initStrName(pParserWord->m_szContentValue);
+	pConstInfo->initStrName(pIdentifierWord->m_szContentValue);
 	pConstInfo->initProcIndex(nProcStackId);
 
 	bProcessResult = true;

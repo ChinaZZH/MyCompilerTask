@@ -70,12 +70,18 @@ bool PointerSimpleTypeSemanticser::processSemanticsParser()
 	pTypeInfoUnit->m_eDataType = eDataStoreEnumValue::eDSEV_Pointer;
 	pTypeInfoUnit->m_nAddressLink = nSimpleTypeAddressValue;
 
-	// 从单词流表中获取对应的单词
-	int nParserWordIndex = SyntaxParserInst::instance().getParserWordTableIndex();
-	nParserWordIndex = nParserWordIndex - 1;
-	const CToken* pConstTokenWord = WordStreamTableInst::instance().getWordTokenByTableIndex(nParserWordIndex);
+	const CToken* pConstTokenWord = this->getTokenWordByLastWordIndex();
+	if (NULL == pConstTokenWord){
+		LogFileInst::instance().logError("PointerSimpleTypeSemanticser::processSemanticsParser pConstTokenWord null", __FILE__, __LINE__);
+		return bProcessSemanticsResult;
+	}
 
 	TypeInfo* pSimpleTypeInfoUnit = SymbolTableInst::instance().getTypeInfoFromTableAddress(nSimpleTypeAddressValue);
+	if(NULL == pSimpleTypeInfoUnit){
+		LogFileInst::instance().logError("PointerSimpleTypeSemanticser::processSemanticsParser pSimpleTypeInfoUnit null", __FILE__, __LINE__);
+		return bProcessSemanticsResult;
+	}
+
 	pSimpleTypeInfoUnit->m_nProcessState = 1;
 	pSimpleTypeInfoUnit->m_eDataType = TypeEnumConverter::wordStatusToDataStoreType(pConstTokenWord->m_nWordStatus);
 	pSimpleTypeInfoUnit->m_eBaseType = TypeEnumConverter::wordStatusToDataStoreType(pConstTokenWord->m_nWordStatus);

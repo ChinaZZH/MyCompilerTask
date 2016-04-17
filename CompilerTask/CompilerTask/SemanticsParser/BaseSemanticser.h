@@ -16,6 +16,8 @@
 #include "SemanticsEnumDef.h"
 
 class BaseSemanticser;
+class CToken;
+
 class BaseSemanticser
 {
 public:
@@ -30,4 +32,10 @@ public:
 
 protected:
 	bool checkCompareIsSameNameWithWord(int nTopProcId, const std::string& strWordValue);
+
+	const CToken* getTokenWordByCurrentWordIndex();
+
+	const CToken* getTokenWordByLastWordIndex();
+
+	const CToken* getTokenWordByLastSomeWordIndex(int nLastWordIndex);
 };

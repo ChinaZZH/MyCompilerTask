@@ -58,10 +58,14 @@ int SymbolTable::searchConstInfoTable(const int nProcId, const std::string& strC
 }
 
 
-
 ConstInfo* SymbolTable::getEmptyConstInfoByName(const std::string& strConstName)
 {
 	return m_constInfoTable.getEmptyConstInfoByName(strConstName);
+}
+
+ConstInfo* SymbolTable::getConstDataByAddressValue(int nAddressValue)
+{
+	return m_constInfoTable.getConstDataByAddressValue(nAddressValue);
 }
 
 

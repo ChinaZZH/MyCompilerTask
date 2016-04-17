@@ -41,6 +41,13 @@ enum eSemansticeParserTypeValue
 	eSPEV_SetTypeBeforeSpecficType = 324,
 	eSPEV_SetTypeAfterSpecficType = 325,
 
+	eSPEV_FieldVarTypeBeforeTypeValue = 329,
+	eSPEV_FieldVarTypeAfterEndStatus  = 330,
+	eSPEV_OneFieldVarTypeBeforeList   = 331,
+	eSPEV_OneFieldVarTypeAfterList    = 332,
+	eSPEV_FieldVarTypeAfterTypeValue  = 333,
+	eSPEV_FieldVarTypeBeforeEndStatus = 334,
+
 	//eSPEV_ProcedureTypeAfterArgsList = 339,
 	eSPEV_VarDefineAfterList = 340,
 

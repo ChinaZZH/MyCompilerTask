@@ -67,6 +67,8 @@ public:
 
 	ConstInfo* getEmptyConstInfoByName(const std::string& strConstName);
 
+	ConstInfo* getConstDataByAddressValue(int nAddressValue);
+
 public:
 	ConstInfoMap  m_mapConstInfoTable;
 

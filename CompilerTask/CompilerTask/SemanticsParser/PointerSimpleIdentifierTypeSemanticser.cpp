@@ -26,17 +26,8 @@ bool PointerSimpleIdentifierTypeSemanticser::processSemanticsParser()
 {
 	bool bProcessSemanticsResult = false;
 
-	// 获得单词的下标值
-	int nParserWordIndex = SyntaxParserInst::instance().getParserWordTableIndex();
-	nParserWordIndex = nParserWordIndex - 1;
-	if (nParserWordIndex < 0){
-		LogFileInst::instance().logError("PointerSimpleIdentifierTypeSemanticser::processSemanticsParser nParserWordIndex error", __FILE__, __LINE__);
-		return bProcessSemanticsResult;
-	}
-
-	// 从单词流表中获取对应的单词
-	const CToken* pConstTokenWord = WordStreamTableInst::instance().getWordTokenByTableIndex(nParserWordIndex);
-	if (NULL == pConstTokenWord){
+	const CToken* pConstTokenWord = this->getTokenWordByLastWordIndex();
+	if(NULL == pConstTokenWord){
 		LogFileInst::instance().logError("PointerSimpleIdentifierTypeSemanticser::processSemanticsParser pConstTokenWord null", __FILE__, __LINE__);
 		return bProcessSemanticsResult;
 	}

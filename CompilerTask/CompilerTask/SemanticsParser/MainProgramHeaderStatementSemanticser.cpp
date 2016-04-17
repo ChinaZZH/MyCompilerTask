@@ -26,22 +26,8 @@ bool MainProgramHeaderStatementSemanticser::processSemanticsParser()
 		return bProcessParserResult;
 	}
 
-	// 找到前一个标识符
-	int nParserWordTableIndex = SyntaxParserInst::instance().getParserWordTableIndex();
-	if(nParserWordTableIndex <= 0){
-		LogFileInst::instance().logError("MainProgramHeaderStatementSemanticser::processSemanticsParser nParserWordTableIndex error", __FILE__, __LINE__);
-		return bProcessParserResult;
-	}
-
-	// 找到const常量的标识符
-	int nLastParserWordIndex = nParserWordTableIndex - 1;
-	if(nLastParserWordIndex <= 0){
-		LogFileInst::instance().logError("MainProgramHeaderStatementSemanticser::processSemanticsParser nLastParserWordIndex error", __FILE__, __LINE__);
-		return bProcessParserResult;
-	}
-
-	// 从词法分析中得到的 单词集  中去朝 对应的单词
-	const CToken* pParserWord = WordStreamTableInst::instance().getWordTokenByTableIndex(nLastParserWordIndex);
+	// 获取上一个字符
+	const CToken* pParserWord = this->getTokenWordByLastWordIndex();
 	if(NULL == pParserWord){
 		LogFileInst::instance().logError("MainProgramHeaderStatementSemanticser::processSemanticsParser pParserWord null", __FILE__, __LINE__);
 		return bProcessParserResult;

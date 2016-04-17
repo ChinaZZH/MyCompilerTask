@@ -20,20 +20,9 @@ LabelStatementSemanticser::~LabelStatementSemanticser()
 bool LabelStatementSemanticser::processSemanticsParser()
 {
 	bool bProcessResult = false;
-	int nParserWordTableIndex = SyntaxParserInst::instance().getParserWordTableIndex();
-	if (nParserWordTableIndex <= 0){
-		LogFileInst::instance().logError("LabelStatementSemanticser::processSemanticsParser nParserWordTableIndex error", __FILE__, __LINE__);
-		return bProcessResult;
-	}
 
-	// 找到const常量的标识符
-	int nLastParserWordIndex = nParserWordTableIndex - 1;
-	if (nLastParserWordIndex <= 0){
-		LogFileInst::instance().logError("LabelStatementSemanticser::processSemanticsParser nLastParserWordIndex error", __FILE__, __LINE__);
-		return bProcessResult;
-	}
-	
-	const CToken* pParserWord = WordStreamTableInst::instance().getWordTokenByTableIndex(nLastParserWordIndex);
+	// 获取上一个字符
+	const CToken* pParserWord = this->getTokenWordByLastWordIndex();
 	if(NULL == pParserWord){
 		LogFileInst::instance().logError("LabelStatementSemanticser::processSemanticsParser pParserWord null", __FILE__, __LINE__);
 		return bProcessResult;

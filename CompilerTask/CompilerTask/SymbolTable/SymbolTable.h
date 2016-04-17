@@ -52,6 +52,8 @@ public:
 	
 	ConstInfo* getEmptyConstInfoByName(const std::string& strConstName);
 
+	ConstInfo* getConstDataByAddressValue(int nAddressValue);
+
 // ±Í∫≈œ‡πÿ
 public:
 	int searchLableInfoTable(const int nProcId, const std::string& strLableName);
