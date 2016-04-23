@@ -12,54 +12,73 @@ TypeEnumConverter::~TypeEnumConverter()
 
 eDataStoreEnumValue TypeEnumConverter::wordStatusToDataStoreType(int nWordStatus)
 {
+	enum eWordStatusValue
+	{
+		eWSV_BooleanWordStatus = 44,
+		eWSV_ByteWordStatus = 45,
+		eWSV_CardInal = 47,
+		eWSV_CharWordStatus = 49,
+
+		eWSV_IntegerWordStatus = 64,
+		eWSV_LongWordWordStatus = 66,
+
+		eWSV_RealWordStatus = 74,
+		eWSV_ShortIntWordStatus = 79,
+		eWSV_SingleWordStatus = 81,
+		eWSV_SmallIntWordStatus = 82,
+		eWSV_StringWordStatus = 83,
+
+		eWSV_WordWordStatus = 92,
+	};
+
 	eDataStoreEnumValue dataStoreValue = eDSEV_Null;
 	switch(nWordStatus)
 	{
-	case 49:
+	case eWSV_CharWordStatus:
 		dataStoreValue = eDataStoreEnumValue::eDSEV_Char;
 		break;
 
-	case 44:
+	case eWSV_BooleanWordStatus:
 		dataStoreValue = eDataStoreEnumValue::eDSEV_Boolean;
 		break;
 	
-	case 45:
+	case eWSV_ByteWordStatus:
 		dataStoreValue = eDataStoreEnumValue::eDSEV_Byte; 
 		break;
 
-	case 47:
+	case eWSV_CardInal:
 		dataStoreValue = eDataStoreEnumValue::eDSEV_CardInal;
 		break;
 
-	case 64:
+	case eWSV_IntegerWordStatus:
 		dataStoreValue = eDataStoreEnumValue::eDSEV_Integer;
 		break;
 	
-	case 66:
+	case eWSV_LongWordWordStatus:
 		dataStoreValue = eDataStoreEnumValue::eDSEV_LongWord;
 		break;
 
-	case 74:
+	case eWSV_RealWordStatus:
 		dataStoreValue = eDataStoreEnumValue::eDSEV_Real;
 		break;
 
-	case 79:
+	case eWSV_ShortIntWordStatus:
 		dataStoreValue = eDataStoreEnumValue::eDSEV_ShortInt;
 		break;
 
-	case 81:
+	case eWSV_SingleWordStatus:
 		dataStoreValue = eDataStoreEnumValue::eDSEV_Single;
 		break;
 
-	case 82:
+	case eWSV_SmallIntWordStatus:
 		dataStoreValue = eDataStoreEnumValue::eDSEV_SmallInt;
 		break;
 	
-	case 83:
+	case eWSV_StringWordStatus:
 		dataStoreValue = eDataStoreEnumValue::eDSEV_String;
 		break;
 
-	case 92:
+	case eWSV_WordWordStatus:
 		dataStoreValue = eDataStoreEnumValue::eDSEV_Word;
 		break;
 	

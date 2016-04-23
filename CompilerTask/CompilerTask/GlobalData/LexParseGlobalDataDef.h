@@ -16,6 +16,7 @@
 
 enum eLexStateValue
 {
+	
 	eLSV_IntegerBackTwoCharacter = -42, // 是否需要回退两个字符  
 	eLSV_Error = -99,  // 出错
 

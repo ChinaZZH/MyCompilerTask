@@ -25,6 +25,17 @@ int ProcInfoTable::getRecenetlyProcIndex()
 	return nProcIdIndex;
 }
 
+ProcInfo* ProcInfoTable::getNewRecentlyProcInfo()
+{
+	int nNewProcIndexValue = this->getRecenetlyProcIndex();
+	if(nNewProcIndexValue < 0){
+		return NULL;
+	}
+
+	ProcInfo* pProcInfo = this->getProcInfoByIndex(nNewProcIndexValue);
+	return pProcInfo;
+}
+
 ProcInfo* ProcInfoTable::getProcInfoByIndex(int nProcIndex)
 {
 	if((nProcIndex < 0) || (nProcIndex >= (int)m_vecProcInfoTbl.size())){

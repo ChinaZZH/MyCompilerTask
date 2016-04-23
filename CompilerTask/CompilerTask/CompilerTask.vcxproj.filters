@@ -76,6 +76,9 @@
     <Filter Include="SemanticsParser\数组类型声明">
       <UniqueIdentifier>{eb8ec4d4-0a00-4eba-b5ef-9b168459dc5a}</UniqueIdentifier>
     </Filter>
+    <Filter Include="SemanticsParser\基础类型">
+      <UniqueIdentifier>{72cb75ba-d312-4624-b9a1-f4a631c99828}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <Text Include="ReadMe.txt" />
@@ -279,6 +282,9 @@
     <ClInclude Include="SemanticsParser\ArrayEndIntegerConstantSemanticser.h">
       <Filter>SemanticsParser\数组类型声明</Filter>
     </ClInclude>
+    <ClInclude Include="SemanticsParser\BaseTypeDefineAndStatementSemanticser.h">
+      <Filter>SemanticsParser\基础类型</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -460,6 +466,9 @@
     </ClCompile>
     <ClCompile Include="SemanticsParser\ArrayEndIntegerConstantSemanticser.cpp">
       <Filter>SemanticsParser\数组类型声明</Filter>
+    </ClCompile>
+    <ClCompile Include="SemanticsParser\BaseTypeDefineAndStatementSemanticser.cpp">
+      <Filter>SemanticsParser\基础类型</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

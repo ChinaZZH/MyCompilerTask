@@ -68,6 +68,8 @@ public:
 
 	bool compareProcNameIsSame(const std::string& strCompareValu);
 
+	ProcInfo* getRecenetlyProcIndex();
+
 // 变量相关
 public:
 	void addNewVarToSpecficProcId(VarInfo newVarInfo);

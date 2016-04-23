@@ -25,7 +25,12 @@ void TypePositionParseHandler::addProcessingTypeInfoAddress(int nTypeInfoAddress
 
 int TypePositionParseHandler::getProcessingTypeAddress()
 {
-	int nTypePositionAddress = m_stackTypePaser.top();
+	int nTypePositionAddress = -1;
+	if(true == m_stackTypePaser.empty()){
+		return nTypePositionAddress;
+	}
+
+	nTypePositionAddress = m_stackTypePaser.top();
 	return nTypePositionAddress;
 }
 

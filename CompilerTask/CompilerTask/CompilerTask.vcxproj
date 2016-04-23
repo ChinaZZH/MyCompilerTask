@@ -109,6 +109,7 @@
     <ClInclude Include="SemanticsParser\ArrayIntegerConstantSemanticser.h" />
     <ClInclude Include="SemanticsParser\ArrayTypeBeforeLeftBracketSemanticser.h" />
     <ClInclude Include="SemanticsParser\BaseSemanticser.h" />
+    <ClInclude Include="SemanticsParser\BaseTypeDefineAndStatementSemanticser.h" />
     <ClInclude Include="SemanticsParser\BeforeAllTypeConstructSemanticser.h" />
     <ClInclude Include="SemanticsParser\BeforeRecordTypeStatementSemanticser.h" />
     <ClInclude Include="SemanticsParser\ConstStatmentSemanticser.h" />
@@ -175,6 +176,7 @@
     <ClCompile Include="SemanticsParser\ArrayIntegerConstantSemanticser.cpp" />
     <ClCompile Include="SemanticsParser\ArrayTypeBeforeLeftBracketSemanticser.cpp" />
     <ClCompile Include="SemanticsParser\BaseSemanticser.cpp" />
+    <ClCompile Include="SemanticsParser\BaseTypeDefineAndStatementSemanticser.cpp" />
     <ClCompile Include="SemanticsParser\BeforeAllTypeConstructSemanticser.cpp" />
     <ClCompile Include="SemanticsParser\BeforeRecordTypeStatementSemanticser.cpp" />
     <ClCompile Include="SemanticsParser\ConstStatmentSemanticser.cpp" />

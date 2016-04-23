@@ -24,7 +24,7 @@ enum eSemansticeParserTypeValue
 	//eSPEV_ProcCallSentence = 305,  // 未实现
 
 	eSPEV_TypeDefineParser = 306,     
-	//eSPEV_BaseTypeParser = 307,
+	eSPEV_BaseTypeDefineAndStatement = 307,
 	eSPEV_PointerSimpleIndetifierType = 308,  // 简单类型->标识符
 	eSPEV_PointerSimpleType = 309,
 
@@ -41,6 +41,7 @@ enum eSemansticeParserTypeValue
 	eSPEV_AfterRecordTypeStatement  = 320,
 
 	//eSPEV_ProcedureTypeBeforeArgsList = 321,
+	eSPEV_UserDefineTypeStatement  = 323,
 	eSPEV_SetTypeBeforeSpecficType = 324,
 	eSPEV_SetTypeAfterSpecficType = 325,
 

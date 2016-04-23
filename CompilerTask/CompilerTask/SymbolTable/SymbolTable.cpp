@@ -107,6 +107,12 @@ bool SymbolTable::compareProcNameIsSame(const std::string& strCompareValu)
 	return bCompareNameResult;
 }
 
+ProcInfo* SymbolTable::getRecenetlyProcIndex()
+{
+	ProcInfo* pNewProcInfo = m_procInfoTable.getNewRecentlyProcInfo();
+	return pNewProcInfo;
+}
+
 
 void SymbolTable::addNewVarToSpecficProcId(VarInfo newVarInfo)
 {

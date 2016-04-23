@@ -29,8 +29,8 @@ struct ParaInfo
 	// 构造函数
 	ParaInfo()
 		:m_strParamName(0)
-		, m_nParamType(0)
-		, m_nParamValueAddress(0)
+		, m_nParamType(-1)
+		, m_nParamValueAddress(-1)
 		, m_eAssignType(NULLVALUE)
 	{ }
 };
@@ -40,13 +40,14 @@ struct IRCode
 	// 暂时不实现
 };
 
+typedef std::vector<ParaInfo> ParaInfoVec;
 struct ProcInfo
 {
 	std::string m_strProcName;           // 函数名   
 	enum Rank{ Main, Sub } m_eRankValue; // 主函数 还是 子函数
 	enum Type{ Procedure, Function, Type } m_eType;  // 函数类型(1.过程  2.函数 3.函数指针)
 	
-	std::vector<ParaInfo> m_ParaTable;  // 形参列表
+	ParaInfoVec m_ParaTable;  // 形参列表
 	int  m_nReturnType;                 // 返回值类型 
 	int  m_nReturnValueAddres;          // 返回值所指向的地址
 
@@ -95,6 +96,8 @@ public:
 	int  getRecenetlyProcIndex();
 
 	ProcInfo* getProcInfoByIndex(int nProcIndex);
+
+	ProcInfo* getNewRecentlyProcInfo();
 
 	bool compareProcNameIsSame(const std::string& strCompareName);
 
