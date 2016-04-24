@@ -163,6 +163,42 @@ int SymbolTable::searchEnumInfoTable(int nStackTopProcId, const std::string& str
 	return nEnumAddressValue;
 }
 
+int SymbolTable::createNewEnumUnitSpace()
+{
+	int nEnumAddressValue = m_enumInfoTable.createNewEnumUnitSpace();
+	return nEnumAddressValue;
+}
+
+int SymbolTable::getNewEnumBeginAddressValue()
+{
+	int nEnumAddressValue = m_enumInfoTable.getNewEnumBeginAddressValue();
+	return nEnumAddressValue;
+}
+
+int SymbolTable::getEmptyOrNewEnumAddressValue()
+{
+	int nEnumAddressValue = m_enumInfoTable.getEmptyOrNewEnumAddressValue();
+	return nEnumAddressValue;
+}
+
+EnumInfo* SymbolTable::getEnumInfoByEnumAddress(int nEnumAddress)
+{
+	EnumInfo* pEmptyEnumInfo = m_enumInfoTable.getEnumInfoByEnumAddress(nEnumAddress);
+	return pEmptyEnumInfo;
+}
+
+
+int SymbolTable::getNewEnumAddressValue()
+{
+	int nEnumAddressValue = m_enumInfoTable.getNewEnumAddressValue();
+	return nEnumAddressValue;
+}
+
+void SymbolTable::reSetNewEnumBeginAddressToNull()
+{
+	m_enumInfoTable.reSetNewEnumBeginAddressToNull();
+}
+
 
 int SymbolTable::searchUseFileTable(const std::string& strUseFileName)
 {

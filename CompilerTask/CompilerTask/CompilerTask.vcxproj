@@ -113,6 +113,8 @@
     <ClInclude Include="SemanticsParser\BeforeAllTypeConstructSemanticser.h" />
     <ClInclude Include="SemanticsParser\BeforeRecordTypeStatementSemanticser.h" />
     <ClInclude Include="SemanticsParser\ConstStatmentSemanticser.h" />
+    <ClInclude Include="SemanticsParser\EnumTypeDefineBeforeIdentifier.h" />
+    <ClInclude Include="SemanticsParser\EnumTypeDefineAfterIdentifier.h" />
     <ClInclude Include="SemanticsParser\FieldVarTypeAfterEndStatusSemanticser.h" />
     <ClInclude Include="SemanticsParser\FieldVarTypeAfterTypeValueSemanticser.h" />
     <ClInclude Include="SemanticsParser\FieldVarTypeBeforeEndStatusSemanticser.h" />
@@ -132,6 +134,7 @@
     <ClInclude Include="SemanticsParser\SetTypeBeforeSpecficTypeSemanticser.h" />
     <ClInclude Include="SemanticsParser\TypeDefineSemanticser.h" />
     <ClInclude Include="SemanticsParser\TypeEnumConverter.h" />
+    <ClInclude Include="SemanticsParser\UserDefineTypeStatement.h" />
     <ClInclude Include="SemanticsParser\VarDefineAfterListSemanticser.h" />
     <ClInclude Include="SemanticsParser\VarDefineBeforeListSemanticser.h" />
     <ClInclude Include="stdafx.h" />
@@ -180,6 +183,8 @@
     <ClCompile Include="SemanticsParser\BeforeAllTypeConstructSemanticser.cpp" />
     <ClCompile Include="SemanticsParser\BeforeRecordTypeStatementSemanticser.cpp" />
     <ClCompile Include="SemanticsParser\ConstStatmentSemanticser.cpp" />
+    <ClCompile Include="SemanticsParser\EnumTypeDefineBeforeIdentifier.cpp" />
+    <ClCompile Include="SemanticsParser\EnumTypeDefineAfterIdentifier.cpp" />
     <ClCompile Include="SemanticsParser\FieldVarTypeAfterEndStatusSemanticser.cpp" />
     <ClCompile Include="SemanticsParser\FieldVarTypeAfterTypeValueSemanticser.cpp" />
     <ClCompile Include="SemanticsParser\FieldVarTypeBeforeEndStatusSemanticser.cpp" />
@@ -198,6 +203,7 @@
     <ClCompile Include="SemanticsParser\SetTypeBeforeSpecficTypeSemanticser.cpp" />
     <ClCompile Include="SemanticsParser\TypeDefineSemanticser.cpp" />
     <ClCompile Include="SemanticsParser\TypeEnumConverter.cpp" />
+    <ClCompile Include="SemanticsParser\UserDefineTypeStatement.cpp" />
     <ClCompile Include="SemanticsParser\VarDefineAfterListSemanticser.cpp" />
     <ClCompile Include="SemanticsParser\VarDefineBeforeListSemanticser.cpp" />
     <ClCompile Include="stdafx.cpp" />

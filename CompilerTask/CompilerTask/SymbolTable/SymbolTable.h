@@ -90,6 +90,18 @@ public:
 public:
 	int searchEnumInfoTable(int nStackTopProcId, const std::string& strCompareValue);
 
+	int createNewEnumUnitSpace();
+
+	int getNewEnumBeginAddressValue();
+
+	int getEmptyOrNewEnumAddressValue();
+
+	EnumInfo* getEnumInfoByEnumAddress(int nEnumAddress);
+
+	int getNewEnumAddressValue();
+
+	void reSetNewEnumBeginAddressToNull();
+
 // 文件包含说明
 public:
 	int searchUseFileTable(const std::string& strUseFileName);

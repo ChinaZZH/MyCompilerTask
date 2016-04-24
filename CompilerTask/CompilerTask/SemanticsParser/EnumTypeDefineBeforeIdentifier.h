@@ -14,12 +14,13 @@
 
 #pragma once
 #include "BaseSemanticser.h"
+#include "SemanticsEnumDef.h"
 
-class IdentifierDefineListSemanticser : public BaseSemanticser
+class EnumTypeDefineBeforeIdentifier : public BaseSemanticser
 {
 public:
-	IdentifierDefineListSemanticser();
-	~IdentifierDefineListSemanticser();
+	EnumTypeDefineBeforeIdentifier();
+	~EnumTypeDefineBeforeIdentifier();
 
 public:
 	virtual bool processSemanticsParser();
@@ -27,13 +28,5 @@ public:
 	virtual eSemansticeParserTypeValue returnSemanticserEnumValue();
 
 private:
-	bool processEnumTypeIdentifierList();
-
-	bool processRecordIdentifierList();
-
-	bool processFieldOfRecordList();
-
-	bool processVarIdentifierList();
-
-	bool processFileIdentifierList();
+	bool processSetOfEnumElementCondition(TypeInfo* pTypeInfo, int nEmptyNewEnumAddress);
 };

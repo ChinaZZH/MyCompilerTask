@@ -22,12 +22,21 @@ bool IdentifierDefineListSemanticser::processSemanticsParser()
 	IdentifierListFlagHandler&  flagIdStack = SemanticsParserMgrInst::instance().getIdentifierListFlagHandler();
 	eSemanticsStackIdFlag flagId = flagIdStack.getCurrentSemanticsParserId();
 	switch(flagId){
+	case eSPIF_EnumIdentifierListStart:
+		bProcessSemanticser = this->processEnumTypeIdentifierList();
+		break;
+
 	case eSPIF_RecordIdentifierListStart:
 		bProcessSemanticser = this->processRecordIdentifierList();
 		break;
 
 	case eSPIF_FieldOfRecordListStart:
 		bProcessSemanticser = this->processFieldOfRecordList();
+		break;
+
+	case eSPIF_ParamOfProcListStart:
+	case eSPIF_ParamOfFunctionListStart:
+		bProcessSemanticser = this->processParamTypeOfFunction();
 		break;
 
 	case eSPIF_VarIdentifierListStart:
@@ -52,6 +61,60 @@ eSemansticeParserTypeValue IdentifierDefineListSemanticser::returnSemanticserEnu
 {
 	return eSemansticeParserTypeValue::eSPEV_IdentifierTypeDefineList;
 }
+
+
+bool IdentifierDefineListSemanticser::processEnumTypeIdentifierList()
+{
+	bool bProcessSemanticser = false;
+	const CToken* pConstTokenWord = this->getTokenWordByLastWordIndex();
+	if(NULL == pConstTokenWord){
+		LogFileInst::instance().logError("IdentifierDefineListSemanticser::processEnumTypeIdentifierList pConstTokenWord null", __FILE__, __LINE__);
+		return bProcessSemanticser;
+	}
+
+	// 正在分析的过程Id
+	ProcStackParserHandler& procStackParserHandler = SemanticsParserMgrInst::instance().getProcStackParserHandler();
+	int nStackTopProcId = procStackParserHandler.getTopProcStackProcAddress();
+	if(nStackTopProcId < 0){
+		LogFileInst::instance().logError("IdentifierDefineListSemanticser::processEnumTypeIdentifierList getProcStackTop error", __FILE__, __LINE__);
+		return bProcessSemanticser;
+	}
+
+	// 是否同名
+	bool bCompareNameWithWord = checkCompareIsSameNameWithWord(nStackTopProcId, pConstTokenWord->m_szContentValue);
+	if(true == bCompareNameWithWord){
+		EmitErrorFile::EmitError("该标识符已经定义");
+		return bProcessSemanticser;
+	}
+
+	// 判断地址是否合法
+	int nNewlyEnumAddress = SymbolTableInst::instance().getEmptyOrNewEnumAddressValue();
+	if(nNewlyEnumAddress < 0){
+		LogFileInst::instance().logError("IdentifierDefineListSemanticser::processEnumTypeIdentifierList nNewlyEnumAddress error", __FILE__, __LINE__);
+		return bProcessSemanticser;
+	}
+
+	int nNewlyBeginEnumAddress = SymbolTableInst::instance().getNewEnumBeginAddressValue();
+	if((nNewlyEnumAddress - nNewlyBeginEnumAddress) > 256){
+		EmitErrorFile::EmitError("枚举类型已经超过标号最大个数的限制：256");
+		return bProcessSemanticser;
+	}
+
+	// 初始化内容
+	EnumInfo* pEmptyEnumValue = SymbolTableInst::instance().getEnumInfoByEnumAddress(nNewlyEnumAddress);
+	if(NULL == pEmptyEnumValue){
+		LogFileInst::instance().logError("IdentifierDefineListSemanticser::processEnumTypeIdentifierList pEmptyEnumValue null", __FILE__, __LINE__);
+		return bProcessSemanticser;
+	}
+
+
+	pEmptyEnumValue->initStrName(pConstTokenWord->m_szContentValue);
+	pEmptyEnumValue->initProcIndex(nStackTopProcId);
+
+	bProcessSemanticser = true;
+	return bProcessSemanticser;
+}
+
 
 bool IdentifierDefineListSemanticser::processRecordIdentifierList()
 {

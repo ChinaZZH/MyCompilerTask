@@ -18,8 +18,11 @@
 enum eSemanticsStackIdFlag
 {
 	eSPIF_MainProgramIdentifierListStart = 0,  // 主程序首部 标识符
+	eSPIF_EnumIdentifierListStart = 1, // 枚举类型标识符
 	eSPIF_RecordIdentifierListStart = 2, // 记录类型标识符
 	eSPIF_FieldOfRecordListStart = 3, // 记录类型中的字段标识符
+	eSPIF_ParamOfProcListStart = 4,    // 过程中的形参类型
+	eSPIF_ParamOfFunctionListStart = 5,    // 函数中的形参类型
 	eSPIF_VarIdentifierListStart  = 6,   // 变量标识符
 	eSPIF_FileIdentifierListStart = 7,   // 文件标识符
 };

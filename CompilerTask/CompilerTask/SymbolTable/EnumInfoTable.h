@@ -32,6 +32,19 @@ public:
 public:
 	int searchEnumInfoTable(int nStackTopProcId, const std::string& strCompareValue);
 
+	int createNewEnumUnitSpace();
+
+	int getNewEnumAddressValue();
+
+	int getEmptyOrNewEnumAddressValue();
+
+	int getNewEnumBeginAddressValue();
+
+	EnumInfo* getEnumInfoByEnumAddress(int nEnumAddress);
+
+	void reSetNewEnumBeginAddressToNull();
+
 private:
 	EnumInfoVec  m_vecEnumInfoTable;
+	int m_nNewEnumBeginAddress;
 };

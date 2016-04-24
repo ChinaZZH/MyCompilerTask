@@ -29,9 +29,10 @@ enum eSemansticeParserTypeValue
 	eSPEV_PointerSimpleType = 309,
 
 	eSPEV_AfterAllTypeConstruct = 310,  
+	eSPEV_EnumTypeDefineBeforeIdentifier = 311,
 	eSPEV_IdentifierTypeDefineList = 312,
 	eSPEV_VarDefineBeforeList = 313,
-	//eSPEV_EnumTypeDefine = 314,
+	eSPEV_EnumTypeDefineAfterIdentifier = 314,
 	eSPEV_BeforeAllTypeConstruct = 315,  
 
 	eSPEV_ArrayTypeBeforeLeftBrackets = 316, 

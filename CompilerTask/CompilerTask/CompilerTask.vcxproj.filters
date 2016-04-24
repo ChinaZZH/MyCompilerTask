@@ -79,6 +79,12 @@
     <Filter Include="SemanticsParser\基础类型">
       <UniqueIdentifier>{72cb75ba-d312-4624-b9a1-f4a631c99828}</UniqueIdentifier>
     </Filter>
+    <Filter Include="SemanticsParser\用户自定义类型">
+      <UniqueIdentifier>{159f6144-69e4-4e2c-b460-d9bff620ad95}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="SemanticsParser\枚举类型">
+      <UniqueIdentifier>{97bf214e-a7d4-48a2-8770-1f8e573a9a1b}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <Text Include="ReadMe.txt" />
@@ -285,6 +291,15 @@
     <ClInclude Include="SemanticsParser\BaseTypeDefineAndStatementSemanticser.h">
       <Filter>SemanticsParser\基础类型</Filter>
     </ClInclude>
+    <ClInclude Include="SemanticsParser\UserDefineTypeStatement.h">
+      <Filter>SemanticsParser\用户自定义类型</Filter>
+    </ClInclude>
+    <ClInclude Include="SemanticsParser\EnumTypeDefineBeforeIdentifier.h">
+      <Filter>SemanticsParser\枚举类型</Filter>
+    </ClInclude>
+    <ClInclude Include="SemanticsParser\EnumTypeDefineAfterIdentifier.h">
+      <Filter>SemanticsParser\枚举类型</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -469,6 +484,15 @@
     </ClCompile>
     <ClCompile Include="SemanticsParser\BaseTypeDefineAndStatementSemanticser.cpp">
       <Filter>SemanticsParser\基础类型</Filter>
+    </ClCompile>
+    <ClCompile Include="SemanticsParser\UserDefineTypeStatement.cpp">
+      <Filter>SemanticsParser\用户自定义类型</Filter>
+    </ClCompile>
+    <ClCompile Include="SemanticsParser\EnumTypeDefineBeforeIdentifier.cpp">
+      <Filter>SemanticsParser\枚举类型</Filter>
+    </ClCompile>
+    <ClCompile Include="SemanticsParser\EnumTypeDefineAfterIdentifier.cpp">
+      <Filter>SemanticsParser\枚举类型</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
