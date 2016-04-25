@@ -33,6 +33,8 @@ private:
 
 	bool processFieldOfRecordList();
 
+	bool processParamTypeOfFunction();
+
 	bool processVarIdentifierList();
 
 	bool processFileIdentifierList();

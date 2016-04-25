@@ -265,3 +265,51 @@ bool IdentifierDefineListSemanticser::processFieldOfRecordList()
 	bProcessSemanticser = true;
 	return bProcessSemanticser;
 }
+
+
+bool IdentifierDefineListSemanticser::processParamTypeOfFunction()
+{
+	bool bProcessSemanticser = false;
+
+	const CToken* pParserWord = this->getTokenWordByLastWordIndex();
+	if(NULL == pParserWord){
+		LogFileInst::instance().logError("IdentifierDefineListSemanticser::processParamTypeOfFunction pParserWord null", __FILE__, __LINE__);
+		return bProcessSemanticser;
+	}
+
+	
+	ProcInfo* pNewProcInfo = SymbolTableInst::instance().getRecenetlyProcIndex();
+	if(NULL == pNewProcInfo){
+		LogFileInst::instance().logError("IdentifierDefineListSemanticser::processParamTypeOfFunction pNewProcInfo null", __FILE__, __LINE__);
+		return bProcessSemanticser;
+	}
+
+	// 校验
+	const ParaInfoVec& vecParamInfo = pNewProcInfo->m_ParaTable;
+	for(int i = 0; i < vecParamInfo.size(); ++i){
+		const ParaInfo& checkParamInfo = vecParamInfo[i];
+		if(0 != checkParamInfo.m_strParamName.compare(pParserWord->m_szContentValue)){
+			EmitErrorFile::EmitError("标识符名已经存在");
+			return bProcessSemanticser;
+		}
+	}
+
+	// 将新的参数放入参数列表
+	ParaInfo::AssignType assignType = ParaInfo::VAR;
+	IdentifierListFlagHandler& identifierListHandler = SemanticsParserMgrInst::instance().getIdentifierListFlagHandler();
+	eSemanticsStackIdFlag flagValueOfIdentifier = identifierListHandler.getCurrentSemanticsParserId();
+	if(eSPIF_ParamOfProcListStart == flagValueOfIdentifier){
+		assignType = ParaInfo::VAL;
+	}
+
+	
+	ParaInfo newParamInfo;
+	newParamInfo.m_strParamName = (pParserWord->m_szContentValue);
+	newParamInfo.m_eAssignType = assignType;
+	newParamInfo.m_nParamType = -1;
+
+	pNewProcInfo->m_ParaTable.push_back(newParamInfo);
+
+	bProcessSemanticser = true;
+	return bProcessSemanticser;
+}
