@@ -286,7 +286,8 @@ bool IdentifierDefineListSemanticser::processParamTypeOfFunction()
 
 	// 校验
 	const ParaInfoVec& vecParamInfo = pNewProcInfo->m_ParaTable;
-	for(int i = 0; i < vecParamInfo.size(); ++i){
+	int nParamInfoSize = static_cast<int>(vecParamInfo.size());
+	for (int i = 0; i < nParamInfoSize; ++i){
 		const ParaInfo& checkParamInfo = vecParamInfo[i];
 		if(0 != checkParamInfo.m_strParamName.compare(pParserWord->m_szContentValue)){
 			EmitErrorFile::EmitError("标识符名已经存在");

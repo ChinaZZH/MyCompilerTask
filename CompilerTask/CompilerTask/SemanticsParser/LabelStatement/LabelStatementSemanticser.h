@@ -13,14 +13,13 @@
 *********************************************************************/
 
 #pragma once
-#include "BaseSemanticser.h"
-#include "SemanticsEnumDef.h"
+#include "../BaseSemanticser.h"
 
-class VarDefineBeforeListSemanticser : public BaseSemanticser
+class LabelStatementSemanticser : public BaseSemanticser
 {
 public:
-	VarDefineBeforeListSemanticser();
-	~VarDefineBeforeListSemanticser();
+	LabelStatementSemanticser();
+	~LabelStatementSemanticser();
 
 public:
 	virtual bool processSemanticsParser();

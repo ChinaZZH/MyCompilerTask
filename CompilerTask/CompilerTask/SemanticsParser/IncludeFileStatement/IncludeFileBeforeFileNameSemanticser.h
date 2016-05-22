@@ -13,8 +13,8 @@
 *********************************************************************/
 
 #pragma once
-#include "BaseSemanticser.h"
-#include "SemanticsEnumDef.h"
+#include "../BaseSemanticser.h"
+#include "../SemanticsEnumDef.h"
 
 
 class IncludeFileBeforeFileNameSemanticser : public BaseSemanticser

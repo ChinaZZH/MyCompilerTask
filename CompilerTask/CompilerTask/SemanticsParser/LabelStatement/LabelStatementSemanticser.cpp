@@ -1,10 +1,10 @@
-#include "LabelStatmentSemanticser.h"
-#include "../SymbolTable/LabelInfoTable.h"
-#include "../SyntaxParser/SyntaxParser.h"
-#include "../Log/LogFile.h"
-#include "../GlobalData/WordStreamTable.h"
-#include "../SymbolTable/SymbolTable.h"
-#include "SemanticsParserMgr.h"
+#include "LabelStatementSemanticser.h"
+#include "../../SymbolTable/LabelInfoTable.h"
+#include "../../SyntaxParser/SyntaxParser.h"
+#include "../../Log/LogFile.h"
+#include "../../GlobalData/WordStreamTable.h"
+#include "../../SymbolTable/SymbolTable.h"
+#include "../SemanticsParserMgr.h"
 
 LabelStatementSemanticser::LabelStatementSemanticser()
 {

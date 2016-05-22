@@ -14,6 +14,8 @@
 
 #pragma once
 #include <string>
+#include <iostream>
+using namespace std;
 
 struct CommonObjectInfo
 {
@@ -21,10 +23,14 @@ struct CommonObjectInfo
 	int m_nProcIndex;       // 所属过程的指针
 
 	CommonObjectInfo()
-		:m_strName(0)
+		:m_strName("")
 		, m_nProcIndex(-1)
-	{ }
+	{ 
+		
+	}
 
+	virtual ~CommonObjectInfo() 
+	{ }
 
 	bool compare(const int nProcIdValue, const std::string& strNameValue) const
 	{

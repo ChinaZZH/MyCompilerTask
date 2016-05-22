@@ -14,9 +14,13 @@
 
 #pragma once
 #include "SemanticsEnumDef.h"
+#include <string>
 
-class BaseSemanticser;
-class CToken;
+using namespace std;
+
+class  BaseSemanticser;
+struct CToken;
+struct TypeInfo;
 
 class BaseSemanticser
 {

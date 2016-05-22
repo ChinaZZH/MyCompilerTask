@@ -1,4 +1,19 @@
 #include "ConstInfoTable.h"
+#include <iostream>
+
+ConstInfo::ConstInfo()
+  :CommonObjectInfo()
+  , m_eConstBaseValue(eCEV_ConstantNull)
+  , m_strConstStringValue("")
+  , m_bConstBoolValue(false)
+  , m_nConstIntValue(0)
+  , m_dConstDoubleValue(0.0f) 
+  , m_lConstLongLongValue(0)
+  , m_strConstSetsValue("")
+  , m_bUsedAlready(false)
+{
+
+}
 
 
 ConstInfoTable::ConstInfoTable()

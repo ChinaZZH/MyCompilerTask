@@ -120,9 +120,9 @@
     <ClInclude Include="SemanticsParser\FieldVarTypeBeforeEndStatusSemanticser.h" />
     <ClInclude Include="SemanticsParser\FieldVarTypeBeforeTypeValueSemanticser.h" />
     <ClInclude Include="SemanticsParser\IdentifierDefineListSemanticser.h" />
-    <ClInclude Include="SemanticsParser\IncludeFileAfterFileNameSemanticser.h" />
-    <ClInclude Include="SemanticsParser\IncludeFileBeforeFileNameSemanticser.h" />
-    <ClInclude Include="SemanticsParser\LabelStatmentSemanticser.h" />
+    <ClInclude Include="SemanticsParser\IncludeFileStatement\IncludeFileAfterFileNameSemanticser.h" />
+    <ClInclude Include="SemanticsParser\IncludeFileStatement\IncludeFileBeforeFileNameSemanticser.h" />
+    <ClInclude Include="SemanticsParser\LabelStatement\LabelStatementSemanticser.h" />
     <ClInclude Include="SemanticsParser\MainProgramHeaderStatementSemanticser.h" />
     <ClInclude Include="SemanticsParser\OneFieldVarTypeAfterListSemanticser.h" />
     <ClInclude Include="SemanticsParser\OneFieldVarTypeBeforeListSemanticser.h" />
@@ -135,8 +135,8 @@
     <ClInclude Include="SemanticsParser\TypeDefineSemanticser.h" />
     <ClInclude Include="SemanticsParser\TypeEnumConverter.h" />
     <ClInclude Include="SemanticsParser\UserDefineTypeStatement.h" />
-    <ClInclude Include="SemanticsParser\VarDefineAfterListSemanticser.h" />
-    <ClInclude Include="SemanticsParser\VarDefineBeforeListSemanticser.h" />
+    <ClInclude Include="SemanticsParser\VarStatement\VarDefineAfterListSemanticser.h" />
+    <ClInclude Include="SemanticsParser\VarStatement\VarDefineBeforeListSemanticser.h" />
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="SymbolTable\CommonObjectInfo.h" />
     <ClInclude Include="SymbolTable\ConstInfoTable.h" />
@@ -190,9 +190,9 @@
     <ClCompile Include="SemanticsParser\FieldVarTypeBeforeEndStatusSemanticser.cpp" />
     <ClCompile Include="SemanticsParser\FieldVarTypeBeforeTypeValueSemanticser.cpp" />
     <ClCompile Include="SemanticsParser\IdentifierDefineListSemanticser.cpp" />
-    <ClCompile Include="SemanticsParser\IncludeFileAfterFileNameSemanticser.cpp" />
-    <ClCompile Include="SemanticsParser\IncludeFileBeforeFileNameSemanticser.cpp" />
-    <ClCompile Include="SemanticsParser\LabelStatmentSemanticser.cpp" />
+    <ClCompile Include="SemanticsParser\IncludeFileStatement\IncludeFileAfterFileNameSemanticser.cpp" />
+    <ClCompile Include="SemanticsParser\IncludeFileStatement\IncludeFileBeforeFileNameSemanticser.cpp" />
+    <ClCompile Include="SemanticsParser\LabelStatement\LabelStatementSemanticser.cpp" />
     <ClCompile Include="SemanticsParser\MainProgramHeaderStatementSemanticser.cpp" />
     <ClCompile Include="SemanticsParser\OneFieldVarTypeAfterListSemanticser.cpp" />
     <ClCompile Include="SemanticsParser\OneFieldVarTypeBeforeListSemanticser.cpp" />
@@ -204,8 +204,8 @@
     <ClCompile Include="SemanticsParser\TypeDefineSemanticser.cpp" />
     <ClCompile Include="SemanticsParser\TypeEnumConverter.cpp" />
     <ClCompile Include="SemanticsParser\UserDefineTypeStatement.cpp" />
-    <ClCompile Include="SemanticsParser\VarDefineAfterListSemanticser.cpp" />
-    <ClCompile Include="SemanticsParser\VarDefineBeforeListSemanticser.cpp" />
+    <ClCompile Include="SemanticsParser\VarStatement\VarDefineAfterListSemanticser.cpp" />
+    <ClCompile Include="SemanticsParser\VarStatement\VarDefineBeforeListSemanticser.cpp" />
     <ClCompile Include="stdafx.cpp" />
     <ClCompile Include="SymbolTable\ConstInfoTable.cpp" />
     <ClCompile Include="SymbolTable\EnumInfoTable.cpp" />

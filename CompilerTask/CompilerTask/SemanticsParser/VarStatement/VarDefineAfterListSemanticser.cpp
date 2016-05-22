@@ -1,10 +1,10 @@
 #include "VarDefineAfterListSemanticser.h"
-#include "SemanticsParserMgr.h"
-#include "SemanticsEnumDef.h"
-#include "../SymbolTable/TypeInfoUserTable.h"
-#include "../SymbolTable/SymbolTable.h"
-#include "../Log/LogFile.h"
-#include "../Common/IntStringConverter.h"
+#include "../SemanticsParserMgr.h"
+#include "../SemanticsEnumDef.h"
+#include "../../SymbolTable/TypeInfoUserTable.h"
+#include "../../SymbolTable/SymbolTable.h"
+#include "../../Log/LogFile.h"
+#include "../../Common/IntStringConverter.h"
 
 
 VarDefineAfterListSemanticser::VarDefineAfterListSemanticser()

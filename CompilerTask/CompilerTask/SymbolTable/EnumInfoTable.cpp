@@ -87,7 +87,8 @@ int EnumInfoTable::getNewEnumBeginAddressValue()
 
 EnumInfo* EnumInfoTable::getEnumInfoByEnumAddress(int nEnumAddress)
 {
-	if((nEnumAddress<0) ||(nEnumAddress>=m_vecEnumInfoTable.size())){
+	int nEnumTableSize = static_cast<int>(m_vecEnumInfoTable.size());
+	if((nEnumAddress<0) || (nEnumAddress>=nEnumTableSize)){
 		return NULL;
 	}
 

@@ -1,5 +1,6 @@
 #include "IncludeFileAfterFileNameSemanticser.h"
-#include "SemanticsParserMgr.h"
+#include "../SemanticsParserMgr.h"
+#include "../SemanticsEnumDef.h"
 
 IncludeFileAfterFileNameSemanticser::IncludeFileAfterFileNameSemanticser()
 {

@@ -14,8 +14,8 @@
 
 #pragma once
 
-#include "BaseSemanticser.h"
-#include "SemanticsEnumDef.h"
+#include "../BaseSemanticser.h"
+#include "../SemanticsEnumDef.h"
 
 
 class IncludeFileAfterFileNameSemanticser : public BaseSemanticser

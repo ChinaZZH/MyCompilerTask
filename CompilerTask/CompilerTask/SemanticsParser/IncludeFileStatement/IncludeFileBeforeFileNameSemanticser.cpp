@@ -1,5 +1,5 @@
 #include "IncludeFileBeforeFileNameSemanticser.h"
-#include "SemanticsParserMgr.h"
+#include "../SemanticsParserMgr.h"
 
 IncludeFileBeforeFileNameSemanticser::IncludeFileBeforeFileNameSemanticser()
 {

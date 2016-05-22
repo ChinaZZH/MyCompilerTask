@@ -1,6 +1,6 @@
 #include "VarDefineBeforeListSemanticser.h"
-#include "SemanticsParserMgr.h"
-#include "SemanticsEnumDef.h"
+#include "../SemanticsParserMgr.h"
+#include "../SemanticsEnumDef.h"
 
 
 VarDefineBeforeListSemanticser::VarDefineBeforeListSemanticser()

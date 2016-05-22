@@ -13,7 +13,8 @@ UseFileTable::~UseFileTable()
 int UseFileTable::searchUseFileTable(const std::string& strUseFileName)
 {
 	int nFileTableAddress = -1;
-	for(int i = 0; i < m_vecUseFileData.size(); ++i){
+	int nUseFileSize = static_cast<int>(m_vecUseFileData.size());
+	for(int i = 0; i < nUseFileSize; ++i){
 		const UseFileData& fileData = m_vecUseFileData[i];
 		if(0 == fileData.m_strFileName.compare(strUseFileName)){
 			nFileTableAddress = i;

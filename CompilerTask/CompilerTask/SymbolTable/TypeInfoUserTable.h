@@ -35,8 +35,8 @@ struct FieldInfo: CommonObjectInfo
 		:CommonObjectInfo()
 		, m_nAddressLink(-1)
 		, m_nSize(0)
-		, m_strVarFieldFlag(0)
-		, m_strVarFieldConst(0)
+		, m_strVarFieldFlag("")
+		, m_strVarFieldConst("")
 		, m_nProcessState(0)
 		, m_nOffsetPosition(0)
 	{ }
@@ -72,7 +72,7 @@ struct TypeInfo :CommonObjectInfo
 		, m_eDataType(eDSEV_Null)
 		, m_nAddressLink(-1)
 		, m_eBaseType(eDSEV_Null)
-		, m_strContentValue(0)
+		, m_strContentValue("")
 		, m_nProcessState(0)
 		, m_nsSize(0)
 	{  }

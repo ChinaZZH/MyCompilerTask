@@ -1,5 +1,5 @@
-#include "IncludeFileBeforeFileNameSemanticser.h"
 #include "UserDefineTypeStatement.h"
+
 #include "../Log/LogFile.h"
 #include "SemanticsParserMgr.h"
 #include "../SemanticsFlagHandler/ProcStackParserHandler.h"
@@ -7,7 +7,7 @@
 #include "../Common/Structure.h"
 #include "../Common/ErrorProcess.h"
 #include "../SemanticsFlagHandler/TypePositionParseHandler.h"
-
+#include "IncludeFileStatement/IncludeFileBeforeFileNameSemanticser.h"
 
 UserDefineTypeSemanticser::UserDefineTypeSemanticser()
 {
@@ -154,7 +154,8 @@ bool UserDefineTypeSemanticser::processUserDefineOfFunctionParam(int nLinkTypeAd
 	}
 
 	ParaInfoVec& vecParamInfo = pNewlyProcInfo->m_ParaTable;
-	for(int i = 0; i < vecParamInfo.size(); ++i){
+	int nParamInfoSize = static_cast<int>(vecParamInfo.size());
+	for(int i = 0; i < nParamInfoSize; ++i){
 		ParaInfo& paramInfoData = vecParamInfo[i];
 		if(paramInfoData.m_nParamType >= 0){
 			continue;

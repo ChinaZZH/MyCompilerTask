@@ -2,14 +2,13 @@
 #include "../Log/LogFile.h"
 #include "BaseSemanticser.h"
 #include "MainProgramHeaderStatementSemanticser.h"
-#include "LabelStatmentSemanticser.h"
 #include "ConstStatmentSemanticser.h"
 #include "IdentifierDefineListSemanticser.h"
-#include "VarDefineBeforeListSemanticser.h"
-#include "VarDefineAfterListSemanticser.h"
+#include "VarStatement/VarDefineBeforeListSemanticser.h"
+#include "VarStatement/VarDefineAfterListSemanticser.h"
 #include "TypeDefineSemanticser.h"
-#include "IncludeFileBeforeFileNameSemanticser.h"
-#include "IncludeFileAfterFileNameSemanticser.h"
+#include "IncludeFileStatement/IncludeFileBeforeFileNameSemanticser.h"
+#include "IncludeFileStatement/IncludeFileAfterFileNameSemanticser.h"
 
 SemanticsParserMgr::SemanticsParserMgr()
 :m_semanticsParserIdFlag()

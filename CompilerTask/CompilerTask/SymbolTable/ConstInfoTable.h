@@ -20,7 +20,8 @@
 #include "../GlobalData/SyntaxParserGlobalDataDef.h"
 
 // 常量信息
-struct ConstInfo:CommonObjectInfo
+using namespace std;
+struct ConstInfo: public CommonObjectInfo
 {
 	eConstantEnumValue   m_eConstBaseValue; // 常量基本类型
 	eDataStoreEnumValue  m_eDataStoreValue; // 常量存储类型
@@ -38,17 +39,7 @@ struct ConstInfo:CommonObjectInfo
 	bool m_bUsedAlready;      // 是否已经使用过
 
 	// 构造函数
-	ConstInfo()
-		:CommonObjectInfo()
-		, m_eConstBaseValue(eCEV_ConstantNull)
-		, m_strConstStringValue(0)
-		, m_bConstBoolValue(false)
-		, m_nConstIntValue(0)
-		, m_dConstDoubleValue(0.0f)
-		, m_lConstLongLongValue(0)
-		, m_strConstSetsValue(0)
-		, m_bUsedAlready(false)
-	{  }
+	ConstInfo();
 };
 
 

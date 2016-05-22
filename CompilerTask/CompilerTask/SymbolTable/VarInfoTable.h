@@ -37,7 +37,7 @@ struct VarInfo :CommonObjectInfo
 		, m_eRank(eR_Para)
 		, m_bDirectRef(false)
 		, m_nMemoryAlloAddr(0)
-		, strReg(0)
+		, strReg("")
 		, m_bUsedAlready(false)
 	{  }
 };

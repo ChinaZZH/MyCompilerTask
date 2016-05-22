@@ -44,7 +44,8 @@ bool FieldVarTypeBeforeTypeValueSemanticser::processSemanticsParser()
 
 	// ะฃั้
 	const FieldInfoVec& vecFieldInfo = pTypeInfoValue->m_FieldInfo;
-	for(int i = 0; i < vecFieldInfo.size(); ++i){
+	int nFieldInfoSize = static_cast<int>(vecFieldInfo.size());
+	for(int i = 0; i < nFieldInfoSize; ++i){
 		const FieldInfo& checkFieldInfo = vecFieldInfo[i];
 		const std::string& strFieldName = checkFieldInfo.m_strName;
 		if(0 == strFieldName.compare(newFieldInfo.m_strName)){
